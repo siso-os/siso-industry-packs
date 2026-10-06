@@ -1,0 +1,1048 @@
+[
+ {
+  "page": "Global",
+  "slot": "Header + nav + language",
+  "job": "Name or wordmark, 3 to 5 links, VI/EN switch, one action button",
+  "prevalence": {
+   "n": 19,
+   "of": 19,
+   "best5": 5,
+   "note": "every site has a header nav; 7 of 19 add a conversion button in it (Reservations, Order Online, Book a table); 4 have a language switch"
+  },
+  "built_variants": [
+   "restaurant-app nav (top and dark side nav)",
+   "Cafe 89 header (data-vi/en switch)",
+   "Kikas header (Menu burger)"
+  ],
+  "thin_data": "Wordmark from name (no logo file needed); 3 links max (Menu, Our place, Visit); drop 'Our place' if there is no story or 3+ photos; no switch if only one language of copy exists",
+  "fields": [
+   "business.name",
+   "logo.wordmark",
+   "nav.items[]",
+   "langs[]",
+   "contact.primary_action"
+  ],
+  "rules": [
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]",
+   "Language switch in the header, Vietnamese first, English second, same URL pattern. 4 of 19 show a visible switch (Cafe 89, Hum, Noma, Black Sheep) [data]; 40.9% of Istanbul sites, 13 of 14 Michelin sites [data]",
+   "Header nav has 3 to 5 links on a small business. Atelier Crenn, Cyclo, Kuma's, Monmouth have 10 to 20 entries; Cafe 89, Kikas and Prufrock have 3 to 5 [data]; nav consistency scored 89.2% and ease 84.9% in Istanbul [data]. [reasoned] that fewer is better at 5 pages",
+   "A side nav is dark only (restaurant-app side nav; UI-HUB rule in THE-UI-SYSTEM.md [reasoned])"
+  ],
+  "evidence": "[data] counts; [research] Gueduek and Uca nav items; [reasoned] 3 to 5 links"
+ },
+ {
+  "page": "Global",
+  "slot": "Sticky action bar (phone)",
+  "job": "The 2 to 4 main actions under the thumb at all times",
+  "prevalence": {
+   "n": 4,
+   "of": 19,
+   "best5": 1,
+   "note": "only 4 of 19 expose a fixed bar in their HTML (Atelier Crenn, Cafe 89, Dado's, Kikas); all 3 verified platforms ship one"
+  },
+  "built_variants": [
+   "restaurant-app cta-section/primary (mobile sticky bar)",
+   "Cafe 89 mobile-bar (Drinks, Corner, Directions)",
+   "Kikas mobile-shortcuts (2 buttons)"
+  ],
+  "thin_data": "Never hide: Directions is always possible from maps_url. Add Zalo or Call only when the number exists; add Order only when a Grab/ShopeeFood/own link exists. Minimum 2 buttons; with only Directions, show it full width",
+  "fields": [
+   "business.maps_url",
+   "contact.zalo",
+   "contact.phone",
+   "delivery.grab",
+   "delivery.shopee",
+   "menu.exists"
+  ],
+  "rules": [
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]",
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]"
+  ],
+  "evidence": "[data] 4 of 19; [research] platforms note B1 to B3"
+ },
+ {
+  "page": "Global",
+  "slot": "Footer",
+  "job": "Close the page: hours, address, contact, socials, SISO mark",
+  "prevalence": {
+   "n": 17,
+   "of": 19,
+   "best5": 4,
+   "note": "17 of 19 outlines show a footer (Cong and Gail's did not render one)"
+  },
+  "built_variants": [
+   "Kikas footer",
+   "Cafe 89 footer",
+   "restaurant-app footer variations"
+  ],
+  "thin_data": "Always shown. Drop empty columns; at minimum name, address, map link and the SISO line",
+  "fields": [
+   "business.name",
+   "business.address",
+   "hours",
+   "contact.*",
+   "business.social",
+   "langs[]"
+  ],
+  "rules": [
+   "Footer: hours, address and map link, contact, socials, language, then 'Built with heart + SISO icon', small, linking to the agency site; no claim line (ADR 0007 [reasoned]). Social links in footers: 72.0% [data: Gueduek and Uca]"
+  ],
+  "evidence": "[data]; [research] social 72.0% Gueduek and Uca; ADR 0007"
+ },
+ {
+  "page": "Global",
+  "slot": "SEO and schema",
+  "job": "LocalBusiness / Restaurant / Menu schema, hreflang, sitemap, noindex below the gate",
+  "prevalence": {
+   "n": 15,
+   "of": 19,
+   "best5": null,
+   "note": "15 of 19 publish a sitemap (Blue Bottle, Cafe 89, Cong, Kikas do not: two of them are ours); schema is invisible in outlines"
+  },
+  "built_variants": [
+   "SISO-SITES machine (not a UI slot)"
+  ],
+  "thin_data": "Below the gate (3 photos, hours, address, rating, menu items or categories) publish with noindex; above it, schema fields only for data that exists",
+  "fields": [
+   "business.*",
+   "hours",
+   "rating",
+   "review_count",
+   "menu.items[]",
+   "gate.passed"
+  ],
+  "rules": [
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] sitemap counts; [research] Popmenu emits schema.org Menu/MenuItem (platforms note B2)"
+ },
+ {
+  "page": "Home",
+  "slot": "Hero",
+  "job": "Say what this place is in 2 seconds; one main action",
+  "prevalence": {
+   "n": 19,
+   "of": 19,
+   "best5": 5,
+   "note": "every site has a hero or lead block. A conversion button in the hero: 5 of 19 (Dado's, Cyclo, Gail's, Kuma's, Monmouth); two soft links: Cafe 89, Kikas; hero gallery with pause: 2 (Atelier Crenn, Dado's); video: 2 (Cyclo, Noma)"
+  },
+  "built_variants": [
+   "restaurant-app hero-section: primary, gradient-words, video-overlay, classic-center, minimal-center, logo-center, blur-fade, split-left (15 templates)",
+   "restaurant-app About hero primary/template-2/template-3",
+   "Cafe 89 hero",
+   "Kikas hero"
+  ],
+  "thin_data": "With 3 photos: one still full-bleed photo with a gradient scrim, name, one-line kind ('cafe, Da Nang'), one action. With 0 to 2 photos: wordmark-led or generated atmosphere image; never a carousel or a blank box. Headline is our copy, never a claim",
+  "fields": [
+   "business.name",
+   "business.kind_vi",
+   "business.kind_en",
+   "business.area",
+   "photos[0..2]",
+   "copy.hero_headline",
+   "copy.hero_sub",
+   "contact.primary_action"
+  ],
+  "rules": [
+   "One primary action in the hero; a second link may be quiet. (Dado's, Cyclo, Gail's, Kuma's, Monmouth each lead with one button [data]; platforms put Order or Reserve first [research: B6 of the platforms note])",
+   "No auto-advancing carousels. Hero is one still photo; if there is a gallery, it has a pause control (Atelier Crenn and Dado's hero galleries ship 'pause' buttons [data]; WCAG 2.2 SC 2.2.2 [research]; NN/g on auto-forwarding carousels [research, cited from memory, not re-fetched])",
+   "Photos are the owner's own first; generated imagery shows the kind of product, never their exact dishes (ADR 0003 [reasoned]). Photos are the top-coded item: restaurant photo 94.6% [data: Gueduek and Uca]",
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])"
+  ],
+  "evidence": "[data] counts; [research] platforms put Order/Reserve first"
+ },
+ {
+  "page": "Home",
+  "slot": "Essentials strip",
+  "job": "Open now, hours, call or Zalo, directions, delivery buttons, in one glance",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19 have a named strip. Dado's puts Call, Instagram, Email in its header; Noma and Saffy's put hours in the footer only"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section/primary (hours, map link, WhatsApp/chat chips)"
+  ],
+  "thin_data": "Show only what exists. Open-now chip from hours; if no hours, show address plus Directions only. Zalo and Grab/ShopeeFood buttons only with real links",
+  "fields": [
+   "hours",
+   "business.address",
+   "business.maps_url",
+   "contact.zalo",
+   "contact.phone",
+   "delivery.grab",
+   "delivery.shopee"
+  ],
+  "rules": [
+   "Hours and 'open now' are visible without scrolling on phone and repeated in the footer. Only 8.6% of Istanbul sites show hours [data: Gueduek and Uca], yet 64% of customers check them [research: INDUSTRY.md]. A cheap advantage",
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]",
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]"
+  ],
+  "evidence": "[data] 0 of 19; [research] hours 8.6% vs 64% check (Gueduek and Uca; INDUSTRY.md); [reasoned]"
+ },
+ {
+  "page": "Home",
+  "slot": "Featured menu",
+  "job": "Let them see the food and drink on the home page and tap through to the menu",
+  "prevalence": {
+   "n": 7,
+   "of": 19,
+   "best5": 2,
+   "note": "7 of 19 put menu content on the home page (Cafe 89, Kikas, Gail's, Dado's, Prufrock, Saffy's, Dishoom)"
+  },
+  "built_variants": [
+   "restaurant-app menu-section/signature-dishes",
+   "Cafe 89 drinks-section (filter chips)",
+   "Kikas menu-section (tabs with photos)"
+  ],
+  "thin_data": "No menu: show 3 to 6 category names as tiles with 'See on Grab' or 'Ask on Zalo' if links exist, else hide the slot. Some items without prices: list items, no price column",
+  "fields": [
+   "menu.categories[]",
+   "menu.items[0..8]{name,desc,price,price_source,photo}"
+  ],
+  "rules": [
+   "The menu is HTML, never only a PDF. 18 of 19 have no PDF menu link; the one that does (Kuma's) also has an HTML menu [data]; all 3 platforms ship HTML menus [research: platforms note B6]",
+   "Show a price only when it is real and sourced (their menu photo, page or delivery listing); otherwise show the item only, and never a placeholder price (ADR 0003 [reasoned]). Missing prices cost visits [research: INDUSTRY.md 'what loses them']; prices appear on 28% of 93 Istanbul sites, 12 of 14 Michelin sites and all 3 platforms [data: Gueduek and Uca 2017; Temizkan and Aktepe 2023]. Soften with 'see prices and order on Grab' when the store link exists",
+   "Item descriptions are one line, written by us about the kind of drink or dish, never a claim about theirs. All 3 platforms show descriptions [research: B6]"
+  ],
+  "evidence": "[data] 7 of 19; [research] 91% look up the menu online (INDUSTRY.md)"
+ },
+ {
+  "page": "Home",
+  "slot": "Specials / today",
+  "job": "Time-boxed offer or what is new",
+  "prevalence": {
+   "n": 1,
+   "of": 19,
+   "best5": 0,
+   "note": "1 of 19 on food sites (Kuma's 'Burger of the Quarter'); 3 retail sites do 'new arrivals'"
+  },
+  "built_variants": [
+   "restaurant-app specials-section grid and slider",
+   "restaurant-app promo-section/primary"
+  ],
+  "thin_data": "Hide unless the owner posts a special on their own page; never generate promotions",
+  "fields": [
+   "specials[]{title,desc,valid_until,photo}"
+  ],
+  "rules": [
+   "Show a price only when it is real and sourced (their menu photo, page or delivery listing); otherwise show the item only, and never a placeholder price (ADR 0003 [reasoned]). Missing prices cost visits [research: INDUSTRY.md 'what loses them']; prices appear on 28% of 93 Istanbul sites, 12 of 14 Michelin sites and all 3 platforms [data: Gueduek and Uca 2017; Temizkan and Aktepe 2023]. Soften with 'see prices and order on Grab' when the store link exists",
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 1 of 19; [reasoned]"
+ },
+ {
+  "page": "Home",
+  "slot": "What it's like",
+  "job": "Atmosphere and amenities as 3 to 6 cards (wifi, outdoor, laptop-friendly, kids, parking)",
+  "prevalence": {
+   "n": 5,
+   "of": 19,
+   "best5": 2,
+   "note": "5 of 19 have vibe copy or atmosphere blocks (Cafe 89, Kikas, Saffy's, Dishoom, Prufrock); amenity chips: 0 of 19 (Cyclo's archived Owner home has them [research])"
+  },
+  "built_variants": [
+   "Cafe 89 corner-section ('our corner' cards)",
+   "Kikas place-section",
+   "restaurant-app cuisine-philosophy-section (4 pillar cards)"
+  ],
+  "thin_data": "Fill from Maps attributes (8 of 10 trial cafes had them [data: checklist-check]); with none, one sentence of vibe copy and a photo, or hide",
+  "fields": [
+   "attributes[]{key,label_vi,label_en,icon}",
+   "copy.vibe",
+   "photos[]"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Photos are the owner's own first; generated imagery shows the kind of product, never their exact dishes (ADR 0003 [reasoned]). Photos are the top-coded item: restaurant photo 94.6% [data: Gueduek and Uca]",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 5 of 19; [research] checklist-check gap 1"
+ },
+ {
+  "page": "Home",
+  "slot": "Story teaser",
+  "job": "Who, since when, why, in 2 to 3 sentences with a link to Our place",
+  "prevalence": {
+   "n": 17,
+   "of": 19,
+   "best5": 4,
+   "note": "17 of 19 have about or story content somewhere (page or section)"
+  },
+  "built_variants": [
+   "restaurant-app story-section/primary",
+   "restaurant-app About story timeline x2",
+   "Kikas place-section"
+  ],
+  "thin_data": "From their own social self-description, summarised; if none, hide and let What it's like carry it. Never invent a founding year",
+  "fields": [
+   "copy.story_short",
+   "business.social.bio",
+   "founded (only if sourced)"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 17 of 19; [research] description and history 13 of 14 Michelin"
+ },
+ {
+  "page": "Home",
+  "slot": "Gallery",
+  "job": "Show the place and the product",
+  "prevalence": {
+   "n": 5,
+   "of": 19,
+   "best5": 2,
+   "note": "5 of 19 have a gallery or hero-gallery section (Atelier Crenn, Cyclo, Dado's, Dishoom, Kuma's)"
+  },
+  "built_variants": [
+   "restaurant-app gallery-section/grid",
+   "restaurant-app About venue-gallery masonry + lightbox"
+  ],
+  "thin_data": "Needs 6 or more of their own photos; at 3 to 5, fold them into Hero and What it's like and hide the gallery; at 0 show nothing",
+  "fields": [
+   "photos[]{url,alt,w,h}"
+  ],
+  "rules": [
+   "Photos are the owner's own first; generated imagery shows the kind of product, never their exact dishes (ADR 0003 [reasoned]). Photos are the top-coded item: restaurant photo 94.6% [data: Gueduek and Uca]",
+   "No auto-advancing carousels. Hero is one still photo; if there is a gallery, it has a pause control (Atelier Crenn and Dado's hero galleries ship 'pause' buttons [data]; WCAG 2.2 SC 2.2.2 [research]; NN/g on auto-forwarding carousels [research, cited from memory, not re-fetched])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 5 of 19; INDUSTRY.md: gallery at 6+ photos [reasoned]"
+ },
+ {
+  "page": "Home",
+  "slot": "Reviews and proof",
+  "job": "Rating, count, 3 real quotes, link to read more on Google",
+  "prevalence": {
+   "n": 3,
+   "of": 19,
+   "best5": 1,
+   "note": "3 of 19 put proof on the home page (Cafe 89 reviews, Kuma's press quotes, Dishoom awards)"
+  },
+  "built_variants": [
+   "restaurant-app review-section: classic, image-masonry, glass-swiper, grid, minimal, modern, featured, testimonial",
+   "restaurant-app ratings summary; awards x2",
+   "Cafe 89 review-section ('write on Google')"
+  ],
+  "thin_data": "12 reviews: rating + count + 'read on Google' + 2 to 3 short real quotes in a static row (no swiper). Under 5 reviews or rating under 4.0: show the count and Google link only, or hide. Never show a rating we did not fetch",
+  "fields": [
+   "rating",
+   "review_count",
+   "reviews[0..3]{author,text,stars,date,url}",
+   "business.maps_url"
+  ],
+  "rules": [
+   "Reviews: show the real rating and count with 'from Google' attribution plus up to 3 real quotes; never invent or paraphrase a quote (ADR 0003 [reasoned]). Only 3 of 19 put proof on the home page [data]; 96% of customers read reviews first [research: INDUSTRY.md]",
+   "No auto-advancing carousels. Hero is one still photo; if there is a gallery, it has a pause control (Atelier Crenn and Dado's hero galleries ship 'pause' buttons [data]; WCAG 2.2 SC 2.2.2 [research]; NN/g on auto-forwarding carousels [research, cited from memory, not re-fetched])",
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])"
+  ],
+  "evidence": "[data] 3 of 19; [research] 96% read reviews (INDUSTRY.md); Owner puts reviews on home (platforms B6)"
+ },
+ {
+  "page": "Home",
+  "slot": "Order / delivery band",
+  "job": "Send hungry people to Grab, ShopeeFood or the owner's own ordering",
+  "prevalence": {
+   "n": 3,
+   "of": 19,
+   "best5": 1,
+   "note": "3 of 19 have a band or action tiles (Dishoom tiles, Gail's delivery and pick-up, Kuma's find a location / order online)"
+  },
+  "built_variants": [
+   "restaurant-app essentials delivery partners chips",
+   "restaurant-app cta-section/primary"
+  ],
+  "thin_data": "Only with a real store link. One link: a single button; two: Grab and ShopeeFood side by side. None: hide",
+  "fields": [
+   "delivery.grab",
+   "delivery.shopee",
+   "delivery.own_url"
+  ],
+  "rules": [
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]",
+   "One primary action in the hero; a second link may be quiet. (Dado's, Cyclo, Gail's, Kuma's, Monmouth each lead with one button [data]; platforms put Order or Reserve first [research: B6 of the platforms note])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 3 of 19; [research] Grab/Shopee over 90% of VN delivery (INDUSTRY.md)"
+ },
+ {
+  "page": "Home",
+  "slot": "Location teaser",
+  "job": "Map link, address, landmark; leads to Visit",
+  "prevalence": {
+   "n": 8,
+   "of": 19,
+   "best5": 2,
+   "note": "8 of 19 (Cafe 89, Cyclo, Dado's, Kikas, Kuma's, Monmouth, Ottolenghi, Dishoom)"
+  },
+  "built_variants": [
+   "restaurant-app map-section/primary",
+   "Cafe 89 visit-section",
+   "Kikas visit-section"
+  ],
+  "thin_data": "Address + 'Open in Maps' button always; skip the embed on the home page",
+  "fields": [
+   "business.address",
+   "business.maps_url",
+   "how_to_find"
+  ],
+  "rules": [
+   "The directions button opens the native map app link (maps_url) on phone; the embed is secondary and lazy-loaded. An embed shows on 2 of 19; a directions link on about 5 [data]; map is 80.6% in Istanbul [data]",
+   "Hours and 'open now' are visible without scrolling on phone and repeated in the footer. Only 8.6% of Istanbul sites show hours [data: Gueduek and Uca], yet 64% of customers check them [research: INDUSTRY.md]. A cheap advantage"
+  ],
+  "evidence": "[data] 8 of 19"
+ },
+ {
+  "page": "Home",
+  "slot": "FAQ",
+  "job": "Answer the 5 questions people ask",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19 on the home page; Atelier Crenn has an FAQ page, Monmouth lists FAQs in nav; Owner puts FAQ on homepage [research]"
+  },
+  "built_variants": [
+   "restaurant-app About FAQ (listed in INDUSTRY-RUN core table)"
+  ],
+  "thin_data": "Generate 3 to 5 from known facts only (open now, wifi, Zalo, parking, Grab). Under 3 facts: hide",
+  "fields": [
+   "faq[]{q,a}",
+   "derived from hours, attributes, contact, delivery"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 2 of 19 on a page; [research] Owner.com homepages (platforms B6)"
+ },
+ {
+  "page": "Home",
+  "slot": "Instagram strip",
+  "job": "Show the social feed as proof of life",
+  "prevalence": {
+   "n": 1,
+   "of": 19,
+   "best5": 0,
+   "note": "1 of 19 as a section (Dado's 'Follow Us'); social links appear on about 15 of 19 by regex"
+  },
+  "built_variants": [
+   "restaurant-app instagram-section/primary"
+  ],
+  "thin_data": "Hide unless the owner has a public Instagram with 6 usable images we may show; otherwise a plain social link in the footer",
+  "fields": [
+   "business.social.instagram",
+   "photos[]"
+  ],
+  "rules": [
+   "Photos are the owner's own first; generated imagery shows the kind of product, never their exact dishes (ADR 0003 [reasoned]). Photos are the top-coded item: restaurant photo 94.6% [data: Gueduek and Uca]",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 1 of 19; [research] Cheesetique feed (platforms B1)"
+ },
+ {
+  "page": "Home",
+  "slot": "Newsletter signup",
+  "job": "Collect emails",
+  "prevalence": {
+   "n": 6,
+   "of": 19,
+   "best5": 3,
+   "note": "6 of 19 show it in the outline (12 of 19 by regex); platforms put it on every site"
+  },
+  "built_variants": [
+   "none (restaurant-app has no static variant)"
+  ],
+  "thin_data": "Omit by default",
+  "fields": [
+   "newsletter.enabled"
+  ],
+  "rules": [
+   "Newsletter and careers are off by default on a free preview the owner has not claimed. Careers on 11 of 19 and newsletter visible on 6 of 19 [data], but both are noise for a 3-person cafe [reasoned]"
+  ],
+  "evidence": "[data] 6 of 19; INDUSTRY.md 'seen but left out'"
+ },
+ {
+  "page": "Menu",
+  "slot": "Page header + category nav",
+  "job": "Tabs or chips to jump by category; sticky on scroll",
+  "prevalence": {
+   "n": 4,
+   "of": 19,
+   "best5": 1,
+   "note": "4 of 19 (Cafe 89 chips, Kikas tabs, Dado's tabs, Dishoom daypart menus)"
+  },
+  "built_variants": [
+   "Cafe 89 drinks-section chips",
+   "Kikas menu-section tabs",
+   "restaurant-app menu-section/overview (tabbed grid)"
+  ],
+  "thin_data": "1 category: no nav. 2 to 3: inline tabs. 4 or more: scrollable chips",
+  "fields": [
+   "menu.categories[]{id,name_vi,name_en}"
+  ],
+  "rules": [
+   "The menu is HTML, never only a PDF. 18 of 19 have no PDF menu link; the one that does (Kuma's) also has an HTML menu [data]; all 3 platforms ship HTML menus [research: platforms note B6]",
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]"
+  ],
+  "evidence": "[data] 4 of 19; [research] user-needs-by-page (category chips)"
+ },
+ {
+  "page": "Menu",
+  "slot": "Item list",
+  "job": "Name, one-line description, price (when real), tags, optional photo",
+  "prevalence": {
+   "n": 11,
+   "of": 19,
+   "best5": 3,
+   "note": "11 of 19 have a menu page or section; menu 79.6% (Istanbul), item descriptions on all 3 platforms"
+  },
+  "built_variants": [
+   "restaurant-app menu-section/overview",
+   "Kikas menu cards with photos",
+   "Cafe 89 drinks list"
+  ],
+  "thin_data": "No menu data: do not show an empty page; show the category tiles from Maps, an 'Ask on Zalo / see on Grab' button, or hide the Menu nav item. Items without price: name + description only. Items without photo: text rows, no grey boxes",
+  "fields": [
+   "menu.items[]{name_vi,name_en,desc,price,price_source,tags[],photo,category}"
+  ],
+  "rules": [
+   "The menu is HTML, never only a PDF. 18 of 19 have no PDF menu link; the one that does (Kuma's) also has an HTML menu [data]; all 3 platforms ship HTML menus [research: platforms note B6]",
+   "Show a price only when it is real and sourced (their menu photo, page or delivery listing); otherwise show the item only, and never a placeholder price (ADR 0003 [reasoned]). Missing prices cost visits [research: INDUSTRY.md 'what loses them']; prices appear on 28% of 93 Istanbul sites, 12 of 14 Michelin sites and all 3 platforms [data: Gueduek and Uca 2017; Temizkan and Aktepe 2023]. Soften with 'see prices and order on Grab' when the store link exists",
+   "Item descriptions are one line, written by us about the kind of drink or dish, never a claim about theirs. All 3 platforms show descriptions [research: B6]",
+   "Dietary and allergen info as per-item tags from the owner's menu; never inferred. Only Atelier Crenn gives it a page, Dado's uses icons [data]; 2 of 3 platforms tag items [research]"
+  ],
+  "evidence": "[data] 11 of 19; Gueduek and Uca 79.6%; platforms B6"
+ },
+ {
+  "page": "Menu",
+  "slot": "Dietary and allergen tags",
+  "job": "Vegan, vegetarian, gluten-free, spicy tags per item",
+  "prevalence": {
+   "n": 1,
+   "of": 19,
+   "best5": 1,
+   "note": "1 of 19 with a dedicated page (Atelier Crenn); Dado's uses icons [research]"
+  },
+  "built_variants": [
+   "restaurant-app DishCard tags (planned)"
+  ],
+  "thin_data": "Show tags only if the owner's menu states them; never infer. Hide the legend if there are none",
+  "fields": [
+   "menu.items[].tags[]",
+   "menu.dietary_note"
+  ],
+  "rules": [
+   "Dietary and allergen info as per-item tags from the owner's menu; never inferred. Only Atelier Crenn gives it a page, Dado's uses icons [data]; 2 of 3 platforms tag items [research]",
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])"
+  ],
+  "evidence": "[data] 1 of 19; [research] 2 of 3 platforms"
+ },
+ {
+  "page": "Menu",
+  "slot": "Price source note",
+  "job": "Say where the prices came from and when",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19; our own rule"
+  },
+  "built_variants": [
+   "none yet"
+  ],
+  "thin_data": "Small line 'Prices from their menu, Sep 2026' shown only when any price is shown",
+  "fields": [
+   "menu.price_source",
+   "menu.price_as_of"
+  ],
+  "rules": [
+   "Show a price only when it is real and sourced (their menu photo, page or delivery listing); otherwise show the item only, and never a placeholder price (ADR 0003 [reasoned]). Missing prices cost visits [research: INDUSTRY.md 'what loses them']; prices appear on 28% of 93 Istanbul sites, 12 of 14 Michelin sites and all 3 platforms [data: Gueduek and Uca 2017; Temizkan and Aktepe 2023]. Soften with 'see prices and order on Grab' when the store link exists"
+  ],
+  "evidence": "[reasoned] ADR 0003"
+ },
+ {
+  "page": "Menu",
+  "slot": "Order from menu",
+  "job": "Take the next step: order on Grab/ShopeeFood or own link",
+  "prevalence": {
+   "n": 6,
+   "of": 19,
+   "best5": 0,
+   "note": "6 of 19 have an order link in nav or hero (Black Sheep, Cyclo, Dado's, Gail's, Hum, Kuma's); 0 of the 5 design-led"
+  },
+  "built_variants": [
+   "restaurant-app menu-section viewAllHref / delivery deep link"
+  ],
+  "thin_data": "Real store link only; else Directions plus 'ask on Zalo'",
+  "fields": [
+   "delivery.grab",
+   "delivery.shopee",
+   "delivery.own_url",
+   "contact.zalo"
+  ],
+  "rules": [
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]",
+   "One primary action in the hero; a second link may be quiet. (Dado's, Cyclo, Gail's, Kuma's, Monmouth each lead with one button [data]; platforms put Order or Reserve first [research: B6 of the platforms note])"
+  ],
+  "evidence": "[data] 6 of 19"
+ },
+ {
+  "page": "Menu",
+  "slot": "PDF fallback link",
+  "job": "A downloadable menu as a secondary link",
+  "prevalence": {
+   "n": 1,
+   "of": 19,
+   "best5": 0,
+   "note": "1 of 19 (Kuma's, beside an HTML menu)"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Never the only menu. Offer only if the owner supplied a PDF",
+  "fields": [
+   "menu.pdf_url"
+  ],
+  "rules": [
+   "The menu is HTML, never only a PDF. 18 of 19 have no PDF menu link; the one that does (Kuma's) also has an HTML menu [data]; all 3 platforms ship HTML menus [research: platforms note B6]"
+  ],
+  "evidence": "[data] 1 of 19; platforms B2"
+ },
+ {
+  "page": "Our place",
+  "slot": "Story + hero",
+  "job": "The full story with a photo",
+  "prevalence": {
+   "n": 17,
+   "of": 19,
+   "best5": 4,
+   "note": "17 of 19 have story content"
+  },
+  "built_variants": [
+   "restaurant-app About hero primary/template-2/template-3",
+   "restaurant-app story-section/primary",
+   "Kikas place-section",
+   "Cafe 89 corner-section"
+  ],
+  "thin_data": "With under 3 sentences of sourced story: no separate page; use the home Story teaser and What it's like",
+  "fields": [
+   "copy.story",
+   "business.social.bio",
+   "photos[]"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Photos are the owner's own first; generated imagery shows the kind of product, never their exact dishes (ADR 0003 [reasoned]). Photos are the top-coded item: restaurant photo 94.6% [data: Gueduek and Uca]",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 17 of 19"
+ },
+ {
+  "page": "Our place",
+  "slot": "Timeline / milestones",
+  "job": "Key years",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19 in the outlines"
+  },
+  "built_variants": [
+   "restaurant-app About story timeline primary and template-2"
+  ],
+  "thin_data": "Hide unless the owner states dates",
+  "fields": [
+   "timeline[]{year,text}"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 0 of 19; [reasoned]"
+ },
+ {
+  "page": "Our place",
+  "slot": "Team",
+  "job": "Faces of the people",
+  "prevalence": {
+   "n": 1,
+   "of": 19,
+   "best5": 1,
+   "note": "1 of 19 clearly (Noma 'People'); team section 7 of 14 Michelin sites"
+  },
+  "built_variants": [
+   "restaurant-app team-section/primary"
+  ],
+  "thin_data": "Hide unless the owner's page has names and photos",
+  "fields": [
+   "team[]{name,role,photo}"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 1 of 19; [research] Michelin team 7 of 14"
+ },
+ {
+  "page": "Our place",
+  "slot": "Values / sourcing",
+  "job": "Short pillars about how they work",
+  "prevalence": {
+   "n": 4,
+   "of": 19,
+   "best5": 1,
+   "note": "4 of 19 (Atelier Crenn producers, Monmouth farm info, Ozone sourcing, Blue Bottle brand)"
+  },
+  "built_variants": [
+   "restaurant-app cuisine-philosophy-section (4 pillars)"
+  ],
+  "thin_data": "Hide unless sourced from the owner; a generated 'we use fresh beans' is a claim",
+  "fields": [
+   "values[]{title,text,icon}"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])"
+  ],
+  "evidence": "[data] 4 of 19"
+ },
+ {
+  "page": "Our place",
+  "slot": "Awards and press",
+  "job": "Recognition",
+  "prevalence": {
+   "n": 5,
+   "of": 19,
+   "best5": 1,
+   "note": "5 of 19 (Black Sheep, Cyclo, Dishoom, Kuma's, Tartine)"
+  },
+  "built_variants": [
+   "restaurant-app awards-section primary/template-2"
+  ],
+  "thin_data": "Hide; Google rating moves to Reviews. Only owner-stated awards",
+  "fields": [
+   "awards[]",
+   "press[]"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Reviews: show the real rating and count with 'from Google' attribution plus up to 3 real quotes; never invent or paraphrase a quote (ADR 0003 [reasoned]). Only 3 of 19 put proof on the home page [data]; 96% of customers read reviews first [research: INDUSTRY.md]"
+  ],
+  "evidence": "[data] 5 of 19; Michelin awards 13 of 14"
+ },
+ {
+  "page": "Visit",
+  "slot": "Hours",
+  "job": "Opening hours by day, with open-now and holiday note",
+  "prevalence": {
+   "n": 15,
+   "of": 19,
+   "best5": 4,
+   "note": "hours content appears on about 15 of 19 sites (regex; Noma and Saffy's footers); Istanbul sites 8.6%; Michelin 6 of 14"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section",
+   "Cafe 89 visit-section",
+   "Kikas visit-section"
+  ],
+  "thin_data": "No hours: hide the table; show 'Check hours on Google Maps' with the maps_url button. Do not guess hours",
+  "fields": [
+   "hours{mon..sun[]}",
+   "hours.special"
+  ],
+  "rules": [
+   "Hours and 'open now' are visible without scrolling on phone and repeated in the footer. Only 8.6% of Istanbul sites show hours [data: Gueduek and Uca], yet 64% of customers check them [research: INDUSTRY.md]. A cheap advantage",
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])"
+  ],
+  "evidence": "[data] regex 15 of 19 (loose); [research] Gueduek and Uca; INDUSTRY.md"
+ },
+ {
+  "page": "Visit",
+  "slot": "Map + directions",
+  "job": "Get them to the door",
+  "prevalence": {
+   "n": 15,
+   "of": 19,
+   "best5": 4,
+   "note": "15 of 19 mention location or stores; an embed on 2 (Cafe 89, Dado's); a directions link on about 5 (Cafe 89, Cyclo, Dado's, Noma, Kikas)"
+  },
+  "built_variants": [
+   "restaurant-app map-section/primary (embed)",
+   "Cafe 89 visit-section (Open Maps)",
+   "Kikas visit-section"
+  ],
+  "thin_data": "Always a directions button from maps_url; the embed is optional and lazy; no coordinates: address text and Maps link only",
+  "fields": [
+   "business.address",
+   "business.maps_url",
+   "geo{lat,lng}"
+  ],
+  "rules": [
+   "The directions button opens the native map app link (maps_url) on phone; the embed is secondary and lazy-loaded. An embed shows on 2 of 19; a directions link on about 5 [data]; map is 80.6% in Istanbul [data]",
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]"
+  ],
+  "evidence": "[data]; [research] map 80.6% Istanbul; Michelin 13 of 14"
+ },
+ {
+  "page": "Visit",
+  "slot": "How to find us",
+  "job": "One written line from nearby landmarks and the alley or floor",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19; our own addition (INDUSTRY.md)"
+  },
+  "built_variants": [
+   "none yet"
+  ],
+  "thin_data": "Generate from map neighbours only if two or more known landmarks; else hide",
+  "fields": [
+   "how_to_find{vi,en}",
+   "nearby[]"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 0 of 19; [reasoned]"
+ },
+ {
+  "page": "Visit",
+  "slot": "Contact channels",
+  "job": "Zalo, phone, Messenger, email, in that order for Vietnam",
+  "prevalence": {
+   "n": 12,
+   "of": 19,
+   "best5": 3,
+   "note": "contact details show on about 12 of 19 (dedicated Contact page or nav item on 5: Atelier Crenn, Black Sheep, Kuma's, Saffy's, Dado's section); phone and address 89.2% in Istanbul; Zalo on 0 of 19"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section chips (WhatsApp/chat)"
+  ],
+  "thin_data": "Zalo needs a number or link: with none, phone; with none, Messenger from the Facebook page; with none, Maps only",
+  "fields": [
+   "contact.zalo",
+   "contact.phone",
+   "contact.messenger",
+   "contact.email"
+  ],
+  "rules": [
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]",
+   "Key actions are exposed at both widths: on desktop in the header, on phone in a fixed bottom bar of 2 to 4 buttons (Menu, Directions, Zalo/Call, Order). Bento: Call + Order; Cafe 89: 3 buttons; Kikas: 2 [data]; all 3 platforms ship a sticky bar [research]. Touch targets at least 44x44 pt [research: Apple HIG, in user-needs-by-page.md]"
+  ],
+  "evidence": "[data]; [research] Gueduek and Uca 89.2%; ADR 0008"
+ },
+ {
+  "page": "Visit",
+  "slot": "Good to know",
+  "job": "Amenities, parking, payment, seating as chips",
+  "prevalence": {
+   "n": 0,
+   "of": 19,
+   "best5": 0,
+   "note": "0 of 19 as a block; parking coded in 3 of 14 Michelin sites"
+  },
+  "built_variants": [
+   "Cafe 89 corner-section (cards)"
+  ],
+  "thin_data": "From Maps attributes only; fewer than 3 attributes: merge into What it's like, else hide",
+  "fields": [
+   "attributes[]",
+   "parking",
+   "payment_methods[]"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 0 of 19; [research] checklist-check gap 1"
+ },
+ {
+  "page": "Visit",
+  "slot": "Enquiry form",
+  "job": "Events, groups, catering enquiries",
+  "prevalence": {
+   "n": 3,
+   "of": 19,
+   "best5": 2,
+   "note": "3 of 19 (Dado's modals, Atelier Crenn 'Inquire Now', Cyclo contact); information form 62.4% in Istanbul"
+  },
+  "built_variants": [
+   "none static"
+  ],
+  "thin_data": "Omit; in Vietnam Zalo replaces forms",
+  "fields": [
+   "contact.form.enabled"
+  ],
+  "rules": [
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]",
+   "Newsletter and careers are off by default on a free preview the owner has not claimed. Careers on 11 of 19 and newsletter visible on 6 of 19 [data], but both are noise for a 3-person cafe [reasoned]"
+  ],
+  "evidence": "[data] 3 of 19; [research] Gueduek and Uca 62.4%"
+ },
+ {
+  "page": "Optional: Reservations",
+  "slot": "Reserve a table",
+  "job": "Book via link, phone or Zalo (restaurants, bars)",
+  "prevalence": {
+   "n": 8,
+   "of": 19,
+   "best5": 4,
+   "note": "8 of 19 (Atelier Crenn, Black Sheep, Dishoom, Hum, Noma, Ottolenghi, Ozone, Saffy's); all by external widget or link; online reservation 41.9% in Istanbul"
+  },
+  "built_variants": [
+   "restaurant-app reservations domain (archived library booking set; not static yet)"
+  ],
+  "thin_data": "Restaurants and bars only. No booking system: a 'Reserve on Zalo / call' button; never a fake calendar",
+  "fields": [
+   "reservations.url",
+   "contact.zalo",
+   "contact.phone"
+  ],
+  "rules": [
+   "Reserve and gift cards are for restaurants and bars, not cafes. Reservations show on 8 of 19, gift cards on 9 of 19, mostly US and UK sites [data]; cafes do not book tables and Vietnamese cafes do not sell gift cards (INDUSTRY.md cafe check [reasoned])",
+   "Contact order in Vietnam: Zalo deep link, then phone, then Messenger (ADR 0008 [reasoned]). None of the 19 sites shows Zalo, GrabFood or ShopeeFood [data]; the two together hold over 90% of delivery [data: INDUSTRY.md]"
+  ],
+  "evidence": "[data] 8 of 19; [research] Gueduek and Uca 41.9%; platforms B1"
+ },
+ {
+  "page": "Optional: Events and groups",
+  "slot": "Events, private dining, catering",
+  "job": "Groups, parties, catering enquiries",
+  "prevalence": {
+   "n": 8,
+   "of": 19,
+   "best5": 4,
+   "note": "8 of 19 (Atelier Crenn, Black Sheep, Dado's, Dishoom, Kuma's, Noma, Prufrock, Saffy's)"
+  },
+  "built_variants": [
+   "none (restaurant-app has no static variant)"
+  ],
+  "thin_data": "Restaurants and bars with events on their own page; else omit",
+  "fields": [
+   "events[]",
+   "private_dining.text",
+   "catering.text"
+  ],
+  "rules": [
+   "No claims we cannot source: no 'best', 'organic', 'award', 'since'. Awards, press and sourcing stories only from the owner's own page (ADR 0003 [reasoned])",
+   "Reserve and gift cards are for restaurants and bars, not cafes. Reservations show on 8 of 19, gift cards on 9 of 19, mostly US and UK sites [data]; cafes do not book tables and Vietnamese cafes do not sell gift cards (INDUSTRY.md cafe check [reasoned])"
+  ],
+  "evidence": "[data] 8 of 19"
+ },
+ {
+  "page": "Optional: Gift cards",
+  "slot": "Gift cards",
+  "job": "Sell vouchers",
+  "prevalence": {
+   "n": 9,
+   "of": 19,
+   "best5": 3,
+   "note": "9 of 19, mostly US and UK"
+  },
+  "built_variants": [
+   "restaurant-app gift-cards domain (legacy)"
+  ],
+  "thin_data": "Omit in Vietnam",
+  "fields": [
+   "gift_cards.url"
+  ],
+  "rules": [
+   "Reserve and gift cards are for restaurants and bars, not cafes. Reservations show on 8 of 19, gift cards on 9 of 19, mostly US and UK sites [data]; cafes do not book tables and Vietnamese cafes do not sell gift cards (INDUSTRY.md cafe check [reasoned])"
+  ],
+  "evidence": "[data] 9 of 19; INDUSTRY.md left out"
+ },
+ {
+  "page": "Optional: Locations",
+  "slot": "Multi-location list",
+  "job": "One page per branch",
+  "prevalence": {
+   "n": 8,
+   "of": 19,
+   "best5": 2,
+   "note": "8 of 19 are multi-site groups (Black Sheep, Blue Bottle, Cong, Dishoom, Kuma's, Monmouth, Ottolenghi, Tartine)"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Single-site cafes: omit. Chains are out of scope for the free-site run",
+  "fields": [
+   "locations[]"
+  ],
+  "rules": [
+   "Every slot has a thin-data form or hides itself; no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002 [reasoned])"
+  ],
+  "evidence": "[data] 8 of 19"
+ },
+ {
+  "page": "Optional: Loyalty",
+  "slot": "Loyalty / rewards / app",
+  "job": "Points, club, app download",
+  "prevalence": {
+   "n": 6,
+   "of": 19,
+   "best5": 1,
+   "note": "6 of 19 (Black Sheep, Cong, Cyclo, Kuma's, Noma, Ozone)"
+  },
+  "built_variants": [
+   "restaurant-app loyalty domain (HeroSection, MembershipShowcase, TierHighlights, leaderboard)"
+  ],
+  "thin_data": "Off; inbound request only (ADR 0011)",
+  "fields": [
+   "loyalty.enabled"
+  ],
+  "rules": [
+   "Newsletter and careers are off by default on a free preview the owner has not claimed. Careers on 11 of 19 and newsletter visible on 6 of 19 [data], but both are noise for a 3-person cafe [reasoned]"
+  ],
+  "evidence": "[data] 6 of 19; ADR 0011"
+ },
+ {
+  "page": "Optional: Shop",
+  "slot": "Shop / merch / beans",
+  "job": "Sell goods online",
+  "prevalence": {
+   "n": 11,
+   "of": 19,
+   "best5": 5,
+   "note": "11 of 19, including all 5 design-led sites (retail-led: Blue Bottle, Monmouth, Ozone)"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Out of scope for the free-site run; the Catalogue module covers it",
+  "fields": [
+   "shop.url"
+  ],
+  "rules": [
+   "Newsletter and careers are off by default on a free preview the owner has not claimed. Careers on 11 of 19 and newsletter visible on 6 of 19 [data], but both are noise for a 3-person cafe [reasoned]"
+  ],
+  "evidence": "[data] 11 of 19; best5 5 of 5"
+ },
+ {
+  "page": "Optional: Careers",
+  "slot": "Careers",
+  "job": "Hiring",
+  "prevalence": {
+   "n": 11,
+   "of": 19,
+   "best5": 3,
+   "note": "11 of 19 in nav or footer"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Omit by default",
+  "fields": [
+   "careers.url"
+  ],
+  "rules": [
+   "Newsletter and careers are off by default on a free preview the owner has not claimed. Careers on 11 of 19 and newsletter visible on 6 of 19 [data], but both are noise for a 3-person cafe [reasoned]"
+  ],
+  "evidence": "[data] 11 of 19; Gueduek and Uca 20.4%"
+ }
+]
