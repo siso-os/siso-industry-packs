@@ -1,0 +1,2291 @@
+[
+ {
+  "page": "Global",
+  "slot": "Header + nav + language",
+  "job": "Wordmark, 3 to 5 links, VI/EN/KO switch, one action button",
+  "need": "user-needs-by-page Global: 'Visible top CTA always visible in the header'; 'Language: ID/EN toggle' (here VI/EN/KO, not Bali ID).",
+  "prevalence": {
+   "n": 9,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": 56,
+   "note": "all 9 have a header nav; a conversion button in it: Gail's, Monmouth (2 of 9); a language switch: Café 89 only (1 of 9). VN independents: language switch 25%, nav 'about' 56%, nav 'contact' 57%, nav 'menu' 21% [frequency.csv, n=209]"
+  },
+  "built_variants": [
+   "Café 89 header (brand mark + data-vi/en switch + Chỉ đường button)",
+   "Kikas header (wordmark + Menu burger)",
+   "restaurant-app nav (top bar, MobileDrawer, FullScreenDrawer, dark side nav)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "N1",
+    "name": "Top bar + drawer",
+    "source": "Café 89 header / restaurant-app MobileDrawer",
+    "why": "cosy, street, playful default; the safe one"
+   },
+   {
+    "id": "N2",
+    "name": "Dark collapsible rail (desktop) + top bar (phone)",
+    "source": "ENGINE N2; A STATION round-2 dark side nav",
+    "why": "premium; dark ground only"
+   },
+   {
+    "id": "N4",
+    "name": "Centred-logo split bar",
+    "source": "ENGINE N4",
+    "why": "calm / premium editorial"
+   },
+   {
+    "id": "N5",
+    "name": "Full-screen overlay menu",
+    "source": "restaurant-app FullScreenDrawer",
+    "why": "street / lively; secondary pages only"
+   }
+  ],
+  "thin_data": "Wordmark from the name (no logo file needed). Max 3 links: Menu, Our place, Visit. Drop 'Our place' when there is no sourced story and under 3 photos. Language switch shows only the languages that have copy (VI always; EN and KO at build time from structured data).",
+  "empty_state": "show",
+  "fields": [
+   "business.name",
+   "logo.wordmark",
+   "nav.items[]",
+   "langs[]",
+   "contact.primary_action"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C6: Vietnamese first, English second, Korean third for Đà Nẵng; same URL pattern; every visible string is a copy key per language; Vietnamese item names stay Vietnamese with an English gloss (ADR 0008).",
+   "C15: Every variant pick is seeded by the business id, records the data that chose it, and passes the collision check (4 of 6 discrete dimensions differ from each city-batch site); a side nav is dark only (ADR 0004; VARIATION-ENGINE)."
+  ],
+  "adr": [
+   "0007",
+   "0008",
+   "0004"
+  ],
+  "cafe_vs_restaurant": "Language list is VI/EN/KO for Đà Nẵng (Korea is the largest foreign source), not VI/EN only. Header action is Order or Directions, never Reserve.",
+  "evidence": "[data] counts from the 9 café outlines; [data] Đà Nẵng crawl; [research] user-needs-by-page"
+ },
+ {
+  "page": "Global",
+  "slot": "Sticky action bar (phone)",
+  "job": "The 2 to 4 main actions under the thumb: Menu, Directions, Zalo/Call, Order",
+  "need": "user-needs-by-page Global: 'Persistent actions: Menu, Order, Call/WhatsApp, Reserve (bottom quick actions)'; touch targets at least 44x44 pt (Apple HIG) / 48dp (Material).",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "only Café 89 (3 buttons: Đồ uống, Góc quán, Chỉ đường) and Kikas (2 buttons) - both ours; 0 of 3 design-led cafes. All 3 platforms (BentoBox, Popmenu, Owner.com) ship one [research]"
+  },
+  "built_variants": [
+   "Café 89 mobile-bar (3 fixed buttons)",
+   "Kikas mobile-shortcuts (2 buttons)",
+   "restaurant-app cta-section/primary (mobile sticky CTA bar, scroll threshold)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "bar-3",
+    "name": "Three-button bar, icon over label",
+    "source": "Café 89 mobile-bar",
+    "why": "default: Menu, Directions, Zalo or Order"
+   },
+   {
+    "id": "bar-pill",
+    "name": "Floating pill with primary action + overflow",
+    "source": "restaurant-app cta-section/primary",
+    "why": "playful / lively; primary is Order or Zalo"
+   },
+   {
+    "id": "bar-hours",
+    "name": "Bar whose first cell is the open-now chip",
+    "source": "new (essentials strip folded into the bar)",
+    "why": "for early/late cafés where 'open now' is the first question; needs hours"
+   }
+  ],
+  "thin_data": "Directions is the floor and always possible from maps_url. Add Zalo or Call only when the number exists; add Order only for a real Grab/ShopeeFood/own link. Minimum 2 buttons; with only Directions, one full-width button.",
+  "empty_state": "show",
+  "fields": [
+   "business.maps_url",
+   "contact.zalo",
+   "contact.phone",
+   "delivery.grab",
+   "delivery.shopee",
+   "menu.exists",
+   "hours"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0007",
+   "0008"
+  ],
+  "cafe_vs_restaurant": "A café's bar is Menu / Directions / Zalo / Order; a restaurant's has Reserve. Order means GrabFood or ShopeeFood link-out, never a cart (no add-to-cart, no checkout on a static site).",
+  "evidence": "[data] 2 of 9; [research] platforms ship sticky bars; ADR 0007 evidence (78% of orders through a sticky Order Now, vendor)"
+ },
+ {
+  "page": "Global",
+  "slot": "Footer",
+  "job": "Close the page: hours, address and map link, contact, socials, languages, the SISO mark",
+  "need": "user-needs-by-page Contact: hours, address with 'Open in Maps', delivery partner links, WhatsApp/Call. Here: Zalo/Facebook.",
+  "prevalence": {
+   "n": 7,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Cộng Cà Phê and Gail's did not render a footer (JS) - floor. Social links in footers 72.0% of 93 Istanbul sites [Gueduek and Uca]"
+  },
+  "built_variants": [
+   "Kikas footer (wordmark, nav, preview note, back to top)",
+   "Café 89 footer (brand, tagline, address, map link)",
+   "restaurant-app RestaurantFooterPro / footer variations"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "F4",
+    "name": "Full-info footer: hours, map, delivery, contact",
+    "source": "restaurant-app RestaurantFooterPro",
+    "why": "default for data-rich cafés"
+   },
+   {
+    "id": "F3",
+    "name": "Dark minimal single row",
+    "source": "ENGINE F3",
+    "why": "street / lively; thin data"
+   },
+   {
+    "id": "F1",
+    "name": "Ghost wordmark + lion tile",
+    "source": "ENGINE F1",
+    "why": "premium / calm"
+   },
+   {
+    "id": "F2",
+    "name": "Taped card",
+    "source": "ENGINE F2",
+    "why": "cosy / playful"
+   }
+  ],
+  "thin_data": "Always shown. Drop empty columns; minimum is name, address, map link and the heart + SISO line.",
+  "empty_state": "show",
+  "fields": [
+   "business.name",
+   "business.address",
+   "hours",
+   "contact.*",
+   "business.social",
+   "langs[]"
+  ],
+  "rules": [
+   "C13: Footer ends 'Built with ❤️ by [SISO icon]', small, linking to the agency site; no claim or take-down line (ADR 0007).",
+   "C5: Hours and open-now are visible without scrolling on phone and repeated in the footer; early opening ('Mở cửa 6:30') shows while closed. Do not guess hours (ADR 0003). Open-now needs one tiny inline script (under 1 KB) with a static 'today 6:30 to 22:00' fallback, inside ADR 0016's budget."
+  ],
+  "adr": [
+   "0007",
+   "0004"
+  ],
+  "cafe_vs_restaurant": "Footer repeats hours and the open-now state (a café's top-3 question).",
+  "evidence": "[data] 7 of 9; ADR 0007; VARIATION-ENGINE footer pool"
+ },
+ {
+  "page": "Global",
+  "slot": "SEO, schema and the data gate",
+  "job": "LocalBusiness/CafeOrCoffeeShop + Menu schema, hreflang vi/en/ko, sitemap, noindex below the gate",
+  "need": "ADR 0002: the data-richness gate; Google as third audience (ADR 0001).",
+  "prevalence": {
+   "n": 5,
+   "of": 9,
+   "best5": 2,
+   "best_of": 3,
+   "vn_pct": 51,
+   "note": "5 of 9 publish a sitemap (Blue Bottle, Café 89, Cong, Kikas do not); JSON-LD on 51% of live Đà Nẵng café sites [overview crawl]"
+  },
+  "built_variants": [
+   "SISO-SITES machine (not a UI slot)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "schema-cafe",
+    "name": "CafeOrCoffeeShop + Menu/MenuItem + OpeningHoursSpecification",
+    "source": "Popmenu emits schema.org Menu/MenuItem [research]",
+    "why": "only for fields that exist"
+   }
+  ],
+  "thin_data": "Below the gate (3 own photos, hours, address+map, rating, menu items or categories) publish with noindex. Above it, emit schema only for data that exists. Enrichment trial: 0 of 10 real cafés pass on usable data; Maps photos are not own photos.",
+  "empty_state": "show",
+  "fields": [
+   "business.*",
+   "hours",
+   "rating",
+   "review_count",
+   "menu.items[]",
+   "gate.passed",
+   "gate.missing[]"
+  ],
+  "rules": [
+   "C10: Every slot has a thin-data form or hides itself: no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0002",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Gate is the same as restaurants, but cafés fail it on menu items (9 of 10) and own photos (10 of 10) [enrich-trial].",
+  "evidence": "[data] enrich-trial 7 Oct; [research] Google March 2026 scaled-content update (ADR 0002)"
+ },
+ {
+  "page": "Global",
+  "slot": "Assistant on tap",
+  "job": "A small face that answers preset questions from site.json: open now, hours, where, wifi, parking, takeaway, payment, 'get a Grab here'",
+  "need": "ADR 0013; user-needs-by-page Global: essentials discoverable in one tap.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 9 and 0 of 19; ours alone"
+  },
+  "built_variants": [
+   "none static (restaurant-app chat domain: embedded widget template-1, full page template-2, quick-replies - live-model, not reusable as is)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "tap-chip",
+    "name": "Corner chip that opens a sheet of preset questions",
+    "source": "new, face bundle per ADR 0013",
+    "why": "default; never covers the bar"
+   },
+   {
+    "id": "tap-inline",
+    "name": "Row of 3 question chips inside Essentials",
+    "source": "new",
+    "why": "when the first screen has room"
+   }
+  ],
+  "thin_data": "Only questions the data can answer are offered (no wifi question without a wifi attribute). Opens only on a tap; no greeting bubble.",
+  "empty_state": "hide",
+  "fields": [
+   "assistant.face",
+   "assistant.qa[] (built from hours, attributes, contact, delivery)"
+  ],
+  "rules": [
+   "C14: The assistant opens only on a tap, answers only from site.json, never covers the action bar, speaks every site language (ADR 0013).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0013",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Café preset set: open now, early opening, wifi, laptop, parking for motorbike, takeaway, payment, Grab link. Restaurants add booking.",
+  "evidence": "[reasoned] ADR 0013; NN/g on unprompted pop-ups"
+ },
+ {
+  "page": "Global",
+  "slot": "Page composition (section order)",
+  "job": "Order the home sections by whichever data is strongest: menu-led, atmosphere-led, story-led, visit-led, gallery-led",
+  "need": "user-needs-by-page Home: 'Decide quickly if the place fits (menu style, price vibe, availability today)'.",
+  "prevalence": {
+   "n": null,
+   "of": 9,
+   "best5": null,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "not a section; the composer rule. UI-HUB round 2 judged 'four pages, ten home slots' accepted as base"
+  },
+  "built_variants": [
+   "Café 89 order (hero, drinks, corner, visit, review)",
+   "Kikas order (hero, menu, place, visit)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "O1",
+    "name": "Menu-led",
+    "source": "ENGINE O1; Café 89",
+    "why": "menu items 8+ with prices or photos"
+   },
+   {
+    "id": "O2",
+    "name": "Atmosphere-led (what it's like, gallery before menu)",
+    "source": "ENGINE O2; Kikas",
+    "why": "interior photos 6+ and attributes 4+"
+   },
+   {
+    "id": "O4",
+    "name": "Visit-led (essentials, hours, map first)",
+    "source": "ENGINE O4",
+    "why": "thin data: 3 photos, no menu - the unclaimed default"
+   },
+   {
+    "id": "O3",
+    "name": "Story-led",
+    "source": "ENGINE O3",
+    "why": "sourced owner story of 3+ sentences"
+   }
+  ],
+  "thin_data": "Unclaimed with only Maps + a delivery listing: O4 (visit-led) unless a Grab menu was read, then O1.",
+  "empty_state": "show",
+  "fields": [
+   "gate.strengths{menu,photos,story,visit}",
+   "personality"
+  ],
+  "rules": [
+   "C15: Every variant pick is seeded by the business id, records the data that chose it, and passes the collision check (4 of 6 discrete dimensions differ from each city-batch site); a side nav is dark only (ADR 0004; VARIATION-ENGINE)."
+  ],
+  "adr": [
+   "0004"
+  ],
+  "cafe_vs_restaurant": "Cafés lean menu-led or visit-led; atmosphere-led only for laptop/work cafés with real interior photos.",
+  "evidence": "[reasoned] VARIATION-ENGINE section 4 step 1"
+ },
+ {
+  "page": "Home",
+  "slot": "Hero",
+  "job": "Say what this place is in 2 seconds; one main action",
+  "need": "user-needs-by-page Home: 'HeroMedia: appetizing image/video; two CTAs (Order, View Menu)'. Here: one main action, a quiet second.",
+  "prevalence": {
+   "n": 9,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "all 9; a conversion button in the hero: Gail's, Monmouth (2 of 9); two soft links: Café 89 ('Hôm nay uống gì?', 'Ghé tụi mình'), Kikas ('Explore Kikas', 'Step inside')"
+  },
+  "built_variants": [
+   "restaurant-app hero-section: primary, gradient-words, video-overlay (+ classic-center, minimal-center, logo-center, blur-fade, split-left; 15 in all)",
+   "restaurant-app About hero primary / template-2 (split) / template-3 (overlay stats)",
+   "Café 89 hero (headline + 2 links + side photo + strip)",
+   "Kikas hero (headline, 2 links, marquee strip)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "H5",
+    "name": "Full-bleed own photo + scrim, name, one action",
+    "source": "restaurant-app video-overlay (still) / ENGINE H5",
+    "why": "3+ own photos; the thin-data default"
+   },
+   {
+    "id": "H3",
+    "name": "Angled editorial photo with contact row",
+    "source": "ENGINE H3",
+    "why": "premium / calm; contact row = Zalo, Call, Directions"
+   },
+   {
+    "id": "H4",
+    "name": "Colour panel, product off the edge",
+    "source": "ENGINE H4",
+    "why": "street / playful; palette from photo"
+   },
+   {
+    "id": "H0",
+    "name": "Wordmark-led (type as hero) + marquee strip",
+    "source": "Kikas hero / Café 89 strip",
+    "why": "0 to 2 own photos: no blank box, no fake product"
+   }
+  ],
+  "thin_data": "3+ own photos: one still full-bleed photo with scrim, name, kind line ('Quán cà phê, Đà Nẵng'), one action. 0 to 2 photos: wordmark-led or a labelled atmosphere image; never a carousel and never a generated 'signature drink' posing as theirs (A STATION lesson).",
+  "empty_state": "show",
+  "fields": [
+   "business.name",
+   "business.kind_vi",
+   "business.kind_en",
+   "business.area",
+   "photos[0..2]",
+   "copy.hero_headline",
+   "copy.hero_sub",
+   "contact.primary_action"
+  ],
+  "rules": [
+   "C1: One primary action in the hero, a quiet second link; the hero is one still image, never an auto-advancing carousel; any moving strip is CSS and honours reduced motion (ADR 0007; NN/g; WCAG 2.2.2).",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0003",
+   "0004",
+   "0007",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Café hero shows a drink or the corner, not a plated dish; the hero is the only eager image (LCP).",
+  "evidence": "[data] 9 of 9; [research] platforms put Order/Reserve first"
+ },
+ {
+  "page": "Home",
+  "slot": "Essentials strip",
+  "job": "Open now (or 'opens 6:30'), hours today, Zalo or Call, Directions, Grab/ShopeeFood, in one glance",
+  "need": "user-needs-by-page Home: 'Essentials strip: Hours, Map, Delivery partners, WhatsApp/Call'; Global: essentials discoverable in one tap. 64% check hours and location [INDUSTRY.md].",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 9 and 0 of 19 have a named strip; only 8.6% of 93 Istanbul sites show hours [Gueduek and Uca]. A cheap advantage"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section/primary (hours, map link, WhatsApp/chat chips - WhatsApp, not Zalo)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "ess-chips",
+    "name": "Chip row: open-now, hours, Zalo, Call, Directions, Grab, Shopee",
+    "source": "restaurant-app essentials-section/primary extended",
+    "why": "default; each chip hides on an empty field"
+   },
+   {
+    "id": "ess-card",
+    "name": "One card: today's hours + status dot + 2 buttons",
+    "source": "new",
+    "why": "thin data (hours + map only)"
+   },
+   {
+    "id": "ess-fold",
+    "name": "Strip inside the hero (contact row)",
+    "source": "ENGINE H3 contact row",
+    "why": "premium; saves a section"
+   }
+  ],
+  "thin_data": "Show only what exists. Open-now chip computed from hours with early opening visible when closed ('Mở cửa 6:30'). No hours: address plus Directions only, and 'Check hours on Google Maps'.",
+  "empty_state": "show",
+  "fields": [
+   "hours",
+   "hours.opens_early",
+   "business.address",
+   "business.maps_url",
+   "contact.zalo",
+   "contact.phone",
+   "delivery.grab",
+   "delivery.shopee"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C5: Hours and open-now are visible without scrolling on phone and repeated in the footer; early opening ('Mở cửa 6:30') shows while closed. Do not guess hours (ADR 0003). Open-now needs one tiny inline script (under 1 KB) with a static 'today 6:30 to 22:00' fallback, inside ADR 0016's budget.",
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008)."
+  ],
+  "adr": [
+   "0007",
+   "0008"
+  ],
+  "cafe_vs_restaurant": "Cafe-specific: early opening and 'open until' are the question; restaurants lead with reserve. Zalo replaces WhatsApp as the chat chip.",
+  "evidence": "[data] 0 of 9; [research] Gueduek and Uca; INDUSTRY.md jobs 2 and 4"
+ },
+ {
+  "page": "Home",
+  "slot": "Featured menu",
+  "job": "Let them see the drinks (and food) on the home page and tap through to the menu",
+  "need": "user-needs-by-page Home: 'Popular dishes: 4-8 items with price and Add' (here: no Add); 91% look up the menu online before visiting.",
+  "prevalence": {
+   "n": 4,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 41,
+   "note": "Café 89, Kikas, Gail's, Prufrock put menu content on the home page. A menu page on 41% of live Đà Nẵng café sites (40% independents) [frequency.csv]; PDF menus 3%"
+  },
+  "built_variants": [
+   "restaurant-app menu-section/signature-dishes (featured carousel + CTA)",
+   "restaurant-app menu-section/overview (tabbed grid)",
+   "Café 89 drinks-section (filter chips All/Cà phê/Nước ép/Sinh tố + drink dialog)",
+   "Kikas menu-section (All/Bakery/Coffee/Food tabs, numbered category cards)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "menu-chips",
+    "name": "Filter chips + list/cards + item dialog",
+    "source": "Café 89 drinks-section",
+    "why": "6 to 24 items, drink-led; the proven shape"
+   },
+   {
+    "id": "menu-tabs-cards",
+    "name": "Numbered category cards with tabs",
+    "source": "Kikas menu-section",
+    "why": "categories only or few items; food + drink mix"
+   },
+   {
+    "id": "menu-signature",
+    "name": "Signature drinks carousel (static scroll-snap, no auto-advance)",
+    "source": "restaurant-app signature-dishes",
+    "why": "3 to 8 items with photos; premium / playful"
+   },
+   {
+    "id": "menu-board",
+    "name": "Chalkboard list: name ..... price, two columns",
+    "source": "new (tied to a read menu photo)",
+    "why": "street / cosy; text only, no photos"
+   }
+  ],
+  "thin_data": "No items: 3 to 6 category tiles (Cà phê, Trà, Nước ép...) with 'See on Grab' or 'Ask on Zalo' if a link exists, else hide the slot. Items without prices: list names only. Never a grey photo box.",
+  "empty_state": "fold",
+  "fields": [
+   "menu.categories[]",
+   "menu.items[0..8]{name,desc,price,price_source,photo,temp}"
+  ],
+  "rules": [
+   "C2: The menu is HTML, never only a PDF (ADR 0007). 3% of live Đà Nẵng café sites link a PDF menu; 91% of customers look the menu up online before visiting.",
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note.",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0003",
+   "0007",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Drink-led: coffee, tea, juice, smoothie first; hot/iced shown as a marker not a duplicate row; a flat-price board (juice 20k) is a real Vietnamese pattern.",
+  "evidence": "[data] 4 of 9; [research] user-needs-by-page; INDUSTRY.md job 1"
+ },
+ {
+  "page": "Home",
+  "slot": "What it's like",
+  "job": "Atmosphere and amenities as 3 to 6 cards: tree shade, corner seat, quiet, kids, pets, big screen",
+  "need": "user-needs-by-page Home: 'Decide quickly if the place fits'; the checklist-check gap 1 (amenities from the listing).",
+  "prevalence": {
+   "n": 3,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 (4 cards: shade, work or relax, big screen, pet), Kikas (place-section), Prufrock. Amenity chips as a block: 0 of 19. Maps attributes found for 8 of 10 trial cafés [enrich-trial]"
+  },
+  "built_variants": [
+   "Café 89 corner-section ('our corner' real-photo figure + 4 cards)",
+   "Kikas place-section (photo, copy, 'Plan a visit')",
+   "restaurant-app cuisine-philosophy-section (4 pillar cards)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "vibe-cards",
+    "name": "Photo + 3 to 4 icon cards",
+    "source": "Café 89 corner-section",
+    "why": "attributes 3+ and an own interior photo"
+   },
+   {
+    "id": "vibe-split",
+    "name": "Photo left, copy right, one link",
+    "source": "Kikas place-section",
+    "why": "story or one strong interior photo, few attributes"
+   },
+   {
+    "id": "vibe-chips",
+    "name": "Chip row of attributes only",
+    "source": "new",
+    "why": "attributes but no photo"
+   }
+  ],
+  "thin_data": "Fill from Maps attributes (8 of 10 trial cafés had them). None: one sentence of vibe copy and a photo, or hide. Copy about the vibe may be generated; a claim ('best', 'organic') may not.",
+  "empty_state": "fold",
+  "fields": [
+   "attributes[]{key,label_vi,label_en,icon}",
+   "copy.vibe",
+   "photos[]"
+  ],
+  "rules": [
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C16: Amenities come from Maps attributes or the owner only; never show or invent a wifi password, speed or a seat count (ADR 0003)."
+  ],
+  "adr": [
+   "0003",
+   "0002"
+  ],
+  "cafe_vs_restaurant": "Cafés live and die on this: seating, shade, music, work-friendliness. Restaurants read 'ambience' once.",
+  "evidence": "[data] 3 of 9; [data] enrich-trial attributes 8/10"
+ },
+ {
+  "page": "Home",
+  "slot": "Work and wifi",
+  "job": "Can I work here? wifi, power outlets, quiet, air-con, laptop-friendly, how long can I stay",
+  "need": "Café-specific job (not in user-needs-by-page, which is restaurant-only); Café 89 already speaks it ('Làm việc hay thư giãn: mang laptop').",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "1 of 9 as copy (Café 89 card). A top reason locals and digital nomads in Đà Nẵng pick a café [reasoned]; Maps 'good for laptops' attribute seen in the enrichment trial"
+  },
+  "built_variants": [
+   "Café 89 corner-section card 'Làm việc hay thư giãn'"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "work-strip",
+    "name": "Four icon cells: wifi, power, AC, laptop-friendly",
+    "source": "new, from Café 89 card",
+    "why": "attributes 2+"
+   },
+   {
+    "id": "work-line",
+    "name": "One sentence in What it's like",
+    "source": "Café 89 card",
+    "why": "one attribute only"
+   }
+  ],
+  "thin_data": "Only from Maps attributes or the owner. NEVER show or invent a wifi password or speed. Fewer than 2 attributes: merge into What it's like, else hide.",
+  "empty_state": "fold",
+  "fields": [
+   "attributes[wifi,laptop_friendly,power_outlets,ac,quiet]",
+   "copy.work_line"
+  ],
+  "rules": [
+   "C16: Amenities come from Maps attributes or the owner only; never show or invent a wifi password, speed or a seat count (ADR 0003).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Does not exist for restaurants. Feeds the assistant ('is there wifi?').",
+  "evidence": "[reasoned]; [data] Café 89; enrich-trial attributes"
+ },
+ {
+  "page": "Home",
+  "slot": "Takeaway and delivery band",
+  "job": "Send hungry or hurried people to Grab, ShopeeFood, takeaway-at-the-window or the owner's own ordering",
+  "need": "user-needs-by-page Contact: 'Delivery partner links'; Global: 'Delivery partners (Grab/Gojek)' - here GrabFood and ShopeeFood. 43% use the site to confirm takeout or delivery [INDUSTRY.md].",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 5,
+   "note": "Gail's only (delivery and pick-up tiles). ShopeeFood link on 5% of live Đà Nẵng café sites, GrabFood 0%, though the two hold over 90% of delivery [overview crawl; ADR 0008]"
+  },
+  "built_variants": [
+   "restaurant-app essentials delivery-partner chips",
+   "restaurant-app cta-section/primary"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "order-buttons",
+    "name": "Grab + ShopeeFood buttons side by side",
+    "source": "restaurant-app delivery chips restyled",
+    "why": "both store links found"
+   },
+   {
+    "id": "order-single",
+    "name": "One wide button 'Order on GrabFood'",
+    "source": "new",
+    "why": "one link"
+   },
+   {
+    "id": "order-takeaway",
+    "name": "Takeaway chip + hours-to-go ('mang đi') with Grab",
+    "source": "new",
+    "why": "attribute takeaway=true, no store link"
+   }
+  ],
+  "thin_data": "Only with a real store link; takeaway chip from a Maps service-option attribute. None of these: hide the band (the bar still carries Directions).",
+  "empty_state": "hide",
+  "fields": [
+   "delivery.grab",
+   "delivery.shopee",
+   "delivery.own_url",
+   "attributes[takeaway,delivery,dine_in]"
+  ],
+  "rules": [
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008).",
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0008",
+   "0007"
+  ],
+  "cafe_vs_restaurant": "Takeaway ('mang đi') and grab-and-go are core for cafés and bánh mì shops; the buttons are link-outs. Nobody in Đà Nẵng links their delivery store: easy wow for the owner.",
+  "evidence": "[data] 1 of 9; [data] Đà Nẵng crawl; ADR 0008"
+ },
+ {
+  "page": "Home",
+  "slot": "Specials and deal ribbon",
+  "job": "A time-boxed offer, a flat-price day or what is new",
+  "need": "user-needs-by-page Specials: 'Grid of limited-time items with validity (Today, Fri-Sun)'; Home: 'Today's Specials: badges (new)'.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89's flat-price ribbon ('Nước ép đồng giá 20.000₫') is the only one in the 9; 0 of 9 as a specials section"
+  },
+  "built_variants": [
+   "restaurant-app specials-section grid and slider; promo-section/primary",
+   "Café 89 flat-price banner on drinks-section"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "deal-ribbon",
+    "name": "One-line ribbon inside the menu: flat price or combo",
+    "source": "Café 89 drinks-section banner",
+    "why": "owner states a flat price (juice 20k)"
+   },
+   {
+    "id": "specials-grid",
+    "name": "Grid of 2 to 4 specials with validity",
+    "source": "restaurant-app specials-section/grid",
+    "why": "owner posts specials on its page"
+   }
+  ],
+  "thin_data": "Hide unless the owner posts it on their own page or listing. Never generate a promotion or a combo price.",
+  "empty_state": "hide",
+  "fields": [
+   "specials[]{title,desc,valid_until,photo}",
+   "menu.flat_price{label,price,source}"
+  ],
+  "rules": [
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note.",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Combo (bánh mì + drink) and flat-price boards are the café form; restaurants run chef specials.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Home",
+  "slot": "Story teaser",
+  "job": "Who, since when, why: 2 to 3 sentences with a link to Our place",
+  "need": "user-needs-by-page About: 'Short brand story, chef note'.",
+  "prevalence": {
+   "n": 8,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": 79,
+   "note": "8 of 9 (all but Cong). About page on 79% of live Đà Nẵng café sites (regex, loose) [frequency.csv]"
+  },
+  "built_variants": [
+   "restaurant-app story-section/primary (narrative + carousel + highlights)",
+   "restaurant-app About story timeline (vertical, horizontal)",
+   "Kikas place-section"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "story-pull",
+    "name": "Pull-quote + 2 lines + link",
+    "source": "restaurant-app story-section/primary, trimmed",
+    "why": "own words from social bio"
+   },
+   {
+    "id": "story-split",
+    "name": "Photo + paragraph",
+    "source": "Kikas place-section",
+    "why": "own interior or people photo"
+   }
+  ],
+  "thin_data": "From the owner's own social self-description, summarised, with its source. None: hide; What it's like carries it. Never invent a founding year or 'since'.",
+  "empty_state": "hide",
+  "fields": [
+   "copy.story_short",
+   "business.social.bio",
+   "founded (only if sourced)"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C17: Plain words, 5th to 7th grade reading level (ADR 0007)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Café stories are short and personal (the corner, the dog, the family); no chef note.",
+  "evidence": "[data] 8 of 9; [research] Michelin 13 of 14 give description and history"
+ },
+ {
+  "page": "Home",
+  "slot": "Gallery",
+  "job": "Show the place and the product",
+  "need": "user-needs-by-page About: team photo; 'venue-gallery' in restaurant-app; INDUSTRY.md: gallery at 6+ own photos.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 22,
+   "note": "0 of 9 cafés in the outlines; 5 of 19 overall (restaurants). A gallery page on 22% of live Đà Nẵng café sites (loose); nav gallery 8%. 'Gallery is always a section, never a page'"
+  },
+  "built_variants": [
+   "restaurant-app gallery-section/grid (3-col mosaic)",
+   "restaurant-app About venue-gallery masonry + lightbox"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "gal-mosaic",
+    "name": "3-column mosaic, static",
+    "source": "restaurant-app gallery-section/grid",
+    "why": "6+ own photos"
+   },
+   {
+    "id": "gal-strip",
+    "name": "Horizontal scroll-snap strip with pause-free CSS",
+    "source": "new (H2 tilted strip in motion form)",
+    "why": "street / lively"
+   },
+   {
+    "id": "gal-masonry",
+    "name": "Masonry + lightbox",
+    "source": "restaurant-app venue-gallery",
+    "why": "12+ photos, claimed site"
+   }
+  ],
+  "thin_data": "Needs 6 or more of their own photos. At 3 to 5 fold into Hero and What it's like; at 0 show nothing. Maps photos uploaded by strangers are not usable (enrich-trial; ADR 0005).",
+  "empty_state": "fold",
+  "fields": [
+   "photos[]{url,alt,w,h,kind}"
+  ],
+  "rules": [
+   "C1: One primary action in the hero, a quiet second link; the hero is one still image, never an auto-advancing carousel; any moving strip is CSS and honours reduced motion (ADR 0007; NN/g; WCAG 2.2.2).",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0004",
+   "0005",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Café photos: drink, interior, exterior, menu board; sorted by kind so each slot gets the right one (ADR 0004).",
+  "evidence": "[data] 0 of 9; [reasoned] INDUSTRY.md threshold"
+ },
+ {
+  "page": "Home",
+  "slot": "Reviews and proof",
+  "job": "Rating and count from Google, with links to read and write reviews there. No review text (ADR 0005).",
+  "need": "user-needs-by-page Home: 'Social proof: rating summary + 1-3 reviews'; Reviews page: surface photo reviews early (not on a static site). 96% read reviews first.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 only ('Write a review on Google' + one real quote with name, source, year); 3 of 19 overall"
+  },
+  "built_variants": [
+   "restaurant-app review-section: classic, image-masonry, glass-swiper, grid, minimal, modern, featured, testimonial",
+   "restaurant-app reviews RatingsSummary + ReviewCard primary / template-2",
+   "Café 89 review-section (write on Google) and corner quote credit"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "rev-row",
+    "name": "Static row: stars, rating, count, 'Read on Google' and 'Write a review'",
+    "source": "restaurant-app RatingsSummary + Café 89 review-section",
+    "why": "5+ reviews and rating 4.0+; default"
+   },
+   {
+    "id": "rev-quote",
+    "name": "One large owner-supplied quote with credit line",
+    "source": "Café 89 corner quote",
+    "why": "only a quote the owner posted on its own page or gave us"
+   },
+   {
+    "id": "rev-masonry",
+    "name": "Masonry wall of owner-supplied quotes",
+    "source": "restaurant-app image-masonry",
+    "why": "claimed sites only"
+   }
+  ],
+  "thin_data": "Rating + count + 'Read on Google' + 'Write a review'. Under 5 reviews or rating under 4.0: count and Google link only, or hide. Never show a rating we did not fetch. Never republish Google review text (ADR 0005).",
+  "empty_state": "fold",
+  "fields": [
+   "rating",
+   "review_count",
+   "business.maps_url",
+   "owner_quotes[0..3]{text,author,source_url} (owner-supplied only)"
+  ],
+  "rules": [
+   "C9: Reviews: the real Google rating and count with 'from Google' attribution, plus 'Read on Google' and 'Write a review'. Never republish Google review text (ADR 0005). A quote appears only when the owner posted it on its own page or gave it to us, with its credit. Under 5 reviews or under 4.0: count and link only (ADR 0003).",
+   "C1: One primary action in the hero, a quiet second link; the hero is one still image, never an auto-advancing carousel; any moving strip is CSS and honours reduced motion (ADR 0007; NN/g; WCAG 2.2.2).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003",
+   "0005"
+  ],
+  "cafe_vs_restaurant": "Median trial café has 96 reviews (4 to 544), so the rating row shows for most. Google review text is never republished (ADR 0005).",
+  "evidence": "[data] 1 of 9; [data] enrich-trial median 96 reviews; [research] 96% read reviews"
+ },
+ {
+  "page": "Home",
+  "slot": "Location teaser",
+  "job": "Address, landmark, Open in Maps; leads to Visit",
+  "need": "user-needs-by-page Contact: 'address with Open in Maps'.",
+  "prevalence": {
+   "n": 3,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 19,
+   "note": "Café 89, Kikas, Monmouth. Maps link on 19% of live Đà Nẵng café sites"
+  },
+  "built_variants": [
+   "restaurant-app map-section/primary (embed)",
+   "Café 89 visit-section (address, landmark line, Open Maps, card)",
+   "Kikas visit-section (motif, hours soon)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "loc-card",
+    "name": "Address card + landmark line + Maps and Grab buttons",
+    "source": "Café 89 visit-section",
+    "why": "default"
+   },
+   {
+    "id": "loc-embed",
+    "name": "Lazy Maps embed behind a tap",
+    "source": "restaurant-app map-section/primary",
+    "why": "desktop width, rich data"
+   }
+  ],
+  "thin_data": "Address + 'Open in Maps' always. Skip the embed on the home page.",
+  "empty_state": "show",
+  "fields": [
+   "business.address",
+   "business.maps_url",
+   "how_to_find"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0008",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Add a Grab destination link beside Google directions (ADR 0008). Motorbike parking line when sourced.",
+  "evidence": "[data] 3 of 9; ADR 0008"
+ },
+ {
+  "page": "Home",
+  "slot": "FAQ",
+  "job": "Answer the 5 questions people ask: open now? wifi? parking? takeaway? Zalo?",
+  "need": "Not in user-needs-by-page; checklist-check gap 4; Owner.com puts an FAQ on the home page [research].",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 19,
+   "note": "Monmouth (FAQ in nav); 2 of 19. A faq page on 19% of live Đà Nẵng café sites (nav 6%)"
+  },
+  "built_variants": [
+   "restaurant-app About FAQ (listed in INDUSTRY-RUN core table)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "faq-acc",
+    "name": "Native details/summary accordion, CSS only",
+    "source": "new",
+    "why": "3 to 5 derived Q&As"
+   },
+   {
+    "id": "faq-assistant",
+    "name": "No FAQ block; the assistant carries it",
+    "source": "ADR 0013",
+    "why": "fewer than 3 facts"
+   }
+  ],
+  "thin_data": "Generate 3 to 5 from known facts only. Under 3 facts: hide (the assistant answers the same questions).",
+  "empty_state": "hide",
+  "fields": [
+   "faq[]{q,a}",
+   "derived from hours, attributes, contact, delivery"
+  ],
+  "rules": [
+   "C10: Every slot has a thin-data form or hides itself: no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0013",
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Café FAQ: open-now, wifi, parking, takeaway, payment. Restaurant FAQ adds booking and dietary.",
+  "evidence": "[data] 1 of 9; [research] Owner.com"
+ },
+ {
+  "page": "Home",
+  "slot": "Social strip",
+  "job": "Show the social page as proof of life; Facebook first in Vietnam",
+  "need": "user-needs-by-page Home: none; the Vietnam overlay (Facebook is the default second home).",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 68,
+   "note": "0 of 9 as a section. Facebook link on 68% of live Đà Nẵng café sites, Zalo 31%, Instagram 30%, TikTok 21% [frequency.csv]"
+  },
+  "built_variants": [
+   "restaurant-app instagram-section/primary (6-tile grid + incentive CTA)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "social-links",
+    "name": "Plain link row: Facebook, Instagram, TikTok, Zalo",
+    "source": "new",
+    "why": "default; links only"
+   },
+   {
+    "id": "social-grid",
+    "name": "Six-tile grid from public posts we may show",
+    "source": "restaurant-app instagram-section/primary",
+    "why": "owner Instagram with 6 usable images"
+   }
+  ],
+  "thin_data": "Plain social links (in the footer or the strip) when we have the pages; the grid only with 6 images we may show; else nothing.",
+  "empty_state": "fold",
+  "fields": [
+   "business.social.facebook",
+   "business.social.instagram",
+   "business.social.tiktok",
+   "photos[]"
+  ],
+  "rules": [
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C10: Every slot has a thin-data form or hides itself: no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002)."
+  ],
+  "adr": [
+   "0005",
+   "0008"
+  ],
+  "cafe_vs_restaurant": "Facebook first (68%), not Instagram; TikTok matters for young Đà Nẵng cafes.",
+  "evidence": "[data] Đà Nẵng crawl; [research] ADR 0008"
+ },
+ {
+  "page": "Home",
+  "slot": "Newsletter signup",
+  "job": "Collect emails",
+  "need": "Not a user need on user-needs-by-page; platforms put it on every site.",
+  "prevalence": {
+   "n": null,
+   "of": 9,
+   "best5": null,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "6 of 19 show it (3 of 5 design-led); not counted per cafe. Off by default"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "off",
+    "name": "Omitted",
+    "source": "-",
+    "why": "noise for a 3-person café; Zalo and Facebook are the list"
+   }
+  ],
+  "thin_data": "Omit.",
+  "empty_state": "hide",
+  "fields": [
+   "newsletter.enabled"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Cafés in Đà Nẵng have no email habit; Zalo OA / Facebook is the list.",
+  "evidence": "[data] 6 of 19"
+ },
+ {
+  "page": "Menu",
+  "slot": "Page header + category nav",
+  "job": "Chips or tabs to jump by category, drinks first; sticky on scroll",
+  "need": "user-needs-by-page Menu: 'Category chips (scrollable), search, diet tags'; thumb reach, INP under 200 ms.",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 chips (All, Cà phê, Nước ép, Sinh tố), Kikas tabs (All, Bakery, Coffee, Food); Dishoom's daypart menus are the restaurant version"
+  },
+  "built_variants": [
+   "Café 89 drinks-section chips",
+   "Kikas menu-section tabs",
+   "restaurant-app menu-section/overview (tabbed grid)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "nav-chips",
+    "name": "Scrollable sticky chips",
+    "source": "Café 89 / user-needs-by-page",
+    "why": "4+ categories"
+   },
+   {
+    "id": "nav-tabs",
+    "name": "Inline 2 to 3 tabs",
+    "source": "Kikas tabs",
+    "why": "2 to 3 categories"
+   },
+   {
+    "id": "nav-index",
+    "name": "Alphabetical-free category index (anchor list)",
+    "source": "new",
+    "why": "20+ items, claimed"
+   }
+  ],
+  "thin_data": "1 category: no nav. 2 to 3: inline tabs. 4 or more: scrollable chips. Search only above 40 items (not for cafés in practice).",
+  "empty_state": "show",
+  "fields": [
+   "menu.categories[]{id,name_vi,name_en,group}"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0007",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Order of groups is drink-first (Cà phê, Trà, Nước ép, Sinh tố, Soda) then Food/Bakery; restaurants lead with mains.",
+  "evidence": "[data] 2 of 9; [research] user-needs-by-page"
+ },
+ {
+  "page": "Menu",
+  "slot": "Drink list",
+  "job": "Name, one-line description, price when real, hot/iced marker, optional photo",
+  "need": "user-needs-by-page Menu: 'DishCard: photo, name, short desc, price, tags, quick Add' (Add dropped).",
+  "prevalence": {
+   "n": 4,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 41,
+   "note": "Café 89, Kikas, Gail's, Prufrock; menu 79.6% of Istanbul sites, descriptions on all 3 platforms [research]; A STATION COFFEE round 2 has real GrabFood prices with a source line"
+  },
+  "built_variants": [
+   "Café 89 drinks list (name, tag, price, dialog)",
+   "Kikas menu cards with photos",
+   "restaurant-app menu-section/overview",
+   "restaurant-app DishCard (tags, planned)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "list-text",
+    "name": "Text rows: name, desc, price right, hot/iced dot",
+    "source": "Café 89 drinks list",
+    "why": "no photos; default for thin data"
+   },
+   {
+    "id": "list-cards",
+    "name": "Cards with photo, name, price",
+    "source": "Kikas menu cards",
+    "why": "item photos exist (own)"
+   },
+   {
+    "id": "list-board",
+    "name": "Two-column chalkboard",
+    "source": "new",
+    "why": "street / cosy; flat-price menus"
+   },
+   {
+    "id": "list-grid",
+    "name": "Photo grid (tap for dialog)",
+    "source": "restaurant-app overview",
+    "why": "premium; 8+ own drink photos"
+   }
+  ],
+  "thin_data": "No menu data: no empty page; category tiles + 'Ask on Zalo / see on Grab', or hide the Menu nav item. Items without price: name + description only. Items without photo: text rows, no grey boxes.",
+  "empty_state": "fold",
+  "fields": [
+   "menu.items[]{name_vi,name_en,desc,price,price_source,sizes[],temp,tags[],photo,category}"
+  ],
+  "rules": [
+   "C2: The menu is HTML, never only a PDF (ADR 0007). 3% of live Đà Nẵng café sites link a PDF menu; 91% of customers look the menu up online before visiting.",
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note.",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003",
+   "0004",
+   "0007"
+  ],
+  "cafe_vs_restaurant": "Hot / iced and size (S/M/L) are columns or markers on one row, not separate items. Vietnamese item names stay Vietnamese (cà phê muối, bạc xỉu); English is a gloss.",
+  "evidence": "[data] 4 of 9; [data] enrich-trial: a readable menu for roughly 1 café in 3"
+ },
+ {
+  "page": "Menu",
+  "slot": "Food and bánh mì group",
+  "job": "A second menu group for places that also sell bánh mì, bakery or light food, with combos",
+  "need": "user-needs-by-page Menu: categories; Home: 'Popular dishes'. Café variant of the same.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Kikas (Bakery, Coffee, Food tabs); Gail's and Tartine are bakery-led. 0 of 9 list a bánh mì combo"
+  },
+  "built_variants": [
+   "Kikas menu-section tabs (Bakery / Food)",
+   "restaurant-app menu-section/overview"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "food-tab",
+    "name": "Third tab in the same menu",
+    "source": "Kikas tabs",
+    "why": "food items present"
+   },
+   {
+    "id": "food-combo",
+    "name": "Combo line: bánh mì + drink, one price",
+    "source": "Café 89 flat-price banner shape",
+    "why": "owner states a combo"
+   },
+   {
+    "id": "food-bakery-cards",
+    "name": "Photo cards for bakery counter",
+    "source": "Kikas cards",
+    "why": "bakery cafés with own photos"
+   }
+  ],
+  "thin_data": "Only when the menu photo or Grab listing shows food. A drink-only café never shows an empty Food tab.",
+  "empty_state": "hide",
+  "fields": [
+   "menu.groups[food|bakery]",
+   "menu.items[group=food]",
+   "menu.combos[]"
+  ],
+  "rules": [
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note.",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Banh mi / juice-bar / bakery shapes: short lists, combos, flat prices; the juice bar leads with Nước ép.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Menu",
+  "slot": "Item detail dialog",
+  "job": "Tap an item for size, hot or iced, toppings or milk, a note on what it is",
+  "need": "user-needs-by-page Menu: 'BottomSheet for options (size, spice, sides, notes)'.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 drink-dialog (native dialog); restaurant-app has a full BottomSheet tied to the cart"
+  },
+  "built_variants": [
+   "Café 89 drink-dialog (native <dialog>)",
+   "restaurant-app BottomSheet (cart-bound)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "dlg-sheet",
+    "name": "Native dialog / bottom sheet, read-only",
+    "source": "Café 89 drink-dialog",
+    "why": "options or description exist"
+   },
+   {
+    "id": "dlg-none",
+    "name": "No dialog; row expands inline",
+    "source": "new",
+    "why": "no per-item data"
+   }
+  ],
+  "thin_data": "No options and no description: no dialog (a dead tap is worse). No cart, no add.",
+  "empty_state": "hide",
+  "fields": [
+   "menu.items[].sizes[]",
+   "menu.items[].options[]",
+   "menu.items[].desc"
+  ],
+  "rules": [
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note.",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0016",
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Cart-free: restaurants' Add to cart is dropped. Sizes and milk options only when the menu shows them.",
+  "evidence": "[data] 1 of 9; [research] user-needs-by-page"
+ },
+ {
+  "page": "Menu",
+  "slot": "Diet and milk-option tags",
+  "job": "Vegan, vegetarian, plant-milk, decaf, spicy tags per item",
+  "need": "user-needs-by-page Menu: 'diet tags (vegan/halal/spicy)'.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 9; 1 of 19 (Atelier Crenn page). 2 of 3 platforms tag items [research]"
+  },
+  "built_variants": [
+   "restaurant-app DishCard tags (planned)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "tag-chips",
+    "name": "Small chip per item",
+    "source": "restaurant-app DishCard",
+    "why": "owner menu states tags"
+   }
+  ],
+  "thin_data": "Only if the owner's menu states them; never infer. Hide the legend if none.",
+  "empty_state": "hide",
+  "fields": [
+   "menu.items[].tags[]",
+   "menu.dietary_note"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Plant-milk and caffeine-free are the café tags; halal is rarely needed in Đà Nẵng.",
+  "evidence": "[data] 0 of 9"
+ },
+ {
+  "page": "Menu",
+  "slot": "Price source note",
+  "job": "Say where the prices came from and when",
+  "need": "ADR 0003 trust rule; Toast: wrong prices are a top reason to leave.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 19; our own rule. Menu-photo prices go stale (enrich-trial)"
+  },
+  "built_variants": [
+   "none yet (A STATION COFFEE round 2 has a source line)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "src-line",
+    "name": "One small line: 'Prices from their menu photo, Sep 2026'",
+    "source": "A STATION round 2",
+    "why": "any price shown"
+   }
+  ],
+  "thin_data": "Shown only when any price is shown; names the photo or Grab listing and the date.",
+  "empty_state": "hide",
+  "fields": [
+   "menu.price_source",
+   "menu.price_as_of"
+  ],
+  "rules": [
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Same as restaurants; sources are Grab listing or a menu photo read at full size.",
+  "evidence": "[reasoned] ADR 0003"
+ },
+ {
+  "page": "Menu",
+  "slot": "Order from menu",
+  "job": "The next step: order on Grab/ShopeeFood, or ask on Zalo",
+  "need": "user-needs-by-page Menu: 'StickyOrderCTA... pickup/delivery choice' - link-out only here.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Gail's; 6 of 19 overall, 0 of the 5 design-led"
+  },
+  "built_variants": [
+   "restaurant-app menu-section viewAllHref / delivery deep link"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "order-foot",
+    "name": "Button under the list: 'See prices and order on Grab'",
+    "source": "viewAllHref",
+    "why": "store link exists"
+   },
+   {
+    "id": "order-zalo",
+    "name": "'Ask on Zalo' fallback",
+    "source": "new",
+    "why": "no store link, Zalo exists"
+   }
+  ],
+  "thin_data": "Real store link only; else Directions plus 'ask on Zalo'. When prices are missing, 'See prices and order on Grab' softens it.",
+  "empty_state": "hide",
+  "fields": [
+   "delivery.grab",
+   "delivery.shopee",
+   "delivery.own_url",
+   "contact.zalo"
+  ],
+  "rules": [
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008).",
+   "C3: Show a price only when it is real and sourced (their menu photo, page or delivery listing), with the source kept in site.json; otherwise show the item only, never a placeholder (ADR 0003 as revised 04:37). Softener: 'See prices and order on Grab' when the store link exists. This supersedes the 'no prices, ever' line in the checklist-check note."
+  ],
+  "adr": [
+   "0008",
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Link-out only; no checkout.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Menu",
+  "slot": "PDF fallback link",
+  "job": "A downloadable menu as a secondary link",
+  "need": "ADR 0007: menus are HTML, never PDF.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 3,
+   "note": "PDF menus on 3% of live Đà Nẵng café sites; Kuma's is the 1 of 19"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "pdf-link",
+    "name": "Quiet text link under the menu",
+    "source": "new",
+    "why": "owner supplied a PDF"
+   }
+  ],
+  "thin_data": "Never the only menu. Offer only if the owner supplied a PDF.",
+  "empty_state": "hide",
+  "fields": [
+   "menu.pdf_url"
+  ],
+  "rules": [
+   "C2: The menu is HTML, never only a PDF (ADR 0007). 3% of live Đà Nẵng café sites link a PDF menu; 91% of customers look the menu up online before visiting."
+  ],
+  "adr": [
+   "0007"
+  ],
+  "cafe_vs_restaurant": "Rare in cafes.",
+  "evidence": "[data] 3% VN"
+ },
+ {
+  "page": "Our place",
+  "slot": "Story + hero",
+  "job": "The full story with a photo; the owner's voice",
+  "need": "user-needs-by-page About: 'Short brand story, chef note, team photo, provenance'.",
+  "prevalence": {
+   "n": 8,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "8 of 9 have story content somewhere"
+  },
+  "built_variants": [
+   "restaurant-app About hero primary / template-2 / template-3",
+   "restaurant-app story-section/primary",
+   "Kikas place-section",
+   "Café 89 corner-section"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "story-hero-split",
+    "name": "Split hero: photo + story",
+    "source": "restaurant-app About template-2",
+    "why": "own photo + 3+ sourced sentences"
+   },
+   {
+    "id": "story-letter",
+    "name": "Single column, large type, one photo",
+    "source": "Kikas place-section",
+    "why": "short story, 1 photo"
+   }
+  ],
+  "thin_data": "Under 3 sentences of sourced story: no separate page; use the home teaser and What it's like.",
+  "empty_state": "fold",
+  "fields": [
+   "copy.story",
+   "business.social.bio",
+   "photos[]"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C17: Plain words, 5th to 7th grade reading level (ADR 0007).",
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson)."
+  ],
+  "adr": [
+   "0003",
+   "0002"
+  ],
+  "cafe_vs_restaurant": "Short, personal; no chef profile.",
+  "evidence": "[data] 8 of 9"
+ },
+ {
+  "page": "Our place",
+  "slot": "Space and seating",
+  "job": "Where you will sit: indoor, garden, rooftop, floor seating, window bar, group tables",
+  "need": "Café-specific; user-needs-by-page About: 'venue gallery'.",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 (shade, corner), Kikas (a little corner). Seating attributes in Maps listings"
+  },
+  "built_variants": [
+   "Café 89 corner-section real-photo figure",
+   "restaurant-app About venue-gallery"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "space-zones",
+    "name": "2 to 4 zone cards with a photo each",
+    "source": "new",
+    "why": "own photos of 2+ zones"
+   },
+   {
+    "id": "space-photo",
+    "name": "One large interior photo with caption",
+    "source": "Café 89 real-photo",
+    "why": "1 photo"
+   }
+  ],
+  "thin_data": "Needs own interior photos; else hidden (What it's like carries seating as a chip).",
+  "empty_state": "hide",
+  "fields": [
+   "attributes[seating_*]",
+   "photos[kind=interior]"
+  ],
+  "rules": [
+   "C8: Own photos lead; generated imagery fills atmosphere and texture only, is labelled, and never poses as their drink or dish; Maps photos uploaded by strangers are not usable (ADR 0003, 0004, 0005; enrichment trial; the A STATION round-2 matcha lesson).",
+   "C16: Amenities come from Maps attributes or the owner only; never show or invent a wifi password, speed or a seat count (ADR 0003)."
+  ],
+  "adr": [
+   "0003",
+   "0005"
+  ],
+  "cafe_vs_restaurant": "Restaurants say 'dining room'; cafés sell the seat and the shade.",
+  "evidence": "[data] 2 of 9"
+ },
+ {
+  "page": "Our place",
+  "slot": "Beans and sourcing",
+  "job": "What they brew: beans, roaster, origin, signature method (phin, salt coffee)",
+  "need": "user-needs-by-page About: 'provenance'.",
+  "prevalence": {
+   "n": 3,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Monmouth farm info, Ozone sourcing, Blue Bottle brand - all design-led roasters; not small Đà Nẵng cafés"
+  },
+  "built_variants": [
+   "restaurant-app cuisine-philosophy-section (4 pillars: Sourcing, Coffee)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "beans-pillars",
+    "name": "Four pillar cards",
+    "source": "restaurant-app cuisine-philosophy-section",
+    "why": "owner states them"
+   }
+  ],
+  "thin_data": "Hide unless the owner states it; a generated 'we use fresh beans' is a claim.",
+  "empty_state": "hide",
+  "fields": [
+   "values[]{title,text,icon}",
+   "beans{roaster,origin}"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Roaster cafés only; most Đà Nẵng independents never state this.",
+  "evidence": "[data] 3 of 9"
+ },
+ {
+  "page": "Our place",
+  "slot": "Team",
+  "job": "Faces of the people",
+  "need": "user-needs-by-page About: 'team photo'.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 9; 7 of 14 Michelin sites"
+  },
+  "built_variants": [
+   "restaurant-app team-section/primary"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "team-grid",
+    "name": "Portrait grid",
+    "source": "restaurant-app team-section",
+    "why": "names + photos on owner's page"
+   }
+  ],
+  "thin_data": "Hide unless the owner's page has names and photos.",
+  "empty_state": "hide",
+  "fields": [
+   "team[]{name,role,photo}"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Rare for a small cafe.",
+  "evidence": "[data] 0 of 9"
+ },
+ {
+  "page": "Our place",
+  "slot": "Timeline and milestones",
+  "job": "Key years",
+  "need": "None for cafes.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 19"
+  },
+  "built_variants": [
+   "restaurant-app About story timeline primary and template-2"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "timeline",
+    "name": "Vertical timeline",
+    "source": "restaurant-app",
+    "why": "owner states dates"
+   }
+  ],
+  "thin_data": "Hide unless the owner states dates.",
+  "empty_state": "hide",
+  "fields": [
+   "timeline[]{year,text}"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Off by default.",
+  "evidence": "[data] 0 of 19"
+ },
+ {
+  "page": "Our place",
+  "slot": "Awards and press",
+  "job": "Recognition",
+  "need": "user-needs-by-page About: awards, halal info.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Tartine; 5 of 19"
+  },
+  "built_variants": [
+   "restaurant-app awards-section primary / template-2"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "awards",
+    "name": "Badge row",
+    "source": "restaurant-app awards",
+    "why": "owner-stated only"
+   }
+  ],
+  "thin_data": "Hide; the Google rating lives in Reviews. Only owner-stated awards.",
+  "empty_state": "hide",
+  "fields": [
+   "awards[]",
+   "press[]"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "A claim risk; off.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Visit",
+  "slot": "Hours",
+  "job": "Opening hours by day, open-now, early and late flagged, holiday note",
+  "need": "user-needs-by-page Contact: hours; Reservations: 'show hours, location, rules up front'. 64% check hours and location.",
+  "prevalence": {
+   "n": 7,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "about 7 of 9 show hours content (regex, loose; Gail's and Ozone do not); only 8.6% of Istanbul sites; Michelin 6 of 14"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section",
+   "Café 89 visit-section",
+   "Kikas visit-section ('coming soon' - not a pattern to copy)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "hours-today",
+    "name": "Today first, week below, status dot",
+    "source": "new on essentials",
+    "why": "full week hours"
+   },
+   {
+    "id": "hours-table",
+    "name": "Seven-row table",
+    "source": "restaurant-app essentials",
+    "why": "claimed site"
+   },
+   {
+    "id": "hours-line",
+    "name": "One line ('6:30 - 22:00 daily')",
+    "source": "new",
+    "why": "same hours every day"
+   }
+  ],
+  "thin_data": "No hours: hide the table; show 'Check hours on Google Maps' with the maps_url button. Do not guess.",
+  "empty_state": "fold",
+  "fields": [
+   "hours{mon..sun[]}",
+   "hours.special",
+   "hours.opens_early"
+  ],
+  "rules": [
+   "C5: Hours and open-now are visible without scrolling on phone and repeated in the footer; early opening ('Mở cửa 6:30') shows while closed. Do not guess hours (ADR 0003). Open-now needs one tiny inline script (under 1 KB) with a static 'today 6:30 to 22:00' fallback, inside ADR 0016's budget.",
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003)."
+  ],
+  "adr": [
+   "0003",
+   "0007"
+  ],
+  "cafe_vs_restaurant": "Cafés open early (6 or 7) and close at 21 or 22; the first question is 'is it open now?'. Never 'coming soon' (Kikas).",
+  "evidence": "[data] 7 of 9; [research] Gueduek and Uca; INDUSTRY.md"
+ },
+ {
+  "page": "Visit",
+  "slot": "Map and directions",
+  "job": "Get them to the door; a Grab link with the destination filled in",
+  "need": "user-needs-by-page Contact: 'address with Open in Maps'.",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 19,
+   "note": "directions link: Café 89, Kikas (2 of 9); an embed: Café 89 (1 of 9); map 80.6% in Istanbul; Maps link on 19% of live Đà Nẵng café sites"
+  },
+  "built_variants": [
+   "restaurant-app map-section/primary (embed, lazy)",
+   "Café 89 visit-section (Open Maps)",
+   "Kikas visit-section"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "map-link",
+    "name": "Directions button + Grab destination button, no embed",
+    "source": "Café 89 visit-section",
+    "why": "default; fastest"
+   },
+   {
+    "id": "map-embed",
+    "name": "Lazy embed behind a tap",
+    "source": "restaurant-app map-section/primary",
+    "why": "desktop, geo known"
+   }
+  ],
+  "thin_data": "Always a directions button from maps_url; the embed is optional and lazy. No coordinates: address text and Maps link only.",
+  "empty_state": "show",
+  "fields": [
+   "business.address",
+   "business.maps_url",
+   "geo{lat,lng}",
+   "delivery.grab_destination"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008).",
+   "C12: Static blocks; JavaScript only for menu tabs, the item dialog, open-now and the assistant, loaded after first paint. Mid-range Android on 4G: Lighthouse 95+, LCP under 2.5 s, CLS under 0.1, INP under 200 ms, first view under 200 KB; the hero is the only eager image (ADR 0016; user-needs-by-page)."
+  ],
+  "adr": [
+   "0008",
+   "0016"
+  ],
+  "cafe_vs_restaurant": "Grab destination link next to Maps (ADR 0008); tourists arrive by Grab.",
+  "evidence": "[data] 2 of 9; [research] map 80.6%"
+ },
+ {
+  "page": "Visit",
+  "slot": "How to find us",
+  "job": "One written line from nearby landmarks and the alley or floor",
+  "need": "Our own addition (INDUSTRY.md); Café 89 does this in hand-written form ('find the corner with lots of green trees').",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Café 89 by hand; 0 of 19 as a pattern"
+  },
+  "built_variants": [
+   "Café 89 visit-section landmark line"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "find-line",
+    "name": "One sentence with 2+ landmarks",
+    "source": "Café 89",
+    "why": "2+ known landmarks"
+   }
+  ],
+  "thin_data": "Generate from map neighbours only if two or more known landmarks; else hide.",
+  "empty_state": "hide",
+  "fields": [
+   "how_to_find{vi,en,ko}",
+   "nearby[]"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C10: Every slot has a thin-data form or hides itself: no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002)."
+  ],
+  "adr": [
+   "0002",
+   "0003"
+  ],
+  "cafe_vs_restaurant": "In Vietnam, hẻm (alley) and floor matter more than street numbers.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Visit",
+  "slot": "Contact channels",
+  "job": "Zalo, phone, Messenger, email, in that order for Vietnam",
+  "need": "user-needs-by-page Contact: 'WhatsApp and Call buttons; email form; delivery partner links'. WhatsApp becomes Zalo.",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": 31,
+   "note": "Zalo link on 31% of live Đà Nẵng café sites, phone link 59%, Facebook 68%, email 36%; 0 of 19 outlines show Zalo"
+  },
+  "built_variants": [
+   "restaurant-app essentials-section chips (WhatsApp/chat)",
+   "restaurant-app Contact page (domain)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "contact-rows",
+    "name": "Zalo / Call / Messenger rows",
+    "source": "restaurant-app chips restyled",
+    "why": "default"
+   },
+   {
+    "id": "contact-qr",
+    "name": "Zalo QR + link on desktop",
+    "source": "new",
+    "why": "desktop width"
+   }
+  ],
+  "thin_data": "Zalo needs a number or link: none, phone; none, Messenger from the Facebook page; none, Maps only.",
+  "empty_state": "show",
+  "fields": [
+   "contact.zalo",
+   "contact.phone",
+   "contact.messenger",
+   "contact.email"
+  ],
+  "rules": [
+   "C4: Key actions are exposed at every width: in the header on desktop, in a fixed bar of 2 to 4 buttons on phone (Menu, Directions, Zalo/Call, Order); never behind a hamburger; touch targets at least 44x44 pt (Apple HIG; 48dp Material) (ADR 0007; user-needs-by-page).",
+   "C7: Contact order Zalo, phone, Messenger. GrabFood and ShopeeFood buttons only with real store links; a Grab destination link sits beside Google directions (ADR 0008)."
+  ],
+  "adr": [
+   "0008"
+  ],
+  "cafe_vs_restaurant": "Zalo deep link first; no email form.",
+  "evidence": "[data] Đà Nẵng crawl; ADR 0008"
+ },
+ {
+  "page": "Visit",
+  "slot": "Good to know",
+  "job": "Parking (motorbike), payment (cash, card, QR transfer), amenities, pets, kids",
+  "need": "checklist-check gap 1; user-needs-by-page Global: payments (GoPay/OVO/ShopeePay for Bali -> MoMo / ZaloPay / VietQR for Vietnam, reasoned).",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 19 as a block; parking coded in 3 of 14 Michelin sites; Maps attributes for 8 of 10 trial cafés"
+  },
+  "built_variants": [
+   "Café 89 corner-section cards"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "know-chips",
+    "name": "Chip grid with icons",
+    "source": "Café 89 cards",
+    "why": "3+ attributes"
+   },
+   {
+    "id": "know-list",
+    "name": "Plain list",
+    "source": "new",
+    "why": "1 to 2 attributes"
+   }
+  ],
+  "thin_data": "From Maps attributes only; under 3: merge into What it's like, else hide.",
+  "empty_state": "fold",
+  "fields": [
+   "attributes[]",
+   "parking",
+   "payment_methods[]"
+  ],
+  "rules": [
+   "C16: Amenities come from Maps attributes or the owner only; never show or invent a wifi password, speed or a seat count (ADR 0003).",
+   "C10: Every slot has a thin-data form or hides itself: no empty frames, no 'coming soon', no lorem. Below the data gate the site is published noindex (ADR 0002)."
+  ],
+  "adr": [
+   "0002",
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Motorbike parking and QR payment are the Vietnamese essentials.",
+  "evidence": "[data] enrich-trial 8/10"
+ },
+ {
+  "page": "Visit",
+  "slot": "Enquiry form",
+  "job": "Events, groups, catering enquiries",
+  "need": "user-needs-by-page Contact: email form.",
+  "prevalence": {
+   "n": 0,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "0 of 9 cafés; 3 of 19 (restaurants); information form 62.4% in Istanbul"
+  },
+  "built_variants": [
+   "none static"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "zalo-only",
+    "name": "Zalo button instead of a form",
+    "source": "ADR 0008",
+    "why": "always"
+   }
+  ],
+  "thin_data": "Omit; in Vietnam Zalo replaces forms.",
+  "empty_state": "hide",
+  "fields": [
+   "contact.form.enabled"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0008"
+  ],
+  "cafe_vs_restaurant": "Omitted.",
+  "evidence": "[data] 0 of 9"
+ },
+ {
+  "page": "Optional: Reservations",
+  "slot": "Reserve a table",
+  "job": "Group or table booking by link, phone or Zalo (rare for cafés)",
+  "need": "user-needs-by-page Reservations: date/time/party.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 0,
+   "best_of": 3,
+   "vn_pct": null,
+   "note": "Ozone only; 8 of 19 overall (restaurants and bars)"
+  },
+  "built_variants": [
+   "restaurant-app reservations domain (not static)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "reserve-zalo",
+    "name": "Reserve on Zalo button",
+    "source": "restaurants pack gap",
+    "why": "groups, work-cafes with meeting tables"
+   }
+  ],
+  "thin_data": "Cafés: off. Only when the owner offers group tables; no fake calendar.",
+  "empty_state": "hide",
+  "fields": [
+   "reservations.url",
+   "contact.zalo"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Cafés do not book tables.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Optional: Events and groups",
+  "slot": "Events, workshops and private hire",
+  "job": "Cupping, latte-art classes, pop-ups, group hire",
+  "need": "user-needs-by-page: none.",
+  "prevalence": {
+   "n": 1,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 27,
+   "note": "Prufrock; events page on 27% of live Đà Nẵng café sites (loose); nav 13%"
+  },
+  "built_variants": [
+   "none static"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "events-block",
+    "name": "Text + photo + Zalo link",
+    "source": "restaurants pack gap",
+    "why": "owner posts events on its page"
+   }
+  ],
+  "thin_data": "Only with events on the owner's own page.",
+  "empty_state": "hide",
+  "fields": [
+   "events[]",
+   "private_hire.text"
+  ],
+  "rules": [
+   "C11: No claims we cannot source: no 'best', 'organic', 'specialty', 'award', 'since', 'fresh beans'. Vibe copy may be generated; facts and claims may not (ADR 0003).",
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0003"
+  ],
+  "cafe_vs_restaurant": "Workshops, not private dining.",
+  "evidence": "[data] 1 of 9"
+ },
+ {
+  "page": "Optional: Gift cards",
+  "slot": "Gift cards",
+  "job": "Sell vouchers",
+  "need": "user-needs-by-page Gift Cards.",
+  "prevalence": {
+   "n": null,
+   "of": 9,
+   "best5": null,
+   "best_of": 3,
+   "vn_pct": 7,
+   "note": "9 of 19 overall, mostly US/UK; 7% of live Đà Nẵng café sites"
+  },
+  "built_variants": [
+   "restaurant-app gift-cards domain (legacy)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "off",
+    "name": "Omitted",
+    "source": "-",
+    "why": "Vietnamese cafés do not sell them"
+   }
+  ],
+  "thin_data": "Omit in Vietnam.",
+  "empty_state": "hide",
+  "fields": [
+   "gift_cards.url"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Off.",
+  "evidence": "[data]"
+ },
+ {
+  "page": "Optional: Locations",
+  "slot": "Multi-location list",
+  "job": "One entry per branch",
+  "need": "none.",
+  "prevalence": {
+   "n": 4,
+   "of": 9,
+   "best5": 2,
+   "best_of": 3,
+   "vn_pct": 62,
+   "note": "Blue Bottle, Cong, Monmouth, Tartine; 62% of live Đà Nẵng café sites list locations (chains + regex)"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "off",
+    "name": "Omitted",
+    "source": "-",
+    "why": "chains are out of scope for the free-site run"
+   }
+  ],
+  "thin_data": "Single-site cafés: omit.",
+  "empty_state": "hide",
+  "fields": [
+   "locations[]"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Chains out.",
+  "evidence": "[data] 4 of 9"
+ },
+ {
+  "page": "Optional: Loyalty",
+  "slot": "Loyalty, rewards, app",
+  "job": "Points, club, app download",
+  "need": "user-needs-by-page Loyalty (points, tier, sign-in).",
+  "prevalence": {
+   "n": 2,
+   "of": 9,
+   "best5": 1,
+   "best_of": 3,
+   "vn_pct": 26,
+   "note": "Cong, Ozone; 26% of live Đà Nẵng sites (loose); nav 4%"
+  },
+  "built_variants": [
+   "restaurant-app loyalty domain (HeroSection, MembershipShowcase, TierHighlights, leaderboard)"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "loyalty-card",
+    "name": "Stamp-card block",
+    "source": "restaurant-app loyalty",
+    "why": "inbound request only (ADR 0011)"
+   }
+  ],
+  "thin_data": "Off; first thing an owner asks for after a domain.",
+  "empty_state": "hide",
+  "fields": [
+   "loyalty.enabled"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Likely first upsell for a café: a stamp card.",
+  "evidence": "[data] 2 of 9; ADR 0011"
+ },
+ {
+  "page": "Optional: Shop",
+  "slot": "Shop, beans, merch",
+  "job": "Sell goods online",
+  "need": "user-needs-by-page: none.",
+  "prevalence": {
+   "n": 4,
+   "of": 9,
+   "best5": 3,
+   "best_of": 3,
+   "vn_pct": 38,
+   "note": "at least Blue Bottle, Monmouth, Ozone, Prufrock (retail-led roasters); 38% of live Đà Nẵng sites (loose, regex)"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "link-out",
+    "name": "Link-out only",
+    "source": "-",
+    "why": "owner has its own shop"
+   }
+  ],
+  "thin_data": "Out of scope for the free-site run; the Catalogue module covers it.",
+  "empty_state": "hide",
+  "fields": [
+   "shop.url"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Roaster cafés only.",
+  "evidence": "[data] at least 4 of 9"
+ },
+ {
+  "page": "Optional: Careers",
+  "slot": "Careers",
+  "job": "Hiring",
+  "need": "none.",
+  "prevalence": {
+   "n": null,
+   "of": 9,
+   "best5": null,
+   "best_of": 3,
+   "vn_pct": 34,
+   "note": "11 of 19 overall; 34% of live Đà Nẵng café sites"
+  },
+  "built_variants": [
+   "none"
+  ],
+  "variants_worth_building": [
+   {
+    "id": "off",
+    "name": "Omitted",
+    "source": "-",
+    "why": "noise for a small café"
+   }
+  ],
+  "thin_data": "Omit by default.",
+  "empty_state": "hide",
+  "fields": [
+   "careers.url"
+  ],
+  "rules": [
+   "C18: Off by default on an unclaimed preview: newsletter, careers, gift cards, loyalty, reservations, shop, multi-location; loyalty and orders are inbound requests only (ADR 0011)."
+  ],
+  "adr": [
+   "0011"
+  ],
+  "cafe_vs_restaurant": "Off.",
+  "evidence": "[data]"
+ }
+]
