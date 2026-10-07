@@ -1,0 +1,2957 @@
+{
+ "source": "Overture 2026-09-23.1, counted 7 Oct 2026",
+ "generated": "2026-10-07",
+ "cities": [
+  "da-nang",
+  "ho-chi-minh",
+  "bangkok",
+  "london"
+ ],
+ "rows_total": 416,
+ "skins": [
+  {
+   "id": "everyday-restaurant",
+   "rank": 1,
+   "label": "Everyday restaurant (generic + pan-Asian + fusion)",
+   "nosite_total": 30758,
+   "nosite_by_city": {
+    "da-nang": 1884,
+    "ho-chi-minh": 7611,
+    "bangkok": 20492,
+    "london": 771
+   },
+   "top_score": 34.51,
+   "rows": 7,
+   "gcids": [
+    "restaurant",
+    "asian_restaurant",
+    "asian_fusion_restaurant",
+    "eclectic_restaurant",
+    "fusion_restaurant",
+    "pan_asian_restaurant",
+    "western_restaurant"
+   ],
+   "photo_lead": [
+    "dish close-ups",
+    "interior",
+    "people"
+   ],
+   "photo_slots": "dish close-up -> hero and first 6 menu cards; interior -> atmosphere strip; people/staff -> about; exterior -> visit block",
+   "palette_schemes": "TonalSpot default; Neutral if calm; Vibrant if street. Follows the personality scheme unchanged.",
+   "ground": "from hero photo tone",
+   "type_bias": "Follows personality (T1/T4 cosy, T2/T6 street, T3/T5 premium). No skin bias.",
+   "voice": "Plain, warm, specific: say what they cook and where.",
+   "phrases": [
+    {
+     "vi": "{name}: {dish} và {dish2}, nấu mỗi ngày",
+     "en": "{name}: {dish} and {dish2}, cooked daily"
+    },
+    {
+     "vi": "Mở cửa {hours} tại {area}",
+     "en": "Open {hours} in {area}"
+    },
+    {
+     "vi": "{rating} sao từ {n_reviews} lượt đánh giá",
+     "en": "{rating} stars from {n_reviews} reviews"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By category as the business lists it (starters, mains, drinks); flat list when under ~15 items.",
+   "price_source": "Board photo or delivery app (Grab/ShopeeFood in VN, LINE MAN in Bangkok); if neither, show dishes without prices.",
+   "pairs_with": [
+    "cosy",
+    "lively",
+    "calm"
+   ],
+   "references": [
+    {
+     "url": "https://www.wagamama.com",
+     "note": "mass-market casual menu-first site"
+    }
+   ],
+   "why_grouped": "The catch-all rows (Restaurant, Asian, Fusion, Eclectic, Western). No cuisine to lean on, so personality does all the work; this skin is the neutral baseline."
+  },
+  {
+   "id": "coffee-house",
+   "rank": 2,
+   "label": "Coffee house (coffee shop, stand, store)",
+   "nosite_total": 19129,
+   "nosite_by_city": {
+    "da-nang": 2161,
+    "ho-chi-minh": 8580,
+    "bangkok": 7943,
+    "london": 445
+   },
+   "top_score": 28.35,
+   "rows": 4,
+   "gcids": [
+    "coffee_shop",
+    "coffee_stand",
+    "coffee_store",
+    "coffee_vending_machine"
+   ],
+   "photo_lead": [
+    "drink close-ups",
+    "interior",
+    "counter/barista"
+   ],
+   "photo_slots": "drink close-up -> hero and drink cards; interior seating -> atmosphere; counter/barista -> about; menu board -> menu fallback",
+   "palette_schemes": "TonalSpot or Fidelity (browns, creams) for cosy; Vibrant for street stands; Monochrome for specialty/premium.",
+   "ground": "light cream ground by default; dark for evening-leaning interiors",
+   "type_bias": "T1 (warm serif) for cosy; T4 for playful; T2 for street stands.",
+   "voice": "Slow and sensory: the drink, the seat, the hour.",
+   "phrases": [
+    {
+     "vi": "{drink} – ly đặc trưng của {name}",
+     "en": "{drink}, the signature cup at {name}"
+    },
+    {
+     "vi": "Chỗ ngồi {seating}, mở từ {open}",
+     "en": "Seating: {seating}. Open from {open}"
+    },
+    {
+     "vi": "Ghé {area}, uống một ly",
+     "en": "Find us in {area}, have a cup"
+    }
+   ],
+   "extra_slot": "none (optional: wifi/work-friendly badge only if reviews say it)",
+   "menu_shape": "By drink type (coffee, tea, smoothie, food), sizes as variants.",
+   "price_source": "Board photo most common; Grab/ShopeeFood listing second.",
+   "pairs_with": [
+    "cosy",
+    "calm",
+    "street"
+   ],
+   "references": [
+    {
+     "url": "https://www.blueboottlecoffee.com",
+     "note": "specialty coffee, photo-led product pages (reasoned; page not fetched)"
+    }
+   ],
+   "why_grouped": "Vietnam-style coffee shops: drink-led, seating mood, signature drinks (cà phê muối, bạc xỉu). Merges coffee shop/stand/store/vending (same menu logic)."
+  },
+  {
+   "id": "cafe-brunch",
+   "rank": 3,
+   "label": "Cafe and brunch (cafe, brunch, breakfast, pancake)",
+   "nosite_total": 11569,
+   "nosite_by_city": {
+    "da-nang": 1267,
+    "ho-chi-minh": 4546,
+    "bangkok": 4788,
+    "london": 968
+   },
+   "top_score": 27.93,
+   "rows": 4,
+   "gcids": [
+    "cafe",
+    "brunch_restaurant",
+    "pancake_house",
+    "breakfast_restaurant"
+   ],
+   "photo_lead": [
+    "plated dishes",
+    "interior (daylight)",
+    "drinks"
+   ],
+   "photo_slots": "plated dish -> hero; interior -> second hero or collage; drinks -> menu cards; people -> about",
+   "palette_schemes": "TonalSpot, Expressive for playful; FruitSalad if colourful plating.",
+   "ground": "light",
+   "type_bias": "T1 or T4 (rounded, friendly). T5 for minimal brunch spots.",
+   "voice": "Bright and easy: the table, the light, the plate.",
+   "phrases": [
+    {
+     "vi": "Bữa sáng và brunch tại {name}",
+     "en": "Breakfast and brunch at {name}"
+    },
+    {
+     "vi": "{dish} – món được nhắc nhiều nhất",
+     "en": "{dish}, the dish people mention most"
+    },
+    {
+     "vi": "Mở cửa từ {open}",
+     "en": "Open from {open}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By daypart (breakfast, brunch, drinks, sweet) then category.",
+   "price_source": "Board photo or app; small menus often fully typed from photos.",
+   "pairs_with": [
+    "cosy",
+    "playful",
+    "calm"
+   ],
+   "references": [
+    {
+     "url": "https://www.gailsbread.co.uk",
+     "note": "daylight bakery-cafe site, photo-led (reasoned)"
+    }
+   ],
+   "why_grouped": "Food plus coffee, daytime. Brunch/breakfast/pancake have the same visual logic as cafe (plated food in daylight)."
+  },
+  {
+   "id": "thai",
+   "rank": 4,
+   "label": "Thai restaurant",
+   "nosite_total": 9057,
+   "nosite_by_city": {
+    "da-nang": 31,
+    "ho-chi-minh": 202,
+    "bangkok": 8771,
+    "london": 53
+   },
+   "top_score": 24.72,
+   "rows": 1,
+   "gcids": [
+    "thai_restaurant"
+   ],
+   "photo_lead": [
+    "dish close-ups (curries, noodles)",
+    "street counter / open wok",
+    "interior"
+   ],
+   "photo_slots": "dish close-up -> hero; open wok or street counter -> about; interior -> atmosphere",
+   "palette_schemes": "Vibrant or Expressive (chilli red, lime, gold); Fidelity for premium dining rooms.",
+   "ground": "light for street; dark for premium",
+   "type_bias": "T6 or T2 for street; T3 for premium; Thai script needs a Thai-capable fallback (not in T1–T6 guarantee: add to type check).",
+   "voice": "Direct and flavour-first; heat level is a feature.",
+   "phrases": [
+    {
+     "vi": "{dish} cay vừa hoặc cay nhiều, tại {name}",
+     "en": "{dish}, made to your spice level, at {name}"
+    },
+    {
+     "vi": "Ăn tại chỗ hoặc mang đi: {hours}",
+     "en": "Dine in or take away: {hours}"
+    },
+    {
+     "vi": "{rating} sao – {n_reviews} đánh giá",
+     "en": "{rating} stars, {n_reviews} reviews"
+    }
+   ],
+   "extra_slot": "Spice-level selector on dish cards (only when the menu data lists it); else none.",
+   "menu_shape": "By dish type (curries, stir-fries, noodles, rice, salads); sets for groups.",
+   "price_source": "Delivery app (LINE MAN/Grab) in Bangkok; board photo for street.",
+   "pairs_with": [
+    "street",
+    "lively",
+    "premium"
+   ],
+   "references": [
+    {
+     "url": "https://www.thaitable.co.uk",
+     "note": "Thai restaurant site, dish-led (reasoned)"
+    },
+    {
+     "url": "https://www.rosasthaicafe.com",
+     "note": "Thai cafe group, reachable 7 Oct"
+    }
+   ],
+   "why_grouped": "The 4th largest single row, almost all Bangkok. Thai in Bangkok means everything from street stalls to dinner rooms; skin leans on dish colour and heat."
+  },
+  {
+   "id": "pub-bar-nightlife",
+   "rank": 5,
+   "label": "Bar, pub and nightlife (bar, pub, bar and grill, brewery, sports, queer, salsa)",
+   "nosite_total": 5197,
+   "nosite_by_city": {
+    "da-nang": 292,
+    "ho-chi-minh": 876,
+    "bangkok": 2594,
+    "london": 1435
+   },
+   "top_score": 13.23,
+   "rows": 11,
+   "gcids": [
+    "bar",
+    "pub",
+    "bar_and_grill",
+    "queer_bar",
+    "salsa_bar",
+    "gastropub",
+    "brewery",
+    "sports_bar",
+    "gay_bar",
+    "dance_restaurant",
+    "brewpub"
+   ],
+   "photo_lead": [
+    "interior at night",
+    "drinks/taps",
+    "people/crowd",
+    "events/DJ"
+   ],
+   "photo_slots": "night interior -> hero; taps/drinks -> menu cards; crowd/event -> events strip; exterior sign -> visit",
+   "palette_schemes": "Vibrant or Rainbow on dark; Expressive for playful venues.",
+   "ground": "dark",
+   "type_bias": "T2 or T6 (condensed, loud); T4 if playful.",
+   "voice": "Short, loud, specific: what is on tonight.",
+   "phrases": [
+    {
+     "vi": "Đêm nay tại {name}: {event}",
+     "en": "Tonight at {name}: {event}"
+    },
+    {
+     "vi": "Happy hour {happy_hours}",
+     "en": "Happy hour {happy_hours}"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    }
+   ],
+   "extra_slot": "Happy hour + events strip (only if hours/events exist in data); else none.",
+   "menu_shape": "By drink type (beer, cocktails, spirits, bites); bar bites last.",
+   "price_source": "Board photo; rarely on apps.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "playful"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Beer-and-night venues. Cocktail/wine/lounge split off because they are premium and photo-led; this group is volume and events."
+  },
+  {
+   "id": "fast-food-burger-chicken",
+   "rank": 6,
+   "label": "Fast food, burgers and fried chicken",
+   "nosite_total": 4500,
+   "nosite_by_city": {
+    "da-nang": 242,
+    "ho-chi-minh": 1069,
+    "bangkok": 2567,
+    "london": 622
+   },
+   "top_score": 15.74,
+   "rows": 4,
+   "gcids": [
+    "fast_food_restaurant",
+    "chicken_restaurant",
+    "hamburger_restaurant",
+    "fish_and_chips_restaurant"
+   ],
+   "photo_lead": [
+    "product shots (burger, bucket)",
+    "counter",
+    "exterior"
+   ],
+   "photo_slots": "product shot -> hero; combo shots -> menu cards; counter/exterior -> visit",
+   "palette_schemes": "Vibrant or Rainbow (primary red/yellow); Expressive for playful.",
+   "ground": "light, saturated",
+   "type_bias": "T6 (heavy grotesk) or T4.",
+   "voice": "Fast: item, price, order.",
+   "phrases": [
+    {
+     "vi": "Combo {combo} chỉ {price}",
+     "en": "{combo} combo, {price}"
+    },
+    {
+     "vi": "Giao tận nơi trong {area}",
+     "en": "Delivery across {area}"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    }
+   ],
+   "extra_slot": "Delivery-first: order buttons (Grab/ShopeeFood/LINE MAN/own phone) above the fold; menu below.",
+   "menu_shape": "By combos then single items then sides/drinks.",
+   "price_source": "Delivery app almost always: pull prices from it.",
+   "pairs_with": [
+    "street",
+    "playful",
+    "lively"
+   ],
+   "references": [
+    {
+     "url": "https://www.honestburgers.co.uk",
+     "note": "burger brand; order-first (403 to curl, not read)"
+    }
+   ],
+   "why_grouped": "Delivery-first formats: fast food, fried chicken, burgers, fish and chips (takeaway). The site is a menu plus an order button."
+  },
+  {
+   "id": "diner-eatery",
+   "rank": 7,
+   "label": "Local eatery / diner (diner, cơm quán, family, lunch, takeout)",
+   "nosite_total": 3760,
+   "nosite_by_city": {
+    "da-nang": 633,
+    "ho-chi-minh": 2805,
+    "bangkok": 307,
+    "london": 15
+   },
+   "top_score": 22.34,
+   "rows": 7,
+   "gcids": [
+    "diner",
+    "family_restaurant",
+    "lunch_restaurant",
+    "meal_delivery",
+    "porridge_restaurant",
+    "rice_restaurant",
+    "meal_takeaway"
+   ],
+   "photo_lead": [
+    "tray/plate of the day",
+    "counter/display",
+    "street frontage"
+   ],
+   "photo_slots": "plate/tray -> hero; counter display -> menu; frontage -> visit (people find these by the street)",
+   "palette_schemes": "TonalSpot, Neutral; Vibrant for loud street spots.",
+   "ground": "light",
+   "type_bias": "T5 or T6; T1 for family feel.",
+   "voice": "Home-cooked and daily: what is on today.",
+   "phrases": [
+    {
+     "vi": "Hôm nay có: {dish}, {dish2}",
+     "en": "On today: {dish}, {dish2}"
+    },
+    {
+     "vi": "Cơm trưa {price}",
+     "en": "Lunch plate {price}"
+    },
+    {
+     "vi": "Gần {landmark}, mở {hours}",
+     "en": "Near {landmark}, open {hours}"
+    }
+   ],
+   "extra_slot": "Daily specials strip only if the owner supplies it; else none.",
+   "menu_shape": "By set/plate then sides; rotating daily.",
+   "price_source": "Board photo, hand-written menu board (needs OCR); few apps.",
+   "pairs_with": [
+    "street",
+    "cosy",
+    "calm"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Surprising: \"Diner\" (3,760) in Vietnam and Thailand is the neighbourhood eatery (rice plates, set lunches), not an American diner. Merges family, lunch, rice, porridge, takeout, meal delivery."
+  },
+  {
+   "id": "noodle-house",
+   "rank": 8,
+   "label": "Noodle house (ramen, udon, soba, Chinese noodles, soup)",
+   "nosite_total": 3288,
+   "nosite_by_city": {
+    "da-nang": 58,
+    "ho-chi-minh": 205,
+    "bangkok": 3019,
+    "london": 6
+   },
+   "top_score": 21.79,
+   "rows": 10,
+   "gcids": [
+    "ramen_restaurant",
+    "soup_restaurant",
+    "chinese_noodle_restaurant",
+    "champon_noodle_restaurant",
+    "cold_noodle_restaurant",
+    "dan_dan_noodle_restaurant",
+    "noodle_shop",
+    "soba_noodle_shop",
+    "udon_noodle_shop",
+    "yakisoba_restaurant"
+   ],
+   "photo_lead": [
+    "bowl close-up (steam)",
+    "open kitchen/counter",
+    "interior (counter seats)"
+   ],
+   "photo_slots": "bowl -> hero and each menu card; open kitchen/counter -> about; counter seats -> atmosphere",
+   "palette_schemes": "Vibrant or Fidelity; Monochrome for premium ramen bars.",
+   "ground": "dark for ramen/izakaya feel; light for Chinese noodle",
+   "type_bias": "T2 or T6 (condensed/heavy); T3 for premium.",
+   "voice": "Broth-first, minimal: base, bowl, extras.",
+   "phrases": [
+    {
+     "vi": "{broth} – nước dùng ninh {hours_simmer}",
+     "en": "{broth}, simmered for {hours_simmer}"
+    },
+    {
+     "vi": "Thêm topping: {topping}",
+     "en": "Add: {topping}"
+    },
+    {
+     "vi": "{n_seats} chỗ ngồi tại quầy",
+     "en": "{n_seats} counter seats"
+    }
+   ],
+   "extra_slot": "Base + toppings builder (only if toppings listed); else none.",
+   "menu_shape": "By base/broth, then toppings and sides.",
+   "price_source": "Board photo or app; fixed bowl prices common.",
+   "pairs_with": [
+    "street",
+    "premium",
+    "lively"
+   ],
+   "references": [
+    {
+     "url": "https://www.ippudo.com",
+     "note": "ramen chain, bowl-led (reachable 7 Oct)"
+    },
+    {
+     "url": "https://www.wagamama.com",
+     "note": "noodle bowl brand"
+    }
+   ],
+   "why_grouped": "Merged on one logic: a bowl hero, a short menu by base/broth, toppings as modifiers. Ramen is the largest row (3,073). Pho stays in Vietnamese because its site looks and sounds different."
+  },
+  {
+   "id": "vietnamese",
+   "rank": 9,
+   "label": "Vietnamese restaurant (incl. pho, country food)",
+   "nosite_total": 2637,
+   "nosite_by_city": {
+    "da-nang": 436,
+    "ho-chi-minh": 1943,
+    "bangkok": 219,
+    "london": 39
+   },
+   "top_score": 21.32,
+   "rows": 3,
+   "gcids": [
+    "vietnamese_restaurant",
+    "country_food_restaurant",
+    "pho_restaurant"
+   ],
+   "photo_lead": [
+    "dish close-ups (bún, phở, cơm)",
+    "family table",
+    "market/ingredient shots"
+   ],
+   "photo_slots": "dish -> hero; table scene -> atmosphere; ingredients -> about",
+   "palette_schemes": "TonalSpot (herb green, chilli red), Fidelity.",
+   "ground": "light",
+   "type_bias": "T1 or T5; diacritics are the first check (full Vietnamese).",
+   "voice": "Home and place: the dish, the region, the family.",
+   "phrases": [
+    {
+     "vi": "{dish} theo cách {region}",
+     "en": "{dish}, the {region} way"
+    },
+    {
+     "vi": "Bàn {n_seats} chỗ, đặt trước {phone}",
+     "en": "Tables for {n_seats}, book on {phone}"
+    },
+    {
+     "vi": "{n_reviews} khách đã ghé",
+     "en": "{n_reviews} guests have visited"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By dish type (khai vị, món chính, canh, cơm, đồ uống).",
+   "price_source": "Board photo or Grab/ShopeeFood.",
+   "pairs_with": [
+    "cosy",
+    "calm",
+    "street"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Local cuisine in DN and HCM. Includes pho and country food (món quê) because the table and the menu logic are the same."
+  },
+  {
+   "id": "bakery-pastry",
+   "rank": 10,
+   "label": "Bakery and pastry",
+   "nosite_total": 2583,
+   "nosite_by_city": {
+    "da-nang": 222,
+    "ho-chi-minh": 848,
+    "bangkok": 1243,
+    "london": 270
+   },
+   "top_score": 18.42,
+   "rows": 2,
+   "gcids": [
+    "bakery",
+    "chinese_pastry"
+   ],
+   "photo_lead": [
+    "display case",
+    "product close-ups (bread, cakes)",
+    "people at counter"
+   ],
+   "photo_slots": "display case -> hero; product close-ups -> cards; baker -> about",
+   "palette_schemes": "TonalSpot or Content (warm neutrals); Expressive for cake shops.",
+   "ground": "light",
+   "type_bias": "T1 or T4.",
+   "voice": "Fresh and made-by-hand: the bake, the hour.",
+   "phrases": [
+    {
+     "vi": "Ra lò mỗi sáng lúc {bake_time}",
+     "en": "Out of the oven daily at {bake_time}"
+    },
+    {
+     "vi": "Đặt bánh trước {lead_days} ngày",
+     "en": "Order cakes {lead_days} days ahead"
+    },
+    {
+     "vi": "{dish} – bán chạy nhất",
+     "en": "{dish}, the best seller"
+    }
+   ],
+   "extra_slot": "Pre-order form for cakes (date, size, message), only if the business takes custom orders.",
+   "menu_shape": "By product (bread, pastry, cake) with a custom-order section.",
+   "price_source": "Board photo, Facebook posts, sometimes Zalo.",
+   "pairs_with": [
+    "cosy",
+    "playful",
+    "calm"
+   ],
+   "references": [
+    {
+     "url": "https://www.gailsbakery.com",
+     "note": "bakery brand site (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "Case-led: photos of the display. Pre-order cakes is the money slot."
+  },
+  {
+   "id": "bubble-tea",
+   "rank": 11,
+   "label": "Bubble tea and drink stand",
+   "nosite_total": 2576,
+   "nosite_by_city": {
+    "da-nang": 201,
+    "ho-chi-minh": 1541,
+    "bangkok": 797,
+    "london": 37
+   },
+   "top_score": 10.02,
+   "rows": 1,
+   "gcids": [
+    "bubble_tea_store"
+   ],
+   "photo_lead": [
+    "drink cup close-ups",
+    "storefront/counter",
+    "menu board"
+   ],
+   "photo_slots": "cup shots -> hero and cards; counter -> about; menu board -> OCR source",
+   "palette_schemes": "Expressive, FruitSalad (candy palette), Vibrant.",
+   "ground": "light, saturated",
+   "type_bias": "T4 or T6.",
+   "voice": "Playful and short: flavour names, sizes.",
+   "phrases": [
+    {
+     "vi": "{drink} – chọn đường, đá, topping",
+     "en": "{drink}: choose sugar, ice and toppings"
+    },
+    {
+     "vi": "Size M {price_m} · Size L {price_l}",
+     "en": "Size M {price_m} · Size L {price_l}"
+    },
+    {
+     "vi": "Giao qua {app}",
+     "en": "Delivery via {app}"
+    }
+   ],
+   "extra_slot": "Toppings builder (size, sugar, ice, toppings) if the menu has toppings.",
+   "menu_shape": "By drink type (milk tea, fruit tea, cheese foam, smoothies) + toppings list.",
+   "price_source": "Delivery app most often; board photo for stands.",
+   "pairs_with": [
+    "playful",
+    "lively",
+    "street"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Order-and-go with toppings: a builder UI more than a menu. 2,576 no-site, mostly HCM and Bangkok."
+  },
+  {
+   "id": "japanese",
+   "rank": 12,
+   "label": "Japanese (restaurant, regional, donburi, tonkatsu, tempura, curry, teishoku)",
+   "nosite_total": 2479,
+   "nosite_by_city": {
+    "da-nang": 49,
+    "ho-chi-minh": 367,
+    "bangkok": 1997,
+    "london": 66
+   },
+   "top_score": 26.22,
+   "rows": 27,
+   "gcids": [
+    "japanese_restaurant",
+    "japanese_authentic_restaurant",
+    "japanese_curry_restaurant",
+    "japanese_regional_restaurant",
+    "japanized_western_food_restaurant",
+    "macrobiotic_restaurant",
+    "miso_cutlet_restaurant",
+    "dojo_restaurant",
+    "monja_restaurant",
+    "oden_restaurant",
+    "okonomiyaki_restaurant",
+    "donburi_dishes",
+    "beef_rice_bowl_restaurant",
+    "pork_cutlet_rice_bowl_restaurant",
+    "japanese_high_quality_restaurant",
+    "teppan_grill_restaurant",
+    "unagi_restaurant",
+    "seafood_donburi",
+    "casual_japanese_style_restaurant",
+    "takoyaki_stand",
+    "tempura_bowl_restaurants",
+    "tempura_dish_restaurant",
+    "tonkatsu_restaurant",
+    "japanese_sweets_restaurant",
+    "anago_restaurant",
+    "kaiseki_restaurant",
+    "kyoto_cuisine_restaurant"
+   ],
+   "photo_lead": [
+    "plated dishes (top-down)",
+    "interior (wood, counter)",
+    "chef/open kitchen"
+   ],
+   "photo_slots": "plated dish -> hero; chef/kitchen -> about; interior -> atmosphere",
+   "palette_schemes": "Monochrome or Fidelity (ink, wood, one red accent); Neutral for calm.",
+   "ground": "light for casual; dark for ryotei/kaiseki",
+   "type_bias": "T3 or T5; T1 for casual. Needs Japanese-capable fallback if the owner uses kanji.",
+   "voice": "Precise and quiet: ingredient, technique, season.",
+   "phrases": [
+    {
+     "vi": "{dish} – {ingredient} theo mùa",
+     "en": "{dish}, with seasonal {ingredient}"
+    },
+    {
+     "vi": "Set trưa {price}",
+     "en": "Lunch set {price}"
+    },
+    {
+     "vi": "{n_seats} chỗ ngồi, đặt bàn {phone}",
+     "en": "{n_seats} seats, reserve on {phone}"
+    }
+   ],
+   "extra_slot": "Set menus (course price, what is included) when the data has sets.",
+   "menu_shape": "By dish family (don, katsu, tempura, sets) with sets first.",
+   "price_source": "Board or delivery app; set menus on a photo.",
+   "pairs_with": [
+    "premium",
+    "calm",
+    "cosy"
+   ],
+   "references": [
+    {
+     "url": "https://www.nobu.com",
+     "note": "premium Japanese, photo-led (reachable 7 Oct)"
+    },
+    {
+     "url": "https://www.wagamama.com",
+     "note": "casual Japanese-inspired"
+    }
+   ],
+   "why_grouped": "All the Japanese sit-down formats except sushi, noodles and izakaya. Menu is by dish family; the photo story is plated dishes and clean interiors."
+  },
+  {
+   "id": "dessert-ice-cream",
+   "rank": 13,
+   "label": "Dessert and ice cream",
+   "nosite_total": 2235,
+   "nosite_by_city": {
+    "da-nang": 85,
+    "ho-chi-minh": 389,
+    "bangkok": 1677,
+    "london": 84
+   },
+   "top_score": 13.04,
+   "rows": 7,
+   "gcids": [
+    "dessert_shop",
+    "ice_cream_shop",
+    "berry_restaurant",
+    "cendol_restaurant",
+    "chocolate_cafe",
+    "dessert_restaurant",
+    "sundae_restaurant"
+   ],
+   "photo_lead": [
+    "dessert macro shots",
+    "flavour display",
+    "interior"
+   ],
+   "photo_slots": "macro shot -> hero; flavour tubs -> cards; interior -> atmosphere",
+   "palette_schemes": "Expressive, FruitSalad; Content for pastel shops.",
+   "ground": "light, pastel",
+   "type_bias": "T4 (rounded) or T1.",
+   "voice": "Sweet and visual: names of flavours, not adjectives.",
+   "phrases": [
+    {
+     "vi": "{flavour}, {flavour2}, {flavour3} – đổi vị mỗi tuần",
+     "en": "{flavour}, {flavour2}, {flavour3}: flavours change weekly"
+    },
+    {
+     "vi": "Ly {size}: {price}",
+     "en": "{size} cup: {price}"
+    },
+    {
+     "vi": "Thêm topping: {topping}",
+     "en": "Add: {topping}"
+    }
+   ],
+   "extra_slot": "Toppings/flavour builder when the data has toppings.",
+   "menu_shape": "By product (cup, cone, sundae) then toppings/flavours.",
+   "price_source": "Board photo or app.",
+   "pairs_with": [
+    "playful",
+    "cosy",
+    "lively"
+   ],
+   "references": [
+    {
+     "url": "https://www.hotelchocolat.com",
+     "note": "chocolate brand, macro-led (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "Dessert shops, ice cream, sundae, chè/cendol, chocolate cafe. Same macro-shots of sweet things and a flavour list."
+  },
+  {
+   "id": "chinese",
+   "rank": 14,
+   "label": "Chinese (regional, dim sum, dumplings, delivery)",
+   "nosite_total": 2014,
+   "nosite_by_city": {
+    "da-nang": 61,
+    "ho-chi-minh": 475,
+    "bangkok": 1279,
+    "london": 199
+   },
+   "top_score": 20.36,
+   "rows": 18,
+   "gcids": [
+    "chinese_restaurant",
+    "dim_sum_restaurant",
+    "taiwanese_restaurant",
+    "dumpling_restaurant",
+    "delivery_chinese_restaurant",
+    "cantonese_restaurant",
+    "fu_jian_restaurant",
+    "hakka_restaurant",
+    "hunan_style_restaurant",
+    "jiang_su_restaurant",
+    "mandarin_restaurant",
+    "gui_zhou_restaurant",
+    "hong_kong_style_fast_food_restaurant",
+    "shan_dong_restaurant",
+    "shanghainese_restaurant",
+    "sichuan_restaurant",
+    "wok_restaurant",
+    "zhe_jiang_restaurant"
+   ],
+   "photo_lead": [
+    "dish close-ups (shared plates)",
+    "round table with group",
+    "interior (lanterns)"
+   ],
+   "photo_slots": "dish -> hero; group table -> atmosphere; dumpling/dim sum steamers -> gallery",
+   "palette_schemes": "Vibrant or Fidelity (red/gold); Monochrome for upscale.",
+   "ground": "light for casual; dark for banquet",
+   "type_bias": "T3 for upscale; T6/T5 for casual. Needs Chinese-capable fallback if the owner supplies it.",
+   "voice": "Generous and shared: dishes for the table.",
+   "phrases": [
+    {
+     "vi": "{dish} cho nhóm {n_people} người",
+     "en": "{dish} for a group of {n_people}"
+    },
+    {
+     "vi": "Dim sum mỗi ngày từ {open}",
+     "en": "Dim sum daily from {open}"
+    },
+    {
+     "vi": "Đặt bàn nhóm: {phone}",
+     "en": "Group booking: {phone}"
+    }
+   ],
+   "extra_slot": "Group booking (party size, date) when the venue has large tables.",
+   "menu_shape": "By category and numbered dishes; set menus for groups.",
+   "price_source": "Board photo, app, or none.",
+   "pairs_with": [
+    "lively",
+    "premium",
+    "street"
+   ],
+   "references": [
+    {
+     "url": "https://www.dintaifung.com.tw",
+     "note": "dumpling brand, open-kitchen proof (reachable 7 Oct)"
+    },
+    {
+     "url": "https://www.chinatown.com",
+     "note": "reachable; reasoned only"
+    }
+   ],
+   "why_grouped": "Chinese incl. Cantonese, dim sum, dumplings, Taiwanese and the sub-regional cuisines. Menu is long and numbered; round-table groups matter."
+  },
+  {
+   "id": "seafood",
+   "rank": 15,
+   "label": "Seafood",
+   "nosite_total": 1846,
+   "nosite_by_city": {
+    "da-nang": 293,
+    "ho-chi-minh": 793,
+    "bangkok": 719,
+    "london": 41
+   },
+   "top_score": 20.58,
+   "rows": 3,
+   "gcids": [
+    "seafood_restaurant",
+    "oyster_bar_restaurant",
+    "angler_fish_restaurant"
+   ],
+   "photo_lead": [
+    "catch / tank / live display",
+    "dish close-ups",
+    "outdoor seating"
+   ],
+   "photo_slots": "catch/tank -> hero; cooked dish -> cards; seating by the sea -> atmosphere",
+   "palette_schemes": "Vibrant or Fidelity (sea blue, coral); TonalSpot.",
+   "ground": "light, outdoor feel",
+   "type_bias": "T6 or T1.",
+   "voice": "Fresh today, priced by weight.",
+   "phrases": [
+    {
+     "vi": "Hải sản tươi sống, giá theo {unit}",
+     "en": "Live seafood, priced by {unit}"
+    },
+    {
+     "vi": "{dish} – chế biến theo yêu cầu",
+     "en": "{dish}, cooked to order"
+    },
+    {
+     "vi": "Bàn ngoài trời {n_seats} chỗ",
+     "en": "{n_seats} outdoor seats"
+    }
+   ],
+   "extra_slot": "Price-by-weight table / live-catch list only if prices exist; else none.",
+   "menu_shape": "By seafood type (fish, crab, shrimp, shellfish) then cooking method.",
+   "price_source": "Board photo; prices change daily so mark them as a guide.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Seafood restaurants in DN/HCM and Bangkok are price-by-weight and tank-led. The photo of the tank or catch is the hero."
+  },
+  {
+   "id": "vegetarian-healthy",
+   "rank": 16,
+   "label": "Vegetarian, healthy and organic",
+   "nosite_total": 1082,
+   "nosite_by_city": {
+    "da-nang": 138,
+    "ho-chi-minh": 622,
+    "bangkok": 274,
+    "london": 48
+   },
+   "top_score": 17.04,
+   "rows": 7,
+   "gcids": [
+    "vegetarian_restaurant",
+    "health_food_store",
+    "health_food_restaurant",
+    "organic_restaurant",
+    "raw_food_restaurant",
+    "tofu_restaurant",
+    "organic_food_store"
+   ],
+   "photo_lead": [
+    "bowls and plates (green)",
+    "ingredients",
+    "interior (plants)"
+   ],
+   "photo_slots": "bowl -> hero; ingredients -> about; interior -> atmosphere",
+   "palette_schemes": "Neutral or TonalSpot (greens); Content.",
+   "ground": "light",
+   "type_bias": "T5 or T1.",
+   "voice": "Calm and honest: ingredients, no promises about health.",
+   "phrases": [
+    {
+     "vi": "Món chay từ {ingredient} tươi",
+     "en": "Plant-based dishes from fresh {ingredient}"
+    },
+    {
+     "vi": "Thực đơn chay đầy đủ",
+     "en": "Full vegetarian menu"
+    },
+    {
+     "vi": "Mở cửa {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "none (dietary tags only if on the menu)",
+   "menu_shape": "By meal type; products by shelf for stores.",
+   "price_source": "Board photo, app.",
+   "pairs_with": [
+    "calm",
+    "cosy",
+    "playful"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Strong in VN (Buddhist vegetarian) and Bangkok; includes health food stores and organic food stores as product lists."
+  },
+  {
+   "id": "indian-south-asian",
+   "rank": 17,
+   "label": "Indian and South Asian (incl. halal, haleem, biryani, Pakistani)",
+   "nosite_total": 980,
+   "nosite_by_city": {
+    "da-nang": 62,
+    "ho-chi-minh": 202,
+    "bangkok": 546,
+    "london": 170
+   },
+   "top_score": 16.89,
+   "rows": 38,
+   "gcids": [
+    "indian_restaurant",
+    "haleem_restaurant",
+    "halal_restaurant",
+    "pakistani_restaurant",
+    "afghani_restaurant",
+    "bangladeshi_restaurant",
+    "sri_lankan_restaurant",
+    "nepalese_restaurant",
+    "bengali_restaurant",
+    "biryani_restaurant",
+    "gujarati_restaurant",
+    "hyderabadi_restaurant",
+    "indian_muslim_restaurant",
+    "indian_sizzler_restaurant",
+    "modern_indian_restaurant",
+    "mughlai_restaurant",
+    "non_vegetarian_restaurant",
+    "north_indian_restaurant",
+    "assamese_restaurant",
+    "awadhi_restaurant",
+    "chettinad_restaurtant",
+    "goan_restaurant",
+    "kalle_pache_restaurant",
+    "karnataka_restaurant",
+    "kashmiri_restaurant",
+    "kerala_restaurant",
+    "konkani_restaurant",
+    "marathi_restaurant",
+    "north_eastern_indian_restaurant",
+    "odia_restaurant",
+    "parsi_restaurant",
+    "tiffin_center",
+    "momo_restaurant",
+    "punjabi_restaurant",
+    "rajasthani_restaurant",
+    "south_asia_restaurant",
+    "south_indian_restaurant",
+    "tibetan_restaurant"
+   ],
+   "photo_lead": [
+    "curry and bread (top-down)",
+    "tandoor/open kitchen",
+    "interior"
+   ],
+   "photo_slots": "curry -> hero; tandoor -> about; interior -> atmosphere",
+   "palette_schemes": "Vibrant or Expressive (saffron, red); Fidelity for premium.",
+   "ground": "dark or light",
+   "type_bias": "T6 or T1; Devanagari fallback optional.",
+   "voice": "Rich and warm: spice, tandoor, the table.",
+   "phrases": [
+    {
+     "vi": "{dish} – cay vừa, cay nhiều",
+     "en": "{dish}, mild or hot"
+    },
+    {
+     "vi": "Halal: {halal_note}",
+     "en": "Halal: {halal_note}"
+    },
+    {
+     "vi": "Giao hàng trong {area}",
+     "en": "Delivery in {area}"
+    }
+   ],
+   "extra_slot": "Delivery-first when an app listing exists; halal badge only if the data says so.",
+   "menu_shape": "By course (starters, curries, breads, biryani).",
+   "price_source": "Delivery app or board photo.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "premium"
+   ],
+   "references": [
+    {
+     "url": "https://www.dishoom.com",
+     "note": "Indian cafe brand, story-led (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "38 rows folded together because the site pattern is the same: curry-and-bread menu, halal cue, delivery. Halal and haleem are the biggest rows."
+  },
+  {
+   "id": "steakhouse",
+   "rank": 18,
+   "label": "Steakhouse and meat dishes (steak, chophouse)",
+   "nosite_total": 933,
+   "nosite_by_city": {
+    "da-nang": 10,
+    "ho-chi-minh": 65,
+    "bangkok": 849,
+    "london": 9
+   },
+   "top_score": 19.01,
+   "rows": 4,
+   "gcids": [
+    "steak_house",
+    "chophouse_restaurant",
+    "meat_restaurant",
+    "cheesesteak_restaurant"
+   ],
+   "photo_lead": [
+    "steak on the plate",
+    "interior (dark)",
+    "chef/grill"
+   ],
+   "photo_slots": "steak -> hero; interior -> atmosphere; grill -> about",
+   "palette_schemes": "Monochrome or Fidelity (charcoal, ember).",
+   "ground": "dark",
+   "type_bias": "T3 or T6.",
+   "voice": "Confident and plain: cut, weight, temperature.",
+   "phrases": [
+    {
+     "vi": "{cut} {weight}g, nướng {doneness}",
+     "en": "{cut} {weight}g, cooked {doneness}"
+    },
+    {
+     "vi": "Đặt bàn {phone}",
+     "en": "Reserve on {phone}"
+    },
+    {
+     "vi": "Rượu vang theo ly",
+     "en": "Wine by the glass"
+    }
+   ],
+   "extra_slot": "Reservations, optional.",
+   "menu_shape": "By course; steaks by cut and weight.",
+   "price_source": "Menu photo/PDF; rarely apps.",
+   "pairs_with": [
+    "premium",
+    "lively",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Dinner, premium, sometimes group. Photos of cuts and interiors."
+  },
+  {
+   "id": "korean",
+   "rank": 19,
+   "label": "Korean (non-BBQ)",
+   "nosite_total": 932,
+   "nosite_by_city": {
+    "da-nang": 97,
+    "ho-chi-minh": 312,
+    "bangkok": 484,
+    "london": 39
+   },
+   "top_score": 18.56,
+   "rows": 2,
+   "gcids": [
+    "korean_restaurant",
+    "soondae_restaurant"
+   ],
+   "photo_lead": [
+    "bubbling stews",
+    "banchan spread",
+    "interior"
+   ],
+   "photo_slots": "stew -> hero; banchan -> gallery; interior -> atmosphere",
+   "palette_schemes": "Vibrant or Rainbow; Expressive for playful.",
+   "ground": "light or dark",
+   "type_bias": "T6 or T4; Korean fallback is already required by the engine.",
+   "voice": "Hearty, sharing, hot.",
+   "phrases": [
+    {
+     "vi": "{dish} sôi sùng sục",
+     "en": "{dish}, still bubbling"
+    },
+    {
+     "vi": "Kèm {n_banchan} món ăn kèm",
+     "en": "With {n_banchan} side dishes"
+    },
+    {
+     "vi": "Đặt bàn nhóm {phone}",
+     "en": "Group booking {phone}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By dish type (stews, rice, noodles, sets).",
+   "price_source": "Board or app.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "playful"
+   ],
+   "references": [
+    {
+     "url": "https://www.kimchee.co",
+     "note": "not reachable; reasoned"
+    }
+   ],
+   "why_grouped": "Korean stews, rice, fried chicken, soondae. BBQ is its own skin; this one is stews and one-dish meals."
+  },
+  {
+   "id": "tea-house",
+   "rank": 20,
+   "label": "Tea house",
+   "nosite_total": 896,
+   "nosite_by_city": {
+    "da-nang": 97,
+    "ho-chi-minh": 456,
+    "bangkok": 310,
+    "london": 33
+   },
+   "top_score": 14.66,
+   "rows": 2,
+   "gcids": [
+    "tea_house",
+    "chinese_tea_house"
+   ],
+   "photo_lead": [
+    "tea service",
+    "interior (still)",
+    "tea leaves/craft"
+   ],
+   "photo_slots": "tea service -> hero; interior -> atmosphere; leaves -> about",
+   "palette_schemes": "Neutral or Monochrome (celadon, ink).",
+   "ground": "light, desaturated",
+   "type_bias": "T3 or T5.",
+   "voice": "Calm and unhurried.",
+   "phrases": [
+    {
+     "vi": "Trà {tea}, pha tại bàn",
+     "en": "{tea}, brewed at your table"
+    },
+    {
+     "vi": "Phòng trà, {n_seats} chỗ",
+     "en": "Tea room, {n_seats} seats"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By tea type (green, oolong, black), with a short snack list.",
+   "price_source": "Board photo.",
+   "pairs_with": [
+    "calm",
+    "premium",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Quiet tea rooms. Different from bubble tea: calm, ritual, slower."
+  },
+  {
+   "id": "sandwich-deli",
+   "rank": 21,
+   "label": "Sandwich, deli and snack (incl. bánh mì style)",
+   "nosite_total": 868,
+   "nosite_by_city": {
+    "da-nang": 33,
+    "ho-chi-minh": 90,
+    "bangkok": 614,
+    "london": 131
+   },
+   "top_score": 9.43,
+   "rows": 7,
+   "gcids": [
+    "deli",
+    "sandwich_shop",
+    "snack_bar",
+    "hoagie_restaurant",
+    "po_boys_restaurant",
+    "toast_restaurant",
+    "vegetarian_cafe_and_deli"
+   ],
+   "photo_lead": [
+    "product close-ups",
+    "counter",
+    "packaging"
+   ],
+   "photo_slots": "product -> hero; counter -> about; packaging -> gallery",
+   "palette_schemes": "Vibrant or TonalSpot.",
+   "ground": "light",
+   "type_bias": "T6 or T5.",
+   "voice": "Grab-and-go, honest: fillings.",
+   "phrases": [
+    {
+     "vi": "{dish} với {filling}",
+     "en": "{dish} with {filling}"
+    },
+    {
+     "vi": "Đặt trước cho văn phòng",
+     "en": "Pre-order for offices"
+    },
+    {
+     "vi": "Mở từ {open}",
+     "en": "Open from {open}"
+    }
+   ],
+   "extra_slot": "Pre-order for groups, optional.",
+   "menu_shape": "By item then fillings/sides.",
+   "price_source": "Board or app.",
+   "pairs_with": [
+    "street",
+    "playful",
+    "lively"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Counter-led takeaway: items by filling, order-ahead for offices."
+  },
+  {
+   "id": "cocktail-wine-lounge",
+   "rank": 22,
+   "label": "Cocktail, wine and lounge",
+   "nosite_total": 855,
+   "nosite_by_city": {
+    "da-nang": 53,
+    "ho-chi-minh": 251,
+    "bangkok": 303,
+    "london": 248
+   },
+   "top_score": 7.37,
+   "rows": 5,
+   "gcids": [
+    "cocktail_bar",
+    "lounge",
+    "wine_bar",
+    "tapas_bar",
+    "hookah_bar"
+   ],
+   "photo_lead": [
+    "drink close-ups (moody)",
+    "interior",
+    "bartender"
+   ],
+   "photo_slots": "drink -> hero; interior -> atmosphere; bartender -> about",
+   "palette_schemes": "Monochrome or Fidelity (dark, brass).",
+   "ground": "dark",
+   "type_bias": "T3 or T5.",
+   "voice": "Understated and precise: the pour, the room.",
+   "phrases": [
+    {
+     "vi": "{cocktail} – {ingredients}",
+     "en": "{cocktail}: {ingredients}"
+    },
+    {
+     "vi": "Đặt bàn cho {n_people} người",
+     "en": "Reserve for {n_people}"
+    },
+    {
+     "vi": "Happy hour {happy_hours}",
+     "en": "Happy hour {happy_hours}"
+    }
+   ],
+   "extra_slot": "Reservations plus events/happy hour.",
+   "menu_shape": "By drink type (signature, classic, wine, bites).",
+   "price_source": "Menu photo; rarely apps.",
+   "pairs_with": [
+    "premium",
+    "calm",
+    "lively"
+   ],
+   "references": [
+    {
+     "url": "https://www.sushisamba.com",
+     "note": "premium bar-restaurant (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "Premium bars: photo-led, dark, reservations."
+  },
+  {
+   "id": "bbq-grill",
+   "rank": 23,
+   "label": "BBQ and grill (Korean BBQ, yakiniku, barbecue, satay, mutton, offal BBQ)",
+   "nosite_total": 823,
+   "nosite_by_city": {
+    "da-nang": 82,
+    "ho-chi-minh": 259,
+    "bangkok": 455,
+    "london": 27
+   },
+   "top_score": 18.22,
+   "rows": 14,
+   "gcids": [
+    "barbecue_restaurant",
+    "korean_barbecue_restaurant",
+    "korean_beef_restaurant",
+    "korean_rib_restaurant",
+    "asador",
+    "mutton_barbecue_restaurant",
+    "guts_barbecue_restaurant",
+    "mongolian_barbecue_restaurant",
+    "ikan_bakar_restaurant",
+    "lechon_restaurant",
+    "tongue_restaurant",
+    "grill_store",
+    "yakiniku_restaurant",
+    "satay_restaurant"
+   ],
+   "photo_lead": [
+    "grill in use / meat platters",
+    "group table",
+    "interior"
+   ],
+   "photo_slots": "grill shot -> hero; platters -> cards; group -> atmosphere",
+   "palette_schemes": "Vibrant or Fidelity (charcoal, ember); Rainbow for loud spots.",
+   "ground": "dark",
+   "type_bias": "T2 or T6.",
+   "voice": "Fire and sharing: platters, groups, table.",
+   "phrases": [
+    {
+     "vi": "Set nướng cho {n_people} người: {price}",
+     "en": "Grill set for {n_people}: {price}"
+    },
+    {
+     "vi": "Đặt bàn nhóm {phone}",
+     "en": "Group booking {phone}"
+    },
+    {
+     "vi": "{dish}, nướng tại bàn",
+     "en": "{dish}, grilled at your table"
+    }
+   ],
+   "extra_slot": "Group booking (party size, date, set).",
+   "menu_shape": "By set/platter then by meat/seafood then sides.",
+   "price_source": "Board photo; sets often on the board.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "premium"
+   ],
+   "references": [
+    {
+     "url": "https://www.sushisamba.com",
+     "note": "grill-adjacent premium (reachable 7 Oct); reasoned"
+    }
+   ],
+   "why_grouped": "Table grills. The site sells the group night: the grill photo, the meat platter, the table."
+  },
+  {
+   "id": "sushi-omakase",
+   "rank": 24,
+   "label": "Sushi (restaurant, conveyor, temaki)",
+   "nosite_total": 781,
+   "nosite_by_city": {
+    "da-nang": 20,
+    "ho-chi-minh": 121,
+    "bangkok": 584,
+    "london": 56
+   },
+   "top_score": 18.23,
+   "rows": 3,
+   "gcids": [
+    "sushi_restaurant",
+    "casual_sushi_restaurant",
+    "temaki_restaurant"
+   ],
+   "photo_lead": [
+    "nigiri close-ups",
+    "counter (chef at work)",
+    "interior"
+   ],
+   "photo_slots": "nigiri -> hero; counter/chef -> about; interior -> atmosphere",
+   "palette_schemes": "Monochrome or Neutral (ink, cedar); Vibrant for conveyor.",
+   "ground": "light for casual; dark for omakase",
+   "type_bias": "T3 or T5; T6 for conveyor.",
+   "voice": "Precise and respectful: fish, rice, hands.",
+   "phrases": [
+    {
+     "vi": "Omakase {price}, {n_seats} chỗ quầy",
+     "en": "Omakase {price}, {n_seats} counter seats"
+    },
+    {
+     "vi": "Set sushi {n_pieces} miếng",
+     "en": "Sushi set, {n_pieces} pieces"
+    },
+    {
+     "vi": "Đặt trước {phone}",
+     "en": "Reserve on {phone}"
+    }
+   ],
+   "extra_slot": "Omakase/set-menu card (courses, price, seats, booking), only when the data has it.",
+   "menu_shape": "By set (omakase, nigiri sets) then à la carte.",
+   "price_source": "Board photo or booking page.",
+   "pairs_with": [
+    "premium",
+    "calm",
+    "playful"
+   ],
+   "references": [
+    {
+     "url": "https://www.nobu.com",
+     "note": "omakase-led premium site (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "Sushi is the Japanese skin that earns its own: omakase and set menus change the booking slot."
+  },
+  {
+   "id": "pizzeria-delivery",
+   "rank": 25,
+   "label": "Pizzeria (pizza, pizza delivery, Neapolitan)",
+   "nosite_total": 773,
+   "nosite_by_city": {
+    "da-nang": 39,
+    "ho-chi-minh": 118,
+    "bangkok": 388,
+    "london": 228
+   },
+   "top_score": 21.98,
+   "rows": 3,
+   "gcids": [
+    "pizza_restaurant",
+    "pizza_delivery_service",
+    "neapolitan_restaurant"
+   ],
+   "photo_lead": [
+    "pizza top-down",
+    "oven/pizzaiolo",
+    "interior"
+   ],
+   "photo_slots": "pizza -> hero and cards; oven -> about; interior -> atmosphere",
+   "palette_schemes": "Vibrant or Expressive (tomato, basil).",
+   "ground": "light",
+   "type_bias": "T6 or T4.",
+   "voice": "Hot and fast: size, toppings, order.",
+   "phrases": [
+    {
+     "vi": "Pizza {size} chỉ {price}",
+     "en": "{size} pizza, {price}"
+    },
+    {
+     "vi": "Giao tận nơi {area}",
+     "en": "Delivered across {area}"
+    },
+    {
+     "vi": "Lò củi, nướng tại chỗ",
+     "en": "Wood oven, baked on the spot"
+    }
+   ],
+   "extra_slot": "Delivery-first: order buttons above the fold; size + toppings builder if data allows.",
+   "menu_shape": "By pizza type then sides/drinks.",
+   "price_source": "Delivery app; board for sit-down.",
+   "pairs_with": [
+    "street",
+    "playful",
+    "lively"
+   ],
+   "references": [
+    {
+     "url": "https://www.pizzapilgrims.co.uk",
+     "note": "pizza brand, product-led (reachable 7 Oct)"
+    },
+    {
+     "url": "https://www.pizzaexpress.com",
+     "note": "delivery-first chain (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "Delivery-first, with a sit-down variant. Decide by delivery links in the data."
+  },
+  {
+   "id": "karaoke-ktv",
+   "rank": 26,
+   "label": "Karaoke / KTV",
+   "nosite_total": 753,
+   "nosite_by_city": {
+    "da-nang": 101,
+    "ho-chi-minh": 414,
+    "bangkok": 230,
+    "london": 8
+   },
+   "top_score": 8.36,
+   "rows": 1,
+   "gcids": [
+    "karaoke_bar"
+   ],
+   "photo_lead": [
+    "room interiors",
+    "lighting/crowd",
+    "drinks"
+   ],
+   "photo_slots": "room -> hero; lighting -> atmosphere; menu -> cards",
+   "palette_schemes": "Rainbow or Vibrant on dark.",
+   "ground": "dark",
+   "type_bias": "T6 or T2.",
+   "voice": "Loud and bookable: rooms, hours, packages.",
+   "phrases": [
+    {
+     "vi": "Phòng {n_people} người: {price}/giờ",
+     "en": "Room for {n_people}: {price} per hour"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    },
+    {
+     "vi": "Đặt phòng {phone}",
+     "en": "Book a room: {phone}"
+    }
+   ],
+   "extra_slot": "Room booking (size, hour) - closer to booking module than menu; flag it.",
+   "menu_shape": "By room type + drinks and snacks.",
+   "price_source": "Board photo; rarely apps.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "playful"
+   ],
+   "references": "reasoned",
+   "why_grouped": "A room-booking business wearing a bar menu. 753 no-site."
+  },
+  {
+   "id": "buffet-self-service",
+   "rank": 27,
+   "label": "Buffet and self-service",
+   "nosite_total": 659,
+   "nosite_by_city": {
+    "da-nang": 16,
+    "ho-chi-minh": 60,
+    "bangkok": 577,
+    "london": 6
+   },
+   "top_score": 12.11,
+   "rows": 3,
+   "gcids": [
+    "buffet_restaurant",
+    "pay_by_weight_restaurant",
+    "self_service_restaurant"
+   ],
+   "photo_lead": [
+    "spread/stations",
+    "dining hall",
+    "people"
+   ],
+   "photo_slots": "spread -> hero; hall -> atmosphere",
+   "palette_schemes": "Vibrant or TonalSpot.",
+   "ground": "light",
+   "type_bias": "T6 or T5.",
+   "voice": "Generous and clear: price per head, what is included.",
+   "phrases": [
+    {
+     "vi": "Buffet {price}/người",
+     "en": "Buffet {price} per person"
+    },
+    {
+     "vi": "Giờ mở cửa {hours}",
+     "en": "Open {hours}"
+    },
+    {
+     "vi": "Đặt bàn nhóm {phone}",
+     "en": "Group booking {phone}"
+    }
+   ],
+   "extra_slot": "Price-per-head card and group booking.",
+   "menu_shape": "By session (lunch/dinner) with a price table.",
+   "price_source": "Board or Facebook posts.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Price-per-head: the offer is the page (price, hours, what is included)."
+  },
+  {
+   "id": "juice-smoothie",
+   "rank": 28,
+   "label": "Juice and smoothie",
+   "nosite_total": 523,
+   "nosite_by_city": {
+    "da-nang": 40,
+    "ho-chi-minh": 276,
+    "bangkok": 170,
+    "london": 37
+   },
+   "top_score": 8.89,
+   "rows": 1,
+   "gcids": [
+    "juice_shop"
+   ],
+   "photo_lead": [
+    "fruit/cup close-ups",
+    "counter",
+    "menu board"
+   ],
+   "photo_slots": "cup -> hero; fruit -> about; board -> OCR",
+   "palette_schemes": "FruitSalad or Expressive.",
+   "ground": "light, bright",
+   "type_bias": "T4.",
+   "voice": "Fresh and plain: fruit names.",
+   "phrases": [
+    {
+     "vi": "{fruit} ép tại chỗ",
+     "en": "{fruit}, pressed to order"
+    },
+    {
+     "vi": "Size {size}: {price}",
+     "en": "{size}: {price}"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "Toppings/boosters optional.",
+   "menu_shape": "By drink type + add-ons.",
+   "price_source": "Board or app.",
+   "pairs_with": [
+    "playful",
+    "lively",
+    "calm"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Fruit-led drink counter; close to bubble tea but healthy."
+  },
+  {
+   "id": "italian-trattoria",
+   "rank": 29,
+   "label": "Italian (trattoria, regional)",
+   "nosite_total": 361,
+   "nosite_by_city": {
+    "da-nang": 16,
+    "ho-chi-minh": 37,
+    "bangkok": 193,
+    "london": 115
+   },
+   "top_score": 16.73,
+   "rows": 13,
+   "gcids": [
+    "italian_restaurant",
+    "ligurian_restaurant",
+    "northern_italian_restaurant",
+    "piedmontese_restaurant",
+    "lombardian_restaurant",
+    "marche_restaurant",
+    "piadina_restaurant",
+    "roman_restaurant",
+    "sicilian_restaurant",
+    "tuscan_restaurant",
+    "venetian_restaurant",
+    "sardinian_restaurant",
+    "southern_italian_restaurant"
+   ],
+   "photo_lead": [
+    "pasta close-ups",
+    "interior",
+    "wine/bar"
+   ],
+   "photo_slots": "pasta -> hero; interior -> atmosphere; bar -> about",
+   "palette_schemes": "TonalSpot or Fidelity (tomato, olive).",
+   "ground": "light or warm dark",
+   "type_bias": "T1 or T3.",
+   "voice": "Warm and generous: pasta, wine, the table.",
+   "phrases": [
+    {
+     "vi": "{dish} làm tại chỗ",
+     "en": "{dish}, made in house"
+    },
+    {
+     "vi": "Đặt bàn {phone}",
+     "en": "Reserve on {phone}"
+    },
+    {
+     "vi": "Rượu vang {region}",
+     "en": "{region} wines"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By course (antipasti, pasta, mains, dolci).",
+   "price_source": "Menu photo or app.",
+   "pairs_with": [
+    "cosy",
+    "premium",
+    "calm"
+   ],
+   "references": [
+    {
+     "url": "https://www.pizzaexpress.com",
+     "note": "Italian chain, reachable 7 Oct"
+    }
+   ],
+   "why_grouped": "Dine-in Italian (not pizza-first). Menu by course; wine list matters."
+  },
+  {
+   "id": "middle-east-mediterranean",
+   "rank": 30,
+   "label": "Middle Eastern and Mediterranean (excl. kebab)",
+   "nosite_total": 303,
+   "nosite_by_city": {
+    "da-nang": 4,
+    "ho-chi-minh": 8,
+    "bangkok": 56,
+    "london": 235
+   },
+   "top_score": 11.33,
+   "rows": 23,
+   "gcids": [
+    "turkish_restaurant",
+    "middle_eastern_restaurant",
+    "lebanese_restaurant",
+    "mediterranean_restaurant",
+    "greek_restaurant",
+    "arab_restaurant",
+    "algerian_restaurant",
+    "persian_restaurant",
+    "kosher_restaurant",
+    "syrian_restaurant",
+    "moroccan_restaurant",
+    "jewish_restaurant",
+    "north_african_restaurant",
+    "palestinian_restaurant",
+    "caucasian_restaurant",
+    "couscous_restaurant",
+    "kazakhstani_restaurant",
+    "koshari_restaurant",
+    "pilaf_restaurant",
+    "tunisian_restaurant",
+    "turkmen_restaurant",
+    "uyghur_cuisine_restaurant",
+    "yemenite_restaurant"
+   ],
+   "photo_lead": [
+    "mezze/sharing plates",
+    "interior",
+    "grill"
+   ],
+   "photo_slots": "mezze -> hero; grill -> about",
+   "palette_schemes": "Expressive or Fidelity (terracotta, olive).",
+   "ground": "light",
+   "type_bias": "T1 or T6.",
+   "voice": "Sharing and generous.",
+   "phrases": [
+    {
+     "vi": "Mezze cho nhóm {n_people} người",
+     "en": "Mezze for {n_people}"
+    },
+    {
+     "vi": "{dish}, nướng than",
+     "en": "{dish}, charcoal-grilled"
+    },
+    {
+     "vi": "Giao hàng {area}",
+     "en": "Delivery in {area}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By course (mezze, grills, mains).",
+   "price_source": "App or board.",
+   "pairs_with": [
+    "lively",
+    "cosy",
+    "calm"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Turkish, Lebanese, Mediterranean, Greek, Persian and neighbours; mezze-sharing."
+  },
+  {
+   "id": "latin-caribbean",
+   "rank": 31,
+   "label": "Latin American and Caribbean",
+   "nosite_total": 287,
+   "nosite_by_city": {
+    "da-nang": 5,
+    "ho-chi-minh": 28,
+    "bangkok": 83,
+    "london": 171
+   },
+   "top_score": 11.53,
+   "rows": 35,
+   "gcids": [
+    "caribbean_restaurant",
+    "mexican_restaurant",
+    "south_american_restaurant",
+    "brazilian_restaurant",
+    "jamaican_restaurant",
+    "latin_american_restaurant",
+    "colombian_restaurant",
+    "peruvian_restaurant",
+    "tex_mex_restaurant",
+    "ecuadorian_restaurant",
+    "guatemalan_restaurant",
+    "argentinian_restaurant",
+    "central_american_restaurant",
+    "haitian_restaurant",
+    "honduran_restaurant",
+    "nuevo_latino_restaurant",
+    "pan_latin_restaurant",
+    "paraguayan_restaurant",
+    "acaraje_restaurant",
+    "costa_rican_restaurant",
+    "nicaraguan_restaurant",
+    "oaxacan_restaurant",
+    "paisa_restaurant",
+    "palatine_restaurant",
+    "burrito_restaurant",
+    "mexican_torta_restaurant",
+    "pozole_restaurant",
+    "pueblan_restaurant",
+    "puerto_rican_restaurant",
+    "salvadoran_restaurant",
+    "surinamese_restaurant",
+    "tabascan_restaurant",
+    "uruguayan_restaurant",
+    "yucatan_restaurant",
+    "tacaca_restaurant"
+   ],
+   "photo_lead": [
+    "colourful plates",
+    "bar/drinks",
+    "interior"
+   ],
+   "photo_slots": "plate -> hero; drinks -> cards",
+   "palette_schemes": "Rainbow or Expressive.",
+   "ground": "light or dark",
+   "type_bias": "T6 or T4.",
+   "voice": "Bright and social.",
+   "phrases": [
+    {
+     "vi": "{dish} và {drink}",
+     "en": "{dish} and {drink}"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    },
+    {
+     "vi": "Đặt bàn {phone}",
+     "en": "Book on {phone}"
+    }
+   ],
+   "extra_slot": "none (happy hour if bar)",
+   "menu_shape": "By course and sharing plates.",
+   "price_source": "Menu photo or app.",
+   "pairs_with": [
+    "playful",
+    "lively",
+    "street"
+   ],
+   "references": "reasoned",
+   "why_grouped": "33 rows (Mexican, Brazilian, Peruvian...). Small but colourful; one site pattern."
+  },
+  {
+   "id": "european-bistro",
+   "rank": 32,
+   "label": "European bistro and fine dining",
+   "nosite_total": 235,
+   "nosite_by_city": {
+    "da-nang": 12,
+    "ho-chi-minh": 42,
+    "bangkok": 71,
+    "london": 110
+   },
+   "top_score": 8.5,
+   "rows": 49,
+   "gcids": [
+    "french_restaurant",
+    "european_restaurant",
+    "british_restaurant",
+    "german_restaurant",
+    "portuguese_restaurant",
+    "spanish_restaurant",
+    "bistro",
+    "eastern_european_restaurant",
+    "basque_restaurant",
+    "bavarian_restaurant",
+    "bulgarian_restaurant",
+    "central_european_restaurant",
+    "continental_restaurant",
+    "croatian_restaurant",
+    "danish_restaurant",
+    "dutch_restaurant",
+    "english_restaurant",
+    "finnish_restaurant",
+    "galician_restaurant",
+    "icelandic_restaurant",
+    "lithuanian_restaurant",
+    "modern_british_restaurant",
+    "modern_european_restaurant",
+    "norwegian_restaurant",
+    "asturian_restaurant",
+    "baden_restaurant",
+    "cantabrian_restaurant",
+    "castilian_restaurant",
+    "extremadurian_restaurant",
+    "franconian_restaurant",
+    "madrilian_restaurant",
+    "majorcan_restaurant",
+    "maltese_restaurant",
+    "navarraise_restaurant",
+    "provence_restaurant",
+    "southwest_french_restaurant",
+    "raclette_restaurant",
+    "scottish_restaurant",
+    "serbian_restaurant",
+    "small_plates_restaurant",
+    "swabian_restaurant",
+    "swedish_restaurant",
+    "tapas_restaurant",
+    "thuringian_restaurant",
+    "valencian_restaurant",
+    "welsh_restaurant",
+    "fine_dining_restaurant",
+    "haute_french_restaurant",
+    "alsace_restaurant"
+   ],
+   "photo_lead": [
+    "plated dishes",
+    "interior",
+    "sommelier/bar"
+   ],
+   "photo_slots": "plate -> hero; interior -> atmosphere",
+   "palette_schemes": "Monochrome or Fidelity.",
+   "ground": "light or dark by photo",
+   "type_bias": "T3 or T5.",
+   "voice": "Quiet and craft: ingredient, region, season.",
+   "phrases": [
+    {
+     "vi": "{dish}, {ingredient} theo mùa",
+     "en": "{dish}, seasonal {ingredient}"
+    },
+    {
+     "vi": "Thực đơn {n_courses} món",
+     "en": "{n_courses}-course menu"
+    },
+    {
+     "vi": "Đặt bàn {phone}",
+     "en": "Reserve on {phone}"
+    }
+   ],
+   "extra_slot": "Tasting-menu card + reservations when data has it.",
+   "menu_shape": "By course; tasting menu on top.",
+   "price_source": "Menu photo/PDF.",
+   "pairs_with": [
+    "premium",
+    "calm",
+    "cosy"
+   ],
+   "references": [
+    {
+     "url": "https://www.sushisamba.com",
+     "note": "premium dining site (reachable 7 Oct); reasoned"
+    }
+   ],
+   "why_grouped": "49 rows: French, German, Spanish, British, Nordic, fine dining. The only skins that lean premium by default."
+  },
+  {
+   "id": "themed-cafe",
+   "rank": 33,
+   "label": "Themed cafe (animal, comic, cosplay, art, internet)",
+   "nosite_total": 199,
+   "nosite_by_city": {
+    "da-nang": 31,
+    "ho-chi-minh": 123,
+    "bangkok": 35,
+    "london": 10
+   },
+   "top_score": 7.95,
+   "rows": 8,
+   "gcids": [
+    "internet_cafe",
+    "animal_cafe",
+    "art_cafe",
+    "cat_cafe",
+    "childrens_cafe",
+    "comic_cafe",
+    "cosplay_cafe",
+    "dog_cafe"
+   ],
+   "photo_lead": [
+    "the theme (animals, comics, art)",
+    "people",
+    "drinks"
+   ],
+   "photo_slots": "theme -> hero; people -> about",
+   "palette_schemes": "Expressive or Rainbow.",
+   "ground": "light or dark by theme",
+   "type_bias": "T4 or T6.",
+   "voice": "Playful and rule-clear (hours, entry, house rules).",
+   "phrases": [
+    {
+     "vi": "Gặp {animals} tại {name}",
+     "en": "Meet the {animals} at {name}"
+    },
+    {
+     "vi": "Giá vào cửa {price}",
+     "en": "Entry {price}"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "Entry/session info.",
+   "menu_shape": "By drinks with an entry/price block.",
+   "price_source": "Board photo.",
+   "pairs_with": [
+    "playful",
+    "lively",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Experience is the product; the drinks are secondary."
+  },
+  {
+   "id": "american-comfort",
+   "rank": 34,
+   "label": "American and comfort (regional US, Canadian, Cajun, Southern)",
+   "nosite_total": 107,
+   "nosite_by_city": {
+    "da-nang": 3,
+    "ho-chi-minh": 17,
+    "bangkok": 55,
+    "london": 32
+   },
+   "top_score": 12.91,
+   "rows": 23,
+   "gcids": [
+    "american_restaurant",
+    "hawaiian_restaurant",
+    "canadian_restaurant",
+    "cajun_restaurant",
+    "californian_restaurant",
+    "creole_restaurant",
+    "mid_atlantic_us_restaurant",
+    "new_us_american_restaurant",
+    "new_england_restaurant",
+    "new_zealand_restaurant",
+    "chesapeake_restaurant",
+    "contemporary_louisiana_restaurant",
+    "floridian_restaurant",
+    "native_american_restaurant",
+    "canadian_pacific_northwest_restaurant",
+    "us_pacific_northwest_restaurant",
+    "pacific_rim_restaurant",
+    "pennsylvania_dutch_restaurant",
+    "quebecois_restaurant",
+    "soul_food_restaurant",
+    "southern_us_restaurant",
+    "southwestern_us_restaurant",
+    "traditional_us_american_restaurant"
+   ],
+   "photo_lead": [
+    "burger/ribs/plates",
+    "interior",
+    "bar"
+   ],
+   "photo_slots": "plate -> hero",
+   "palette_schemes": "Vibrant or TonalSpot.",
+   "ground": "light",
+   "type_bias": "T6 or T1.",
+   "voice": "Generous and casual.",
+   "phrases": [
+    {
+     "vi": "{dish} và {side}",
+     "en": "{dish} and {side}"
+    },
+    {
+     "vi": "Brunch cuối tuần",
+     "en": "Weekend brunch"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By course.",
+   "price_source": "Menu photo or app.",
+   "pairs_with": [
+    "street",
+    "cosy",
+    "lively"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Small total; all comfort-food formats with the same site."
+  },
+  {
+   "id": "southeast-asian",
+   "rank": 35,
+   "label": "Southeast Asian regional (Indonesian, Malay, Filipino, Singaporean, Burmese)",
+   "nosite_total": 104,
+   "nosite_by_city": {
+    "da-nang": 3,
+    "ho-chi-minh": 18,
+    "bangkok": 63,
+    "london": 20
+   },
+   "top_score": 7.29,
+   "rows": 30,
+   "gcids": [
+    "burmese_restaurant",
+    "singaporean_restaurant",
+    "filipino_restaurant",
+    "malaysian_restaurant",
+    "indonesian_restaurant",
+    "javanese_restaurant",
+    "padang_restaurant",
+    "ayam_penyet_restaurant",
+    "bakso_restaurant",
+    "balinese_restaurant",
+    "batak_restaurant",
+    "betawi_restaurant",
+    "central_javanese_restaurant",
+    "east_javanese_restaurant",
+    "laotian_restaurant",
+    "manado_restaurant",
+    "murtabak_restaurant",
+    "nasi_goreng_restaurant",
+    "nasi_restaurant",
+    "nasi_uduk_restaurant",
+    "nyonya_restaurant",
+    "pecel_lele_restaurant",
+    "pempek_restaurant",
+    "south_sulawesi_restaurant",
+    "south_east_asian_restaurant",
+    "sundanese_restaurant",
+    "tegal_restaurant",
+    "seblak_restaurant",
+    "soto_ayam_restaurant",
+    "soto_restaurant"
+   ],
+   "photo_lead": [
+    "dish close-ups",
+    "street stall",
+    "interior"
+   ],
+   "photo_slots": "dish -> hero; stall -> about",
+   "palette_schemes": "Vibrant or TonalSpot.",
+   "ground": "light",
+   "type_bias": "T6 or T1.",
+   "voice": "Flavour and place.",
+   "phrases": [
+    {
+     "vi": "{dish} kiểu {region}",
+     "en": "{dish}, {region} style"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    },
+    {
+     "vi": "Giao hàng {area}",
+     "en": "Delivery {area}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By dish type.",
+   "price_source": "App or board.",
+   "pairs_with": [
+    "street",
+    "lively",
+    "cosy"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Indonesian regional rows are numerous but tiny; Singapore/Malaysia near-duplicates."
+  },
+  {
+   "id": "kebab-shawarma",
+   "rank": 36,
+   "label": "Kebab and shawarma (doner, gyro, durum, kofta)",
+   "nosite_total": 99,
+   "nosite_by_city": {
+    "da-nang": 0,
+    "ho-chi-minh": 3,
+    "bangkok": 23,
+    "london": 73
+   },
+   "top_score": 13.07,
+   "rows": 7,
+   "gcids": [
+    "doner_kebab_restaurant",
+    "cig_kofte_restaurant",
+    "kofta_restaurant",
+    "durum_restaurant",
+    "gyro_restaurant",
+    "sfiha_restaurant",
+    "shawarma_restaurant"
+   ],
+   "photo_lead": [
+    "wraps and spits",
+    "counter",
+    "packaging"
+   ],
+   "photo_slots": "wrap -> hero; spit -> about",
+   "palette_schemes": "Vibrant or Rainbow.",
+   "ground": "light",
+   "type_bias": "T6.",
+   "voice": "Fast and hungry.",
+   "phrases": [
+    {
+     "vi": "{dish} {price}",
+     "en": "{dish} {price}"
+    },
+    {
+     "vi": "Giao nhanh {area}",
+     "en": "Fast delivery {area}"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    }
+   ],
+   "extra_slot": "Delivery-first order buttons.",
+   "menu_shape": "By wrap/plate then sides.",
+   "price_source": "Delivery app or board.",
+   "pairs_with": [
+    "street",
+    "lively",
+    "playful"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Delivery-first, counter-led; skewer-and-wrap."
+  },
+  {
+   "id": "african",
+   "rank": 37,
+   "label": "African restaurant",
+   "nosite_total": 51,
+   "nosite_by_city": {
+    "da-nang": 1,
+    "ho-chi-minh": 1,
+    "bangkok": 3,
+    "london": 46
+   },
+   "top_score": 6.53,
+   "rows": 7,
+   "gcids": [
+    "african_restaurant",
+    "ethiopian_restaurant",
+    "cape_verdean_restaurant",
+    "east_african_restaurant",
+    "eritrean_restaurant",
+    "seychelles_restaurant",
+    "west_african_restaurant"
+   ],
+   "photo_lead": [
+    "stews and injera",
+    "interior",
+    "people"
+   ],
+   "photo_slots": "plate -> hero",
+   "palette_schemes": "Expressive or TonalSpot.",
+   "ground": "warm",
+   "type_bias": "T1 or T4.",
+   "voice": "Warm and communal.",
+   "phrases": [
+    {
+     "vi": "{dish} theo công thức {region}",
+     "en": "{dish}, {region} recipe"
+    },
+    {
+     "vi": "Đặt nhóm {phone}",
+     "en": "Groups: {phone}"
+    },
+    {
+     "vi": "Mở {hours}",
+     "en": "Open {hours}"
+    }
+   ],
+   "extra_slot": "none",
+   "menu_shape": "By dish type and sharing platters.",
+   "price_source": "Menu photo.",
+   "pairs_with": [
+    "cosy",
+    "lively",
+    "calm"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Small and varied: West, East, Ethiopian, Cape Verdean."
+  },
+  {
+   "id": "hotpot",
+   "rank": 38,
+   "label": "Hotpot (hot pot, steamboat, shabu, sukiyaki)",
+   "nosite_total": 0,
+   "nosite_by_city": {
+    "da-nang": 0,
+    "ho-chi-minh": 0,
+    "bangkok": 0,
+    "london": 0
+   },
+   "top_score": 6.01,
+   "rows": 7,
+   "gcids": [
+    "hot_pot_restaurant",
+    "chankonabe_restaurant",
+    "offal_pot_cooking",
+    "shabu_shabu_restaurant",
+    "steamboat_restaurant",
+    "shabu_shabu_and_sukiyaki_restaurant",
+    "sukiyaki_restaurant"
+   ],
+   "photo_lead": [
+    "pot with steam",
+    "ingredient platters",
+    "group table"
+   ],
+   "photo_slots": "pot -> hero; platters -> cards",
+   "palette_schemes": "Vibrant or Rainbow.",
+   "ground": "dark",
+   "type_bias": "T6 or T2.",
+   "voice": "Bubbling and shared.",
+   "phrases": [
+    {
+     "vi": "Nồi lẩu {broth} cho {n_people} người",
+     "en": "{broth} pot for {n_people}"
+    },
+    {
+     "vi": "Chọn nước dùng, chọn nhúng",
+     "en": "Choose a broth, choose your dips"
+    },
+    {
+     "vi": "Đặt bàn {phone}",
+     "en": "Reserve on {phone}"
+    }
+   ],
+   "extra_slot": "By-the-pot builder (broth + items), if the menu has the structure.",
+   "menu_shape": "By broth then items/platters then sauces.",
+   "price_source": "Board photo; prices by pot/platter.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "cosy"
+   ],
+   "references": [
+    {
+     "url": "https://www.haidilao.com",
+     "note": "hotpot chain (reachable 7 Oct)"
+    }
+   ],
+   "why_grouped": "By-the-pot with broth + items; zero no-site in the four cities as matched, but a distinct site shape."
+  },
+  {
+   "id": "izakaya-yakitori",
+   "rank": 39,
+   "label": "Izakaya and yakitori (incl. kushiyaki, kushikatsu)",
+   "nosite_total": 0,
+   "nosite_by_city": {
+    "da-nang": 0,
+    "ho-chi-minh": 0,
+    "bangkok": 0,
+    "london": 0
+   },
+   "top_score": 5.8,
+   "rows": 5,
+   "gcids": [
+    "japanese_izakaya_restaurant",
+    "mordern_izakaya_restaurants",
+    "skewer_deep_frying",
+    "kushiyaki_restaurant",
+    "yakitori_restaurant"
+   ],
+   "photo_lead": [
+    "skewers",
+    "interior (lantern)",
+    "drinks"
+   ],
+   "photo_slots": "skewers -> hero",
+   "palette_schemes": "Fidelity or Vibrant on dark.",
+   "ground": "dark",
+   "type_bias": "T2 or T6.",
+   "voice": "Late and sociable.",
+   "phrases": [
+    {
+     "vi": "Xiên nướng {price}/xiên",
+     "en": "Skewers {price} each"
+    },
+    {
+     "vi": "Đồ uống đi kèm",
+     "en": "Drinks to match"
+    },
+    {
+     "vi": "Mở đến {close}",
+     "en": "Open until {close}"
+    }
+   ],
+   "extra_slot": "Happy hour/events if data.",
+   "menu_shape": "By skewer/plate, then drinks.",
+   "price_source": "Board photo.",
+   "pairs_with": [
+    "lively",
+    "street",
+    "premium"
+   ],
+   "references": "reasoned",
+   "why_grouped": "Small plates and drinks, dark rooms, group nights."
+  },
+  {
+   "id": "not-menu",
+   "rank": null,
+   "label": "Not a menu business (misrouted by INDEX.csv)",
+   "nosite_total": 0,
+   "nosite_by_city": {
+    "da-nang": 0,
+    "ho-chi-minh": 0,
+    "bangkok": 0,
+    "london": 0
+   },
+   "top_score": 7.89,
+   "rows": 10,
+   "gcids": [
+    "electrolysis_hair_removal_service",
+    "laser_hair_removal_service",
+    "weight_loss_service",
+    "beautician",
+    "hair_removal_service",
+    "karaoke_equipment_rental_service",
+    "unisex_hairdresser",
+    "eyebrow_bar",
+    "indoor_golf_course",
+    "frozen_food_store"
+   ],
+   "photo_lead": [
+    "n/a"
+   ],
+   "photo_slots": "route to booking skins",
+   "palette_schemes": "n/a",
+   "ground": "n/a",
+   "type_bias": "n/a",
+   "voice": "n/a",
+   "phrases": [
+    {
+     "vi": "",
+     "en": ""
+    },
+    {
+     "vi": "",
+     "en": ""
+    },
+    {
+     "vi": "",
+     "en": ""
+    }
+   ],
+   "extra_slot": "n/a",
+   "menu_shape": "n/a",
+   "price_source": "n/a",
+   "pairs_with": [],
+   "references": "reasoned",
+   "why_grouped": "Ten rows tagged \"Menu\" in INDEX.csv that are services or retail: hair removal, weight loss, beautician, hairdresser, eyebrow bar, karaoke equipment rental, indoor golf, frozen food. Route them to services + booking (or retail). Zero no-site count anyway."
+  }
+ ],
+ "mapping": {
+  "gcid:restaurant": "everyday-restaurant",
+  "gcid:asian_restaurant": "everyday-restaurant",
+  "gcid:asian_fusion_restaurant": "everyday-restaurant",
+  "gcid:eclectic_restaurant": "everyday-restaurant",
+  "gcid:fusion_restaurant": "everyday-restaurant",
+  "gcid:pan_asian_restaurant": "everyday-restaurant",
+  "gcid:western_restaurant": "everyday-restaurant",
+  "gcid:coffee_shop": "coffee-house",
+  "gcid:coffee_stand": "coffee-house",
+  "gcid:coffee_store": "coffee-house",
+  "gcid:coffee_vending_machine": "coffee-house",
+  "gcid:cafe": "cafe-brunch",
+  "gcid:brunch_restaurant": "cafe-brunch",
+  "gcid:pancake_house": "cafe-brunch",
+  "gcid:breakfast_restaurant": "cafe-brunch",
+  "gcid:thai_restaurant": "thai",
+  "gcid:bar": "pub-bar-nightlife",
+  "gcid:pub": "pub-bar-nightlife",
+  "gcid:bar_and_grill": "pub-bar-nightlife",
+  "gcid:queer_bar": "pub-bar-nightlife",
+  "gcid:salsa_bar": "pub-bar-nightlife",
+  "gcid:gastropub": "pub-bar-nightlife",
+  "gcid:brewery": "pub-bar-nightlife",
+  "gcid:sports_bar": "pub-bar-nightlife",
+  "gcid:gay_bar": "pub-bar-nightlife",
+  "gcid:dance_restaurant": "pub-bar-nightlife",
+  "gcid:brewpub": "pub-bar-nightlife",
+  "gcid:fast_food_restaurant": "fast-food-burger-chicken",
+  "gcid:chicken_restaurant": "fast-food-burger-chicken",
+  "gcid:hamburger_restaurant": "fast-food-burger-chicken",
+  "gcid:fish_and_chips_restaurant": "fast-food-burger-chicken",
+  "gcid:diner": "diner-eatery",
+  "gcid:family_restaurant": "diner-eatery",
+  "gcid:lunch_restaurant": "diner-eatery",
+  "gcid:meal_delivery": "diner-eatery",
+  "gcid:porridge_restaurant": "diner-eatery",
+  "gcid:rice_restaurant": "diner-eatery",
+  "gcid:meal_takeaway": "diner-eatery",
+  "gcid:ramen_restaurant": "noodle-house",
+  "gcid:soup_restaurant": "noodle-house",
+  "gcid:chinese_noodle_restaurant": "noodle-house",
+  "gcid:champon_noodle_restaurant": "noodle-house",
+  "gcid:cold_noodle_restaurant": "noodle-house",
+  "gcid:dan_dan_noodle_restaurant": "noodle-house",
+  "gcid:noodle_shop": "noodle-house",
+  "gcid:soba_noodle_shop": "noodle-house",
+  "gcid:udon_noodle_shop": "noodle-house",
+  "gcid:yakisoba_restaurant": "noodle-house",
+  "gcid:vietnamese_restaurant": "vietnamese",
+  "gcid:country_food_restaurant": "vietnamese",
+  "gcid:pho_restaurant": "vietnamese",
+  "gcid:bakery": "bakery-pastry",
+  "gcid:chinese_pastry": "bakery-pastry",
+  "gcid:bubble_tea_store": "bubble-tea",
+  "gcid:japanese_restaurant": "japanese",
+  "gcid:japanese_authentic_restaurant": "japanese",
+  "gcid:japanese_curry_restaurant": "japanese",
+  "gcid:japanese_regional_restaurant": "japanese",
+  "gcid:japanized_western_food_restaurant": "japanese",
+  "gcid:macrobiotic_restaurant": "japanese",
+  "gcid:miso_cutlet_restaurant": "japanese",
+  "gcid:dojo_restaurant": "japanese",
+  "gcid:monja_restaurant": "japanese",
+  "gcid:oden_restaurant": "japanese",
+  "gcid:okonomiyaki_restaurant": "japanese",
+  "gcid:donburi_dishes": "japanese",
+  "gcid:beef_rice_bowl_restaurant": "japanese",
+  "gcid:pork_cutlet_rice_bowl_restaurant": "japanese",
+  "gcid:japanese_high_quality_restaurant": "japanese",
+  "gcid:teppan_grill_restaurant": "japanese",
+  "gcid:unagi_restaurant": "japanese",
+  "gcid:seafood_donburi": "japanese",
+  "gcid:casual_japanese_style_restaurant": "japanese",
+  "gcid:takoyaki_stand": "japanese",
+  "gcid:tempura_bowl_restaurants": "japanese",
+  "gcid:tempura_dish_restaurant": "japanese",
+  "gcid:tonkatsu_restaurant": "japanese",
+  "gcid:japanese_sweets_restaurant": "japanese",
+  "gcid:anago_restaurant": "japanese",
+  "gcid:kaiseki_restaurant": "japanese",
+  "gcid:kyoto_cuisine_restaurant": "japanese",
+  "gcid:dessert_shop": "dessert-ice-cream",
+  "gcid:ice_cream_shop": "dessert-ice-cream",
+  "gcid:berry_restaurant": "dessert-ice-cream",
+  "gcid:cendol_restaurant": "dessert-ice-cream",
+  "gcid:chocolate_cafe": "dessert-ice-cream",
+  "gcid:dessert_restaurant": "dessert-ice-cream",
+  "gcid:sundae_restaurant": "dessert-ice-cream",
+  "gcid:chinese_restaurant": "chinese",
+  "gcid:dim_sum_restaurant": "chinese",
+  "gcid:taiwanese_restaurant": "chinese",
+  "gcid:dumpling_restaurant": "chinese",
+  "gcid:delivery_chinese_restaurant": "chinese",
+  "gcid:cantonese_restaurant": "chinese",
+  "gcid:fu_jian_restaurant": "chinese",
+  "gcid:hakka_restaurant": "chinese",
+  "gcid:hunan_style_restaurant": "chinese",
+  "gcid:jiang_su_restaurant": "chinese",
+  "gcid:mandarin_restaurant": "chinese",
+  "gcid:gui_zhou_restaurant": "chinese",
+  "gcid:hong_kong_style_fast_food_restaurant": "chinese",
+  "gcid:shan_dong_restaurant": "chinese",
+  "gcid:shanghainese_restaurant": "chinese",
+  "gcid:sichuan_restaurant": "chinese",
+  "gcid:wok_restaurant": "chinese",
+  "gcid:zhe_jiang_restaurant": "chinese",
+  "gcid:seafood_restaurant": "seafood",
+  "gcid:oyster_bar_restaurant": "seafood",
+  "gcid:angler_fish_restaurant": "seafood",
+  "gcid:vegetarian_restaurant": "vegetarian-healthy",
+  "gcid:health_food_store": "vegetarian-healthy",
+  "gcid:health_food_restaurant": "vegetarian-healthy",
+  "gcid:organic_restaurant": "vegetarian-healthy",
+  "gcid:raw_food_restaurant": "vegetarian-healthy",
+  "gcid:tofu_restaurant": "vegetarian-healthy",
+  "gcid:organic_food_store": "vegetarian-healthy",
+  "gcid:indian_restaurant": "indian-south-asian",
+  "gcid:haleem_restaurant": "indian-south-asian",
+  "gcid:halal_restaurant": "indian-south-asian",
+  "gcid:pakistani_restaurant": "indian-south-asian",
+  "gcid:afghani_restaurant": "indian-south-asian",
+  "gcid:bangladeshi_restaurant": "indian-south-asian",
+  "gcid:sri_lankan_restaurant": "indian-south-asian",
+  "gcid:nepalese_restaurant": "indian-south-asian",
+  "gcid:bengali_restaurant": "indian-south-asian",
+  "gcid:biryani_restaurant": "indian-south-asian",
+  "gcid:gujarati_restaurant": "indian-south-asian",
+  "gcid:hyderabadi_restaurant": "indian-south-asian",
+  "gcid:indian_muslim_restaurant": "indian-south-asian",
+  "gcid:indian_sizzler_restaurant": "indian-south-asian",
+  "gcid:modern_indian_restaurant": "indian-south-asian",
+  "gcid:mughlai_restaurant": "indian-south-asian",
+  "gcid:non_vegetarian_restaurant": "indian-south-asian",
+  "gcid:north_indian_restaurant": "indian-south-asian",
+  "gcid:assamese_restaurant": "indian-south-asian",
+  "gcid:awadhi_restaurant": "indian-south-asian",
+  "gcid:chettinad_restaurtant": "indian-south-asian",
+  "gcid:goan_restaurant": "indian-south-asian",
+  "gcid:kalle_pache_restaurant": "indian-south-asian",
+  "gcid:karnataka_restaurant": "indian-south-asian",
+  "gcid:kashmiri_restaurant": "indian-south-asian",
+  "gcid:kerala_restaurant": "indian-south-asian",
+  "gcid:konkani_restaurant": "indian-south-asian",
+  "gcid:marathi_restaurant": "indian-south-asian",
+  "gcid:north_eastern_indian_restaurant": "indian-south-asian",
+  "gcid:odia_restaurant": "indian-south-asian",
+  "gcid:parsi_restaurant": "indian-south-asian",
+  "gcid:tiffin_center": "indian-south-asian",
+  "gcid:momo_restaurant": "indian-south-asian",
+  "gcid:punjabi_restaurant": "indian-south-asian",
+  "gcid:rajasthani_restaurant": "indian-south-asian",
+  "gcid:south_asia_restaurant": "indian-south-asian",
+  "gcid:south_indian_restaurant": "indian-south-asian",
+  "gcid:tibetan_restaurant": "indian-south-asian",
+  "gcid:steak_house": "steakhouse",
+  "gcid:chophouse_restaurant": "steakhouse",
+  "gcid:meat_restaurant": "steakhouse",
+  "gcid:cheesesteak_restaurant": "steakhouse",
+  "gcid:korean_restaurant": "korean",
+  "gcid:soondae_restaurant": "korean",
+  "gcid:tea_house": "tea-house",
+  "gcid:chinese_tea_house": "tea-house",
+  "gcid:deli": "sandwich-deli",
+  "gcid:sandwich_shop": "sandwich-deli",
+  "gcid:snack_bar": "sandwich-deli",
+  "gcid:hoagie_restaurant": "sandwich-deli",
+  "gcid:po_boys_restaurant": "sandwich-deli",
+  "gcid:toast_restaurant": "sandwich-deli",
+  "gcid:vegetarian_cafe_and_deli": "sandwich-deli",
+  "gcid:cocktail_bar": "cocktail-wine-lounge",
+  "gcid:lounge": "cocktail-wine-lounge",
+  "gcid:wine_bar": "cocktail-wine-lounge",
+  "gcid:tapas_bar": "cocktail-wine-lounge",
+  "gcid:hookah_bar": "cocktail-wine-lounge",
+  "gcid:barbecue_restaurant": "bbq-grill",
+  "gcid:korean_barbecue_restaurant": "bbq-grill",
+  "gcid:korean_beef_restaurant": "bbq-grill",
+  "gcid:korean_rib_restaurant": "bbq-grill",
+  "gcid:asador": "bbq-grill",
+  "gcid:mutton_barbecue_restaurant": "bbq-grill",
+  "gcid:guts_barbecue_restaurant": "bbq-grill",
+  "gcid:mongolian_barbecue_restaurant": "bbq-grill",
+  "gcid:ikan_bakar_restaurant": "bbq-grill",
+  "gcid:lechon_restaurant": "bbq-grill",
+  "gcid:tongue_restaurant": "bbq-grill",
+  "gcid:grill_store": "bbq-grill",
+  "gcid:yakiniku_restaurant": "bbq-grill",
+  "gcid:satay_restaurant": "bbq-grill",
+  "gcid:sushi_restaurant": "sushi-omakase",
+  "gcid:casual_sushi_restaurant": "sushi-omakase",
+  "gcid:temaki_restaurant": "sushi-omakase",
+  "gcid:pizza_restaurant": "pizzeria-delivery",
+  "gcid:pizza_delivery_service": "pizzeria-delivery",
+  "gcid:neapolitan_restaurant": "pizzeria-delivery",
+  "gcid:karaoke_bar": "karaoke-ktv",
+  "gcid:buffet_restaurant": "buffet-self-service",
+  "gcid:pay_by_weight_restaurant": "buffet-self-service",
+  "gcid:self_service_restaurant": "buffet-self-service",
+  "gcid:juice_shop": "juice-smoothie",
+  "gcid:italian_restaurant": "italian-trattoria",
+  "gcid:ligurian_restaurant": "italian-trattoria",
+  "gcid:northern_italian_restaurant": "italian-trattoria",
+  "gcid:piedmontese_restaurant": "italian-trattoria",
+  "gcid:lombardian_restaurant": "italian-trattoria",
+  "gcid:marche_restaurant": "italian-trattoria",
+  "gcid:piadina_restaurant": "italian-trattoria",
+  "gcid:roman_restaurant": "italian-trattoria",
+  "gcid:sicilian_restaurant": "italian-trattoria",
+  "gcid:tuscan_restaurant": "italian-trattoria",
+  "gcid:venetian_restaurant": "italian-trattoria",
+  "gcid:sardinian_restaurant": "italian-trattoria",
+  "gcid:southern_italian_restaurant": "italian-trattoria",
+  "gcid:turkish_restaurant": "middle-east-mediterranean",
+  "gcid:middle_eastern_restaurant": "middle-east-mediterranean",
+  "gcid:lebanese_restaurant": "middle-east-mediterranean",
+  "gcid:mediterranean_restaurant": "middle-east-mediterranean",
+  "gcid:greek_restaurant": "middle-east-mediterranean",
+  "gcid:arab_restaurant": "middle-east-mediterranean",
+  "gcid:algerian_restaurant": "middle-east-mediterranean",
+  "gcid:persian_restaurant": "middle-east-mediterranean",
+  "gcid:kosher_restaurant": "middle-east-mediterranean",
+  "gcid:syrian_restaurant": "middle-east-mediterranean",
+  "gcid:moroccan_restaurant": "middle-east-mediterranean",
+  "gcid:jewish_restaurant": "middle-east-mediterranean",
+  "gcid:north_african_restaurant": "middle-east-mediterranean",
+  "gcid:palestinian_restaurant": "middle-east-mediterranean",
+  "gcid:caucasian_restaurant": "middle-east-mediterranean",
+  "gcid:couscous_restaurant": "middle-east-mediterranean",
+  "gcid:kazakhstani_restaurant": "middle-east-mediterranean",
+  "gcid:koshari_restaurant": "middle-east-mediterranean",
+  "gcid:pilaf_restaurant": "middle-east-mediterranean",
+  "gcid:tunisian_restaurant": "middle-east-mediterranean",
+  "gcid:turkmen_restaurant": "middle-east-mediterranean",
+  "gcid:uyghur_cuisine_restaurant": "middle-east-mediterranean",
+  "gcid:yemenite_restaurant": "middle-east-mediterranean",
+  "gcid:caribbean_restaurant": "latin-caribbean",
+  "gcid:mexican_restaurant": "latin-caribbean",
+  "gcid:south_american_restaurant": "latin-caribbean",
+  "gcid:brazilian_restaurant": "latin-caribbean",
+  "gcid:jamaican_restaurant": "latin-caribbean",
+  "gcid:latin_american_restaurant": "latin-caribbean",
+  "gcid:colombian_restaurant": "latin-caribbean",
+  "gcid:peruvian_restaurant": "latin-caribbean",
+  "gcid:tex_mex_restaurant": "latin-caribbean",
+  "gcid:ecuadorian_restaurant": "latin-caribbean",
+  "gcid:guatemalan_restaurant": "latin-caribbean",
+  "gcid:argentinian_restaurant": "latin-caribbean",
+  "gcid:central_american_restaurant": "latin-caribbean",
+  "gcid:haitian_restaurant": "latin-caribbean",
+  "gcid:honduran_restaurant": "latin-caribbean",
+  "gcid:nuevo_latino_restaurant": "latin-caribbean",
+  "gcid:pan_latin_restaurant": "latin-caribbean",
+  "gcid:paraguayan_restaurant": "latin-caribbean",
+  "gcid:acaraje_restaurant": "latin-caribbean",
+  "gcid:costa_rican_restaurant": "latin-caribbean",
+  "gcid:nicaraguan_restaurant": "latin-caribbean",
+  "gcid:oaxacan_restaurant": "latin-caribbean",
+  "gcid:paisa_restaurant": "latin-caribbean",
+  "gcid:palatine_restaurant": "latin-caribbean",
+  "gcid:burrito_restaurant": "latin-caribbean",
+  "gcid:mexican_torta_restaurant": "latin-caribbean",
+  "gcid:pozole_restaurant": "latin-caribbean",
+  "gcid:pueblan_restaurant": "latin-caribbean",
+  "gcid:puerto_rican_restaurant": "latin-caribbean",
+  "gcid:salvadoran_restaurant": "latin-caribbean",
+  "gcid:surinamese_restaurant": "latin-caribbean",
+  "gcid:tabascan_restaurant": "latin-caribbean",
+  "gcid:uruguayan_restaurant": "latin-caribbean",
+  "gcid:yucatan_restaurant": "latin-caribbean",
+  "gcid:tacaca_restaurant": "latin-caribbean",
+  "gcid:french_restaurant": "european-bistro",
+  "gcid:european_restaurant": "european-bistro",
+  "gcid:british_restaurant": "european-bistro",
+  "gcid:german_restaurant": "european-bistro",
+  "gcid:portuguese_restaurant": "european-bistro",
+  "gcid:spanish_restaurant": "european-bistro",
+  "gcid:bistro": "european-bistro",
+  "gcid:eastern_european_restaurant": "european-bistro",
+  "gcid:basque_restaurant": "european-bistro",
+  "gcid:bavarian_restaurant": "european-bistro",
+  "gcid:bulgarian_restaurant": "european-bistro",
+  "gcid:central_european_restaurant": "european-bistro",
+  "gcid:continental_restaurant": "european-bistro",
+  "gcid:croatian_restaurant": "european-bistro",
+  "gcid:danish_restaurant": "european-bistro",
+  "gcid:dutch_restaurant": "european-bistro",
+  "gcid:english_restaurant": "european-bistro",
+  "gcid:finnish_restaurant": "european-bistro",
+  "gcid:galician_restaurant": "european-bistro",
+  "gcid:icelandic_restaurant": "european-bistro",
+  "gcid:lithuanian_restaurant": "european-bistro",
+  "gcid:modern_british_restaurant": "european-bistro",
+  "gcid:modern_european_restaurant": "european-bistro",
+  "gcid:norwegian_restaurant": "european-bistro",
+  "gcid:asturian_restaurant": "european-bistro",
+  "gcid:baden_restaurant": "european-bistro",
+  "gcid:cantabrian_restaurant": "european-bistro",
+  "gcid:castilian_restaurant": "european-bistro",
+  "gcid:extremadurian_restaurant": "european-bistro",
+  "gcid:franconian_restaurant": "european-bistro",
+  "gcid:madrilian_restaurant": "european-bistro",
+  "gcid:majorcan_restaurant": "european-bistro",
+  "gcid:maltese_restaurant": "european-bistro",
+  "gcid:navarraise_restaurant": "european-bistro",
+  "gcid:provence_restaurant": "european-bistro",
+  "gcid:southwest_french_restaurant": "european-bistro",
+  "gcid:raclette_restaurant": "european-bistro",
+  "gcid:scottish_restaurant": "european-bistro",
+  "gcid:serbian_restaurant": "european-bistro",
+  "gcid:small_plates_restaurant": "european-bistro",
+  "gcid:swabian_restaurant": "european-bistro",
+  "gcid:swedish_restaurant": "european-bistro",
+  "gcid:tapas_restaurant": "european-bistro",
+  "gcid:thuringian_restaurant": "european-bistro",
+  "gcid:valencian_restaurant": "european-bistro",
+  "gcid:welsh_restaurant": "european-bistro",
+  "gcid:fine_dining_restaurant": "european-bistro",
+  "gcid:haute_french_restaurant": "european-bistro",
+  "gcid:alsace_restaurant": "european-bistro",
+  "gcid:internet_cafe": "themed-cafe",
+  "gcid:animal_cafe": "themed-cafe",
+  "gcid:art_cafe": "themed-cafe",
+  "gcid:cat_cafe": "themed-cafe",
+  "gcid:childrens_cafe": "themed-cafe",
+  "gcid:comic_cafe": "themed-cafe",
+  "gcid:cosplay_cafe": "themed-cafe",
+  "gcid:dog_cafe": "themed-cafe",
+  "gcid:american_restaurant": "american-comfort",
+  "gcid:hawaiian_restaurant": "american-comfort",
+  "gcid:canadian_restaurant": "american-comfort",
+  "gcid:cajun_restaurant": "american-comfort",
+  "gcid:californian_restaurant": "american-comfort",
+  "gcid:creole_restaurant": "american-comfort",
+  "gcid:mid_atlantic_us_restaurant": "american-comfort",
+  "gcid:new_us_american_restaurant": "american-comfort",
+  "gcid:new_england_restaurant": "american-comfort",
+  "gcid:new_zealand_restaurant": "american-comfort",
+  "gcid:chesapeake_restaurant": "american-comfort",
+  "gcid:contemporary_louisiana_restaurant": "american-comfort",
+  "gcid:floridian_restaurant": "american-comfort",
+  "gcid:native_american_restaurant": "american-comfort",
+  "gcid:canadian_pacific_northwest_restaurant": "american-comfort",
+  "gcid:us_pacific_northwest_restaurant": "american-comfort",
+  "gcid:pacific_rim_restaurant": "american-comfort",
+  "gcid:pennsylvania_dutch_restaurant": "american-comfort",
+  "gcid:quebecois_restaurant": "american-comfort",
+  "gcid:soul_food_restaurant": "american-comfort",
+  "gcid:southern_us_restaurant": "american-comfort",
+  "gcid:southwestern_us_restaurant": "american-comfort",
+  "gcid:traditional_us_american_restaurant": "american-comfort",
+  "gcid:burmese_restaurant": "southeast-asian",
+  "gcid:singaporean_restaurant": "southeast-asian",
+  "gcid:filipino_restaurant": "southeast-asian",
+  "gcid:malaysian_restaurant": "southeast-asian",
+  "gcid:indonesian_restaurant": "southeast-asian",
+  "gcid:javanese_restaurant": "southeast-asian",
+  "gcid:padang_restaurant": "southeast-asian",
+  "gcid:ayam_penyet_restaurant": "southeast-asian",
+  "gcid:bakso_restaurant": "southeast-asian",
+  "gcid:balinese_restaurant": "southeast-asian",
+  "gcid:batak_restaurant": "southeast-asian",
+  "gcid:betawi_restaurant": "southeast-asian",
+  "gcid:central_javanese_restaurant": "southeast-asian",
+  "gcid:east_javanese_restaurant": "southeast-asian",
+  "gcid:laotian_restaurant": "southeast-asian",
+  "gcid:manado_restaurant": "southeast-asian",
+  "gcid:murtabak_restaurant": "southeast-asian",
+  "gcid:nasi_goreng_restaurant": "southeast-asian",
+  "gcid:nasi_restaurant": "southeast-asian",
+  "gcid:nasi_uduk_restaurant": "southeast-asian",
+  "gcid:nyonya_restaurant": "southeast-asian",
+  "gcid:pecel_lele_restaurant": "southeast-asian",
+  "gcid:pempek_restaurant": "southeast-asian",
+  "gcid:south_sulawesi_restaurant": "southeast-asian",
+  "gcid:south_east_asian_restaurant": "southeast-asian",
+  "gcid:sundanese_restaurant": "southeast-asian",
+  "gcid:tegal_restaurant": "southeast-asian",
+  "gcid:seblak_restaurant": "southeast-asian",
+  "gcid:soto_ayam_restaurant": "southeast-asian",
+  "gcid:soto_restaurant": "southeast-asian",
+  "gcid:doner_kebab_restaurant": "kebab-shawarma",
+  "gcid:cig_kofte_restaurant": "kebab-shawarma",
+  "gcid:kofta_restaurant": "kebab-shawarma",
+  "gcid:durum_restaurant": "kebab-shawarma",
+  "gcid:gyro_restaurant": "kebab-shawarma",
+  "gcid:sfiha_restaurant": "kebab-shawarma",
+  "gcid:shawarma_restaurant": "kebab-shawarma",
+  "gcid:african_restaurant": "african",
+  "gcid:ethiopian_restaurant": "african",
+  "gcid:cape_verdean_restaurant": "african",
+  "gcid:east_african_restaurant": "african",
+  "gcid:eritrean_restaurant": "african",
+  "gcid:seychelles_restaurant": "african",
+  "gcid:west_african_restaurant": "african",
+  "gcid:hot_pot_restaurant": "hotpot",
+  "gcid:chankonabe_restaurant": "hotpot",
+  "gcid:offal_pot_cooking": "hotpot",
+  "gcid:shabu_shabu_restaurant": "hotpot",
+  "gcid:steamboat_restaurant": "hotpot",
+  "gcid:shabu_shabu_and_sukiyaki_restaurant": "hotpot",
+  "gcid:sukiyaki_restaurant": "hotpot",
+  "gcid:japanese_izakaya_restaurant": "izakaya-yakitori",
+  "gcid:mordern_izakaya_restaurants": "izakaya-yakitori",
+  "gcid:skewer_deep_frying": "izakaya-yakitori",
+  "gcid:kushiyaki_restaurant": "izakaya-yakitori",
+  "gcid:yakitori_restaurant": "izakaya-yakitori",
+  "gcid:electrolysis_hair_removal_service": "not-menu",
+  "gcid:laser_hair_removal_service": "not-menu",
+  "gcid:weight_loss_service": "not-menu",
+  "gcid:beautician": "not-menu",
+  "gcid:hair_removal_service": "not-menu",
+  "gcid:karaoke_equipment_rental_service": "not-menu",
+  "gcid:unisex_hairdresser": "not-menu",
+  "gcid:eyebrow_bar": "not-menu",
+  "gcid:indoor_golf_course": "not-menu",
+  "gcid:frozen_food_store": "not-menu"
+ }
+}
