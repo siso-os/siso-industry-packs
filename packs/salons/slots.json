@@ -1,0 +1,877 @@
+[
+ {
+  "page": "Global",
+  "slot": "Header + nav + language",
+  "job": "Name, 3-5 links (Services, Team, Gallery, Visit), language flags, one Book button always visible",
+  "prevalence": {
+   "n": 17,
+   "of": 17,
+   "note": "every operator has a header; 17 of 17 carry a Book/Reserve control in or beside it (Pall Mall: BOOK NOW + SHOP NOW boxes; Best Spa: green pill; T&G: BOOK first link); 8 of 17 have a language switch (Halo flags EN/KO/VN; Dahan KO/EN/JA/ZH)"
+  },
+  "variants_worth_building": [
+   "Top bar + Book pill",
+   "centred logo split nav (Halo)",
+   "dark bar with outlined Book",
+   "drawer for secondary links only"
+  ],
+  "built_variants": [
+   "Cafe 89 header with data-vi/en switch",
+   "restaurant-app nav (top, dark side, full-screen drawer)"
+  ],
+  "thin_data": "Wordmark from name; Services, Visit only if no staff or gallery; Book pill = Zalo/call link until booking exists; switch only for languages we have copy in",
+  "fields": [
+   "business.name",
+   "logo.wordmark",
+   "nav.items[]",
+   "langs[]",
+   "booking.url|contact.primary_action"
+  ],
+  "evidence": "[data] regex counts + 8 homepages by eye"
+ },
+ {
+  "page": "Global",
+  "slot": "Sticky contact rail / action bar",
+  "job": "Call, Zalo/WhatsApp/LINE/Kakao and Book under the thumb on every page",
+  "prevalence": {
+   "n": 8,
+   "of": 17,
+   "note": "Best Spa, Halo, 30Shine, Dahan (6 chat apps in a row), Oasis, Let's Relax, Health Land float a right or left rail of Call/Zalo/WhatsApp/Messenger; 8 of 8 SEA sites have one, 0 of the UK/US barber and hair sites"
+  },
+  "variants_worth_building": [
+   "Right-edge vertical icon rail (Best Spa, 30Shine)",
+   "left floating pills with number printed (Halo)",
+   "bottom 3-button bar (Book, Call, Zalo)",
+   "header row of chat logos (Dahan)"
+  ],
+  "built_variants": [
+   "Cafe 89 mobile-bar",
+   "Kikas mobile-shortcuts",
+   "restaurant-app cta-section/primary"
+  ],
+  "thin_data": "Never hide. Directions always exists; add Zalo/Call/WhatsApp/LINE/Kakao only when the real handle exists; Book only when booking exists, else Call replaces it",
+  "fields": [
+   "contact.zalo",
+   "contact.phone",
+   "contact.whatsapp",
+   "contact.line",
+   "contact.kakao",
+   "business.maps_url",
+   "booking.url"
+  ],
+  "evidence": "[data] + [by eye] 5 of 5 SEA sites screenshotted; ADR 0007 and 0008"
+ },
+ {
+  "page": "Global",
+  "slot": "Footer",
+  "job": "Hours, address, map, contact, socials, language, SISO heart + icon",
+  "prevalence": {
+   "n": 16,
+   "of": 17,
+   "note": "16 of 17 show hours; footers carry the cancellation line on 4 of 17"
+  },
+  "variants_worth_building": [
+   "F4 full info (hours, map, channels)",
+   "F3 dark minimal row",
+   "F2 taped card",
+   "F1 ghost wordmark"
+  ],
+  "built_variants": [
+   "Kikas footer",
+   "Cafe 89 footer",
+   "restaurant-app RestaurantFooterPro"
+  ],
+  "thin_data": "Always shown; drop empty columns; minimum name, address, map, SISO mark",
+  "fields": [
+   "business.*",
+   "hours",
+   "contact.*",
+   "business.social",
+   "langs[]"
+  ],
+  "evidence": "[data] regex; ADR 0007"
+ },
+ {
+  "page": "Global",
+  "slot": "SEO and schema",
+  "job": "HairSalon / BeautySalon / NailSalon / DaySpa / BarberShop LocalBusiness schema with hasOfferCatalog, noindex under the gate",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "invisible in HTML outlines; schema type regex found on a minority; Reserve-with-Google is the platform lever (GlossGenius, Square, Fresha all pitch it)"
+  },
+  "variants_worth_building": [
+   "Not a UI slot (SISO-SITES machine)"
+  ],
+  "built_variants": [
+   "SISO-SITES machine"
+  ],
+  "thin_data": "Below the gate publish noindex; schema fields only for data that exists; skin sets the @type (barber = BarberShop, nails = NailSalon, spa = DaySpa, hair = HairSalon, else BeautySalon)",
+  "fields": [
+   "business.*",
+   "hours",
+   "rating",
+   "services[]",
+   "gate.passed"
+  ],
+  "evidence": "[reasoned]"
+ },
+ {
+  "page": "Home",
+  "slot": "Hero",
+  "job": "Say what and where in 2 seconds; one action (Book)",
+  "prevalence": {
+   "n": 17,
+   "of": 17,
+   "note": "Book button in hero: Pall Mall, Best Spa (Book a Treatment + Our Services), 30Shine (phone-number box), Toni&Guy via BOOK nav; no auto-rotation needed but 15 of 17 ship a carousel; moving hero: Pall Mall video + arrows, T&G full-bleed video"
+  },
+  "variants_worth_building": [
+   "Full-bleed one photo + scrim + Book (Best Spa)",
+   "three-up photo strip of real cuts (Halo: three side-by-side client photos, no text)",
+   "product-detail close crop (Dahan oil pour)",
+   "promo banner with phone-number box (30Shine)"
+  ],
+  "built_variants": [
+   "restaurant-app hero-section (15 templates)",
+   "Cafe 89 hero",
+   "Kikas hero"
+  ],
+  "thin_data": "With 3+ photos: still full-bleed with scrim, name, one line ('Hair salon, Hoi An'), Book (Zalo/Call). With 0-2 photos: wordmark-led on a generated texture of the skin (never fake interiors)",
+  "fields": [
+   "photos[]",
+   "business.name",
+   "business.category",
+   "booking.url|contact.primary_action"
+  ],
+  "evidence": "[data] + [by eye] 7 of 7; R2 pause rule"
+ },
+ {
+  "page": "Home",
+  "slot": "Essentials strip",
+  "job": "Open now, hours, phone/Zalo, directions in one glance",
+  "prevalence": {
+   "n": 5,
+   "of": 17,
+   "note": "Halo shows hours + phone in a top bar on every page; Best Spa strip of 4 trust chips (therapists, oils, hotel pick-up, near beach); nobody shows computed 'open now'"
+  },
+  "variants_worth_building": [
+   "Top utility bar with hours + phone (Halo)",
+   "chip row of real attributes (Best Spa)",
+   "open-now pill under hero"
+  ],
+  "built_variants": [
+   "restaurant-app essentials-section/primary"
+  ],
+  "thin_data": "Show only what exists; open-now from hours; no hours = address + Directions only",
+  "fields": [
+   "hours",
+   "business.address",
+   "contact.*",
+   "attributes[]"
+  ],
+  "evidence": "[data] 5 by eye/regex; [reasoned] open-now"
+ },
+ {
+  "page": "Home",
+  "slot": "Services overview",
+  "job": "The 3-8 service families with a from-price and an arrow to the full list",
+  "prevalence": {
+   "n": 15,
+   "of": 17,
+   "note": "30Shine cards (Cat toc from 94.000 VND, Uon dinh hinh from 386.000, doi mau from 199.000); Best Spa Signature Treatments 'from 1.100.000 VND' + RESERVE NOW; Let's Relax cards with THB price + Booking button"
+  },
+  "variants_worth_building": [
+   "Photo cards with from-price (30Shine)",
+   "signature 2-3 with Reserve button (Best Spa)",
+   "text list with durations",
+   "tabbed families (Hair, Colour, Nails)"
+  ],
+  "built_variants": [
+   "restaurant-app menu-section (adapt)",
+   "NO service-card block in the kit"
+  ],
+  "thin_data": "From the price board photo or listing only: family names, no prices unless real and sourced; 'See prices on Zalo' when none",
+  "fields": [
+   "services[].name",
+   "services[].price?",
+   "services[].duration?",
+   "services[].source"
+  ],
+  "evidence": "[data] price_list regex 15 of 17; [by eye] 4 of 4"
+ },
+ {
+  "page": "Home",
+  "slot": "Featured / signature treatments",
+  "job": "1-3 best sellers with price, duration and Book",
+  "prevalence": {
+   "n": 9,
+   "of": 17,
+   "note": "Best Spa two signature packages; Let's Relax four-hands massage tier; Oasis 2h / 2.5h / 3h+ package rows; Dahan menu and prices page"
+  },
+  "variants_worth_building": [
+   "Two-up signature cards with Reserve (Best Spa)",
+   "duration ladder 60/90/120 (Bamboo Spa nav items are literally these)",
+   "single hero treatment"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only when the price board lists packages; else hide",
+  "fields": [
+   "services[].featured",
+   "services[].price",
+   "services[].duration"
+  ],
+  "evidence": "[data] [by eye]"
+ },
+ {
+  "page": "Home",
+  "slot": "Team teaser",
+  "job": "3-4 faces of real people with role, links to Team",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "staff regex 12 of 17 but mostly nav words; Pall Mall BARBERS page, T&G Our Experts, Massage Envy Therapists"
+  },
+  "variants_worth_building": [
+   "Face row with first name + role",
+   "barber picker cards (book with this barber)"
+  ],
+  "built_variants": [
+   "restaurant-app team section"
+  ],
+  "thin_data": "Hide unless named staff exist in their own page or Maps photos captions; never invent a stylist",
+  "fields": [
+   "staff[].name",
+   "staff[].role",
+   "staff[].photo"
+  ],
+  "evidence": "[data] weak signal; ADR 0003"
+ },
+ {
+  "page": "Home",
+  "slot": "Before / after + work gallery",
+  "job": "Proof of the result: real client work",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "Halo hero IS three real client photos; Lash Lounge Before & After nav; Dahan photos page; before/after regex only 2 of 17, gallery 11 of 17"
+  },
+  "variants_worth_building": [
+   "Three-up real-work strip (Halo)",
+   "before/after slider (2 photos)",
+   "masonry",
+   "Instagram grid"
+  ],
+  "built_variants": [
+   "restaurant-app gallery-section grid/masonry",
+   "Instagram grid"
+  ],
+  "thin_data": "Under 6 photos fold into Hero; owner photos only; generated imagery shows the kind of work (never claimed as theirs) and is labelled",
+  "fields": [
+   "photos[].kind",
+   "photos[].url",
+   "instagram.handle"
+  ],
+  "evidence": "[data]; R8"
+ },
+ {
+  "page": "Home",
+  "slot": "Reviews and proof",
+  "job": "Real rating + count + 1-3 real quotes",
+  "prevalence": {
+   "n": 16,
+   "of": 17,
+   "note": "Best Spa shows dated TripAdvisor-style quotes; Pall Mall quotes '24,000+ 5-star reviews'; 30Shine runs a star rating prompt"
+  },
+  "variants_worth_building": [
+   "Rating + count from Google chip",
+   "3-quote row",
+   "quote carousel with pause",
+   "platform rating badge"
+  ],
+  "built_variants": [
+   "restaurant-app review-section (12 variants)"
+  ],
+  "thin_data": "Real rating and count with Google link; under 5 reviews hide the slot; never paraphrase",
+  "fields": [
+   "rating",
+   "review_count",
+   "reviews[]",
+   "maps_url"
+  ],
+  "evidence": "[data]; R7"
+ },
+ {
+  "page": "Home",
+  "slot": "How booking works / what to expect",
+  "job": "Three steps and what happens after you book (deposit, reminder, late policy)",
+  "prevalence": {
+   "n": 6,
+   "of": 17,
+   "note": "Lash Lounge What To Expect + FAQs; Dahan booking form; 30Shine 'book in 30 seconds, pay after the cut, cancel free'"
+  },
+  "variants_worth_building": [
+   "Three-step strip",
+   "'what to expect' card",
+   "policy line under the button"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only the facts we know (call/Zalo to book); no policy text we did not source",
+  "fields": [
+   "booking.steps[]",
+   "policy.*"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Home",
+  "slot": "Memberships, packages, gift cards",
+  "job": "Offer to come back or give a visit",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "gift cards 12 of 17, memberships 11 of 17 (mostly US/UK chains: Massage Envy, Elements, Lash Lounge, Hershesons); in SEA: Oasis online gift redeem, Let's Relax packages; absent at Vietnamese small shops"
+  },
+  "variants_worth_building": [
+   "One-line band (gift card + membership) not a page",
+   "package ladder (3 sessions, 10 sessions)",
+   "voucher QR"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "OFF unless the owner lists it; no gift card page in Vietnam",
+  "fields": [
+   "offers.gift_cards",
+   "offers.memberships",
+   "offers.packages[]"
+  ],
+  "evidence": "[data]; ADR 0011 inbound only"
+ },
+ {
+  "page": "Home",
+  "slot": "Location teaser",
+  "job": "Address, map link, 'how to find us' in two lines",
+  "prevalence": {
+   "n": 7,
+   "of": 17,
+   "note": "map embeds on 7 of 17"
+  },
+  "variants_worth_building": [
+   "Static map card with Directions",
+   "landmark line",
+   "Grab link"
+  ],
+  "built_variants": [
+   "restaurant-app/Kikas map"
+  ],
+  "thin_data": "Address + Directions from maps_url; no embed below gate",
+  "fields": [
+   "business.address",
+   "business.maps_url",
+   "landmarks[]"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Home",
+  "slot": "FAQ",
+  "job": "Answers from known facts (parking, payment, walk-in, language spoken)",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "FAQ pages on Lash Lounge, Massage Envy, T&G; not on the Vietnamese sites"
+  },
+  "variants_worth_building": [
+   "Accordion",
+   "chip questions"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Generate only from site.json facts; hide otherwise (this is also the ADR 0013 assistant's list)",
+  "fields": [
+   "attributes[]",
+   "policy.*",
+   "langs[]"
+  ],
+  "evidence": "[reasoned]"
+ },
+ {
+  "page": "Home",
+  "slot": "Instagram / social strip",
+  "job": "Fresh work",
+  "prevalence": {
+   "n": 14,
+   "of": 17,
+   "note": "instagram links 14 of 17; Halo top bar socials"
+  },
+  "variants_worth_building": [
+   "Grid of 6",
+   "link row"
+  ],
+  "built_variants": [
+   "restaurant-app Instagram grid"
+  ],
+  "thin_data": "Link only unless owner supplies photos",
+  "fields": [
+   "instagram.handle",
+   "photos[]"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Services",
+  "slot": "Page header + category tabs",
+  "job": "Jump between Hair / Colour / Nails or Massage / Facial / Body without scrolling",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "Best Spa has 6 child pages (Massage, Ear Care & Grooming, Facial, Hair Wash & Head Spa, Packages, Nail Care); Bamboo Spa per-package pages; Elements 12 massage types; Toni&Guy Services"
+  },
+  "variants_worth_building": [
+   "Sticky tab chips",
+   "side category rail",
+   "accordion families"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Category chips from service names; single list under 8 items",
+  "fields": [
+   "services[].category"
+  ],
+  "evidence": "[data] by eye + nav"
+ },
+ {
+  "page": "Services",
+  "slot": "Price list",
+  "job": "Name, duration, price with its source, Book on the row",
+  "prevalence": {
+   "n": 15,
+   "of": 17,
+   "note": "Halo has a PRICE LIST page and BOOK NOW page; Pall Mall PRICE LIST page; Dahan menu and prices page; Let's Relax Spa Menu with THB; Best Spa VND from-prices"
+  },
+  "variants_worth_building": [
+   "Rows with duration + price + Book button",
+   "price board photo image kept as the source",
+   "two-column price list per family",
+   "from-price only"
+  ],
+  "built_variants": [
+   "none (the kit's service catalogue is host config with priceCents, no UI list)"
+  ],
+  "thin_data": "Prices only from their own board photo or page, shown with 'Prices from their board, Sep 2026'; no price = name and duration only + 'Ask on Zalo'",
+  "fields": [
+   "services[].name",
+   "services[].price",
+   "services[].duration",
+   "services[].source"
+  ],
+  "evidence": "[data] 15 of 17; ADR 0003"
+ },
+ {
+  "page": "Services",
+  "slot": "Add-ons and durations",
+  "job": "Choose 60/90/120 or add a scrub/ear care",
+  "prevalence": {
+   "n": 5,
+   "of": 17,
+   "note": "Bamboo VIP 1 90 min / VIP 2 120 min; Oasis hour ladder; Elements Add-ons page"
+  },
+  "variants_worth_building": [
+   "Duration segmented control",
+   "add-on checkbox rows"
+  ],
+  "built_variants": [
+   "kit services[] has durationMinutes"
+  ],
+  "thin_data": "Hide if only one duration known",
+  "fields": [
+   "services[].variants[]"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Services",
+  "slot": "Per-service detail",
+  "job": "What it is, how long, who it suits (one paragraph, no claims)",
+  "prevalence": {
+   "n": 11,
+   "of": 17,
+   "note": "Elements and Massage Envy each have a page per massage type"
+  },
+  "variants_worth_building": [
+   "Short detail drawer",
+   "inline expand"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only written by us about the kind of service, never claims",
+  "fields": [
+   "services[].description"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Services",
+  "slot": "Dietary / skin / allergy notes",
+  "job": "Patch test, pregnancy, skin type warnings",
+  "prevalence": {
+   "n": 3,
+   "of": 17,
+   "note": "Elements Prenatal; Lash Lounge What to expect"
+  },
+  "variants_worth_building": [
+   "Notice line per service"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only if the owner gives it; never inferred",
+  "fields": [
+   "services[].notes"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Team",
+  "slot": "Staff / stylist profiles",
+  "job": "Name, role, speciality, photo; pick who to book",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "Pall Mall BARBERS (each independent barber sets own prices and schedule); T&G Our Experts; Fresha/Vagaro/Booksy build their marketplace on per-pro profiles; Vagaro 'Professionals' nav"
+  },
+  "variants_worth_building": [
+   "Grid of cards with Book with me",
+   "list with specialities",
+   "single owner profile"
+  ],
+  "built_variants": [
+   "restaurant-app team section"
+  ],
+  "thin_data": "One-person shops: owner line only if sourced; no invented stylists",
+  "fields": [
+   "staff[]"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Team",
+  "slot": "Academy / careers",
+  "job": "Hire or train",
+  "prevalence": {
+   "n": 12,
+   "of": 17,
+   "note": "careers regex 12 of 17; T&G Pro Academy, Sassoon Academy"
+  },
+  "variants_worth_building": [
+   "One link in footer"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "OFF on free preview (R19)",
+  "fields": [
+   "careers.url"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Book",
+  "slot": "Booking entry",
+  "job": "Get from 'I want a haircut' to a confirmed slot",
+  "prevalence": {
+   "n": 17,
+   "of": 17,
+   "note": "Every site has a Book control. Destinations seen: own page (Pall Mall /book-online/, Halo /dat-lich/), sub-domain booking engine (Murdock bookings. sub-domain, Let's Relax booking.letsrelaxspa.com/book), salon finder first for groups (Toni&Guy), a form (Dahan reservation form page), phone-number box with callback (30Shine), WhatsApp/Zalo/LINE only (Oasis, Best Spa rail)"
+  },
+  "variants_worth_building": [
+   "A: in-page calendar + slots (our kit)",
+   "B: Zalo/WhatsApp/LINE deep link with prefilled text",
+   "C: request form (name, service, time, channel)",
+   "D: hand-off to their own platform link (Fresha/Booksy/Vagaro/Treatwell)"
+  ],
+  "built_variants": [
+   "siso-booking-kit BookingCalendar + server/booking-handler (D1 atomic overlap guard, deposits via Stripe, .ics, cancel tokens), BookingAdmin"
+  ],
+  "thin_data": "UNCLAIMED: Book = Zalo (VN), WhatsApp or LINE (TH) or Call using the real number; if a Fresha/Booksy/Vagaro URL is on their Maps listing use it (D). Never show a calendar with invented availability. CLAIMED: calendar from owner's hours + services (A).",
+  "fields": [
+   "booking.mode",
+   "booking.url",
+   "contact.*",
+   "services[]",
+   "hours"
+  ],
+  "evidence": "[data] + [by eye]; ADR 0008, 0011"
+ },
+ {
+  "page": "Book",
+  "slot": "Service + staff + time picker",
+  "job": "Choose service, optionally person, then slot",
+  "prevalence": {
+   "n": 7,
+   "of": 17,
+   "note": "7 of 17 route into a booking_platform (Fresha/Vagaro/Mindbody/etc by regex)"
+  },
+  "variants_worth_building": [
+   "Service-first stepper",
+   "barber-first",
+   "calendar-first"
+  ],
+  "built_variants": [
+   "kit BookingCalendar (services, slot grid, form)"
+  ],
+  "thin_data": "Only after claim",
+  "fields": [
+   "services[]",
+   "staff[]",
+   "availability"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Book",
+  "slot": "Deposit and cancellation policy",
+  "job": "Set expectations and cut no-shows",
+  "prevalence": {
+   "n": 4,
+   "of": 17,
+   "note": "deposit/cancellation regex 4 of 17 (Murdock, Oasis, Divana, Dahan); platforms (GlossGenius No-Show Protection, Square cancellation template) sell it"
+  },
+  "variants_worth_building": [
+   "One-line policy under Book",
+   "checkbox"
+  ],
+  "built_variants": [
+   "kit: Stripe deposit mode + cancellation tokens"
+  ],
+  "thin_data": "Only owner's stated policy; none = no line",
+  "fields": [
+   "policy.deposit",
+   "policy.cancel"
+  ],
+  "evidence": "[data] platforms"
+ },
+ {
+  "page": "Book",
+  "slot": "Confirmation + reminders",
+  "job": "Say it worked and add to calendar",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "platforms: reminders, .ics; not visible in static HTML"
+  },
+  "variants_worth_building": [
+   "On-page confirmation + .ics",
+   "message via Zalo/WhatsApp"
+  ],
+  "built_variants": [
+   "kit .ics export + Resend mail"
+  ],
+  "thin_data": "Not offered unclaimed",
+  "fields": [
+   "booking.confirmation"
+  ],
+  "evidence": "[reasoned]"
+ },
+ {
+  "page": "Visit",
+  "slot": "Hours",
+  "job": "Opening hours incl. late nights, lunch closures",
+  "prevalence": {
+   "n": 16,
+   "of": 17,
+   "note": "hours strings on 16 of 17; Halo 08:00-19:00 in top bar"
+  },
+  "variants_worth_building": [
+   "Open-now pill + week table",
+   "compact line"
+  ],
+  "built_variants": [
+   "Cafe 89"
+  ],
+  "thin_data": "Hours from Maps only if verified; else 'call to confirm'",
+  "fields": [
+   "hours"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Visit",
+  "slot": "Map + directions + parking",
+  "job": "Find it and arrive",
+  "prevalence": {
+   "n": 7,
+   "of": 17,
+   "note": "map embed 7 of 17"
+  },
+  "variants_worth_building": [
+   "Directions button",
+   "static map",
+   "Grab link"
+  ],
+  "built_variants": [
+   "Kikas/Cafe 89 map"
+  ],
+  "thin_data": "Directions link only",
+  "fields": [
+   "business.maps_url",
+   "parking"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Visit",
+  "slot": "Contact channels",
+  "job": "Zalo, phone, WhatsApp, LINE, Kakao, Messenger by local habit",
+  "prevalence": {
+   "n": 8,
+   "of": 17,
+   "note": "Dahan shows Kakao, LINE, WhatsApp, Zalo, Telegram, Instagram in one row; Halo Zalo, WhatsApp, phone, Messenger"
+  },
+  "variants_worth_building": [
+   "Icon row with real handles",
+   "QR codes for Zalo/LINE"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only handles that exist; Vietnam order Zalo, phone, Messenger (ADR 0008)",
+  "fields": [
+   "contact.*"
+  ],
+  "evidence": "[data] + [by eye]"
+ },
+ {
+  "page": "Visit",
+  "slot": "Walk-in / good to know",
+  "job": "Walk-ins welcome, hotel pick-up, languages spoken, payment",
+  "prevalence": {
+   "n": 6,
+   "of": 17,
+   "note": "Best Spa: Free Hotel Pick-up chip; Pall Mall 'walk-ins welcome anytime'"
+  },
+  "variants_worth_building": [
+   "Chip list"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Amenities from Maps attributes only",
+  "fields": [
+   "attributes[]"
+  ],
+  "evidence": "[data] + [by eye]"
+ },
+ {
+  "page": "Optional",
+  "slot": "Shop / retail",
+  "job": "Sell products",
+  "prevalence": {
+   "n": 8,
+   "of": 17,
+   "note": "shop_retail 8 of 17 mostly brands (Hershesons, Murdock, Nails Inc, Sanctuary are really shops with a salon)"
+  },
+  "variants_worth_building": [
+   "none"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "OFF; Catalogue module",
+  "fields": [
+   "shop.url"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Optional",
+  "slot": "Locations list (groups)",
+  "job": "Pick a branch before booking",
+  "prevalence": {
+   "n": 8,
+   "of": 17,
+   "note": "T&G salon finder; Let's Relax, Oasis, Health Land, Pall Mall"
+  },
+  "variants_worth_building": [
+   "Branch cards"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "OFF for single sites",
+  "fields": [
+   "locations[]"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Optional",
+  "slot": "Skin: nails extra",
+  "job": "Style catalogue (colours, art, press-on) and a nail-art photo basket",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "Nails Inc, Lash Lounge style pages; see skins in 07"
+  },
+  "variants_worth_building": [
+   "Photo basket grid"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only owner/nail photos",
+  "fields": [
+   "photos[kind=nail]"
+  ],
+  "evidence": "[reasoned]"
+ },
+ {
+  "page": "Optional",
+  "slot": "Skin: barber extra",
+  "job": "Barber picker, walk-in queue, shave and beard services",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "Pall Mall barbers page, Floyd's"
+  },
+  "variants_worth_building": [
+   "Barber cards"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Walk-in line only if stated",
+  "fields": [
+   "staff[]",
+   "policy.walkin"
+  ],
+  "evidence": "[data]"
+ },
+ {
+  "page": "Optional",
+  "slot": "Skin: spa extra",
+  "job": "Treatment rooms, therapist gender request, duration ladder, couples",
+  "prevalence": {
+   "n": null,
+   "of": null,
+   "note": "Oasis, Bamboo, Let's Relax, Best Spa"
+  },
+  "variants_worth_building": [
+   "Duration ladder + add-ons"
+  ],
+  "built_variants": [
+   "none"
+  ],
+  "thin_data": "Only stated options",
+  "fields": [
+   "services[].variants[]"
+  ],
+  "evidence": "[data]"
+ }
+]
