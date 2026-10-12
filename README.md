@@ -51,7 +51,7 @@ Every pack must report actual counts. Below these it is incomplete:
 | Quoted practitioner complaints, with links | **8** |
 | Workflow stages mapped | **6–12** |
 
-## Industries (26)
+## Industries (27)
 
 | Industry | Name | Priority | Kind | Client | Status |
 |---|---|---|---|---|---|
@@ -62,6 +62,7 @@ Every pack must report actual counts. Below these it is incomplete:
 | [`it_services_msps`](packs/it_services_msps/) | US small managed IT service providers | high | business | — | `queued` |
 | [`law_firms`](packs/law_firms/) | Law firms | high | business | — | `queued` |
 | [`marketing_social_media_agencies`](packs/marketing_social_media_agencies/) | US marketing and social-media agencies | high | business | — | `queued` |
+| [`onlyfans_management_agencies`](packs/onlyfans_management_agencies/) | OnlyFans management (OFM) agencies | high | business | HALO | `partial` |
 | [`recruiting_staffing`](packs/recruiting_staffing/) | US recruiting and staffing agencies | high | business | — | `queued` |
 | [`trading`](packs/trading/) | Independent traders and small trading desks | high | business | SISO internal (Polymarket research factory) + prospective | `partial` |
 | [`youtube_creators`](packs/youtube_creators/) | YouTube creators and faceless-content operators | high | business | Tristan Grech (SUMERA) — access granted 2026-09-13 | `queued` |
@@ -81,6 +82,13 @@ Every pack must report actual counts. Below these it is incomplete:
 | [`mortgage_brokers`](packs/mortgage_brokers/) | US mortgage brokerages | low | business | — | `queued` |
 | [`music_creation`](packs/music_creation/) | Music creators and recording artists | low | consumer | NM | `queued` |
 | [`property_management`](packs/property_management/) | US residential property managers | low | business | — | `queued` |
+
+## Top-down deep dive (agency industries)
+
+A second method beside the seven stages: count every firm in an industry, rank the top 1%,
+take each apart, then rebuild the agency from first principles. Stages T0-T8, a home-case study and data files:
+[`frameworks/top-down-deep-dive.md`](frameworks/top-down-deep-dive.md). First run:
+[`onlyfans_management_agencies`](packs/onlyfans_management_agencies/).
 
 ## Shared registries
 

@@ -1,0 +1,2 @@
+{"domain": null, "source": "blockers", "keyword": "domainsdb-requires-api-key", "first_seen": null, "alive": false, "title": null, "likely_agency": false, "checked": "2026-10-11", "error": "API key required - anonymous access disabled"}
+{"domain": null, "source": "blockers", "keyword": "crtsh-502-bad-gateway", "first_seen": null, "alive": false, "title": null, "likely_agency": false, "checked": "2026-10-11", "error": "nginx 502 Bad Gateway - service unavailable or blocking automated queries"}
