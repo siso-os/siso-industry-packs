@@ -1,2 +1,4 @@
 .DS_Store
 node_modules/
+# client-internal research notes (security or implementation detail): never published
+packs/*/data/private/
